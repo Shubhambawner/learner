@@ -1,0 +1,36 @@
+*
+Visual Studio by default constructs the projects in win32/32bit/x86 configuration, 
+change it to x64 by :
+rightClik on solution 'project name'(in project explorer)-> 
+properties-> Configuration Properties
+ and change wherever we see  win32/32bit/x86, 
+ also from here, go to 'cofiguration manager' button on top right and do the same.
+
+
+
+*
+C\C++ version:
+go to property pages for project:
+view -> property pages(shift+F4) -> configuration properties -> general -> c++ language standard
+
+**additional includ directories and dependencies**
+
+*
+Add the PDFNetC\Headers folder to your 'Additional Include Directories' (or any headers file of any library library)
+go to property pages for project:
+view -> property pages(shift+F4) -> C|C++ -> general -> aditional include Directories
+click down arrow at right of that -> edit ...
+
+*
+Add the PDFNetC\Lib\PDFNetC.lib file to your 'Additional Dependencies'.(or any external .dll pre-compiled library to the project)
+go to property pages for project:
+view -> property pages(shift+F4)-> linker-> general-> 'Aditional library Dependencies'
+click down arrow at right of that -> edit ...
+AND
+view -> property pages(shift+F4) -> linker -> ->input-> 'Aditional Dependencies'
+click down arrow at right of that -> edit ...
+
+*
+LPCWSTR error while using shellExecute:
+- ensure project configuration: C++17, 64 bit , multi character set(not essential, but do it if 32 bit configuration)
+- 

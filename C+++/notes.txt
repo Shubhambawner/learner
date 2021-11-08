@@ -1,0 +1,43 @@
+
+*floating point numbers:*
+
+  # code prints the value of float x with 9 decimal places:
+    printf("%.9f\n", x);
+
+  # there is accuracy error in calculations with floating points, 
+    so to compare float a,b , we asume there difference is small(10^-9 here)
+    if (abs(a-b) < 1e-9) {
+        // a and b are equal
+    } 
+
+*Macros:*
+  # to minimize typing time
+    #define ll long long
+    #definr az(i,n) for(int i = 0; i<= n ; i++)
+
+  # never to use in placeof function
+    ex: square of int i:
+    #define s(i) i*i
+    here its hard to get the bugs out!
+
+*Math::log*
+  # log(x) base k equals the number of times we have to divide x by k before we reach the number 1
+  # number of digits of an integer x is |log(x)+1|. ( base 10)
+
+*time complexicity*
+  # The following table contains some useful estimates assuming a time limit of one second.
+    input size required time complexity
+    --------------------------
+    n ≤ 10 O(n!)
+    n ≤ 20 O(2^n)
+    n ≤ 500 O(n^3)
+    n ≤ 5000 O(n^2)
+    n ≤ 10^6 O(nlogn) or O(n)
+    n is large O(1) or O(logn)
+    --------------------------
+  # time complexicity is not actuall running time,as it hides constant factors
+  
+AnttiLakenson'sHandBookforCP.pdf
+31
+/
+296
