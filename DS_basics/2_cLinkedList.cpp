@@ -69,6 +69,7 @@ public:
                 knode->next = dnode;
             }
         }
+        this->length++;
     }
 
     void remove(int n)
@@ -93,5 +94,21 @@ public:
             tnode->next = tnode->next->next;
             temp->next = NULL;
         }
+        this->length--;
+    }
+
+    void push_back(int data){
+        this->insert(data, this->length);
+    }
+    void push_front(int data){
+        this->insert(data, 0);
+    }
+
+    void pop_back(){
+        this->remove(this->length-1);
+    }
+
+    void pop_front(){
+        this->remove(0);
     }
 };

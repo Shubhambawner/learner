@@ -74,7 +74,9 @@ public:
     {
         if (n > 0 && n < this->length)
         {
-            this->at(n - 1)->next = this->at(n - 1)->next->next;
+            node*temp = this->at(n - 1)->next
+            this->at(n - 1)->next = temp->next;
+            temp->next = NULL;
             this->length--;
         }
         else if (n == 0)
@@ -121,7 +123,9 @@ public:
     {
         if (this->length > 0)
         {
+            node*temp = this->head;
             this->head = this->head->next;
+            temp->next = NULL;
             this->length--;
         }
         else
