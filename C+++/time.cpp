@@ -15,15 +15,7 @@ int main() {
     cout << "milliseconds since epoch: "  << msecs_time << endl << endl;
 
 
-    while (j-->0)
-    {
-        int k=1000;
-        while (k-->0)
-        {
-            /* code */
-        }
-        
-    }
+    
 
     gettimeofday(&time_now, nullptr);
     time_t msecs_time = (time_now.tv_sec * 1000) + (time_now.tv_usec / 1000);
