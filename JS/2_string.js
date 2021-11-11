@@ -27,7 +27,7 @@ s1.slice(9,0)
 ''
 //note difference, slice() will return empty string if start > end.
 
-//2. replace():
+//2. replace(): all ocurance of a string will be replaced
 s1.replace('Hello', 'Goodbye'); //'Goodbye World!'
 
 //3. reverse():
@@ -49,7 +49,7 @@ s8 = s1.indexOf('or');
 // returns the index of the first occurence of the search string
 // if not found, returns -1
 
-//Number string methods:----------------------------------------------------
+//Number-string methods:----------------------------------------------------
 //1. valueOf():
 u = valueOf('34') // 34 i.e converts the string to a number
 //2. toString():
