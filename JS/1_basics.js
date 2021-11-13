@@ -32,7 +32,17 @@ console.log(j, t);//null undefined
 a = 'a'; b = 'b';
 j = typeof b; //j = 'string'
 k = typeof a; //k = 'string'
-console.log(a === b);  //true if typeof a == typeof b
+console.log(a === b);  //true if typeof a == typeof b and a==b
+/**
+ * in js == operator wont check type, 6 == '6' is true, so use === 
+ * 5==5 true         5===5 true
+ * 5==4 false        5===4 false
+ * 5=='5' true       5==='5' false
+ * 
+ */
+//ternary operator _?_:_
+var allowed = (age > 18) ? 'yes' : 'no';
+
 
 //NaN is when operator undefined for that type is used, like:
 a =  'string' * 2 //NaN
@@ -83,6 +93,19 @@ switch (key_var) {
         console.log('two');
         break;
 }
+
+//for..in
+arr = [1,2,3,4,5]
+for (const i in arr) {
+    console.log(i)
+}
+
+//for..of
+for (const i of jso) {
+    
+}
+
+
 
 
 
