@@ -8,7 +8,7 @@ localStorage.setItem(5,obj)
 localStorage.getItem(5)
 '[object Object]'
 
-//also arrays get converted to strings, which are hard to re-store later
+//also arrays get converted to strings, which are hard to re-store later, iff are complex
 localStorage.setItem(2,arr)
 localStorage.getItem(2)
 '77,2,3,4,5,a,b,[object Object]'

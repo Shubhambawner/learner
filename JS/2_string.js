@@ -50,8 +50,9 @@ s8 = s1.indexOf('or');
 // if not found, returns -1
 
 //Number-string methods:----------------------------------------------------
-//1. valueOf():
-u = valueOf('34') // 34 i.e converts the string to a number
+//1. parseInt('345'):
+u = parseInt('3') //u = 3 i.e converts the string to a number, till first occurence of non-int character
+u = parseInt('3.4') // 34 i.e converts the string to a number
 //2. toString():
 u.toString(); //'34' i.e converts the number to a string
 

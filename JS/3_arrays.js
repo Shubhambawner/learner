@@ -2,11 +2,17 @@ obj = { 1: 'a', 2: 'b', 3: 'c' };
 
 arr = ['a', 1,2,3,4,5, "b", obj]
 
+//setting and getting elements-----------
+arr.length //8
+arr[80] = 'yo'
+arr[79] // is undefined!!
 
+/**length one more than max. index */
+arr["length"]  //81
+arr.length //81
 
 
 //modifications:-----------------------------------------------------------
-arr[5] = 50
 brr = arr.slice(1,5); //brr = [1, 2, 3, 4, 50] and arr = ["a", 1,2,3,4,50, "b",obj]
 brr = arr.splice(1,5); //brr = [1, 2, 3, 4, 50] and arr = ["a","b",obj]
 brr.concat(arr);  //brr = [1, 2, 3, 4, 50,  "a","b",obj]
