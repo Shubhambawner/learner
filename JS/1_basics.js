@@ -96,14 +96,20 @@ switch (key_var) {
 
 //for..in
 arr = [1,2,3,4,5]
-for (const i in arr) {
+for (const i in arr) { // i is index, arr[i] is element
     console.log(i)
-}
+}// prints down indices
 
 //for..of
-for (const i of jso) {
-    
-}
+for (const i of arr) { // i is element
+    console.log(i)
+}// prints down elements
+
+/**
+ * for object, 
+ * for..in works, iterating over the object keys
+ * for..of doesnt work, because it is not iterable
+ */
 
 
 
