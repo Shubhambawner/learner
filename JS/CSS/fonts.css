@@ -1,0 +1,19 @@
+/*
+0. fonts in action:
+    * font-family: 'Roboto';    
+    * basic html fonts: 'serif', 'sans serif', cursive, fantasy, monospace.
+
+
+1. importing the fonts: when we want something other than basic
+    * go to google fonts, select the perticular font
+    * copy the html, past in header as:
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
+    * get the css too, and apply wherever needed: 
+        font-family: 'Estonia', cursive;
+
+2. font size in  vm: 
+    * font-size:5vm ; for responsive site
+    * 1 vm is 1% of the brouser window width, amazing!!
+

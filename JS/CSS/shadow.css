@@ -1,0 +1,30 @@
+
+
+
+box-shadow: [x-position] [y-position] [blur] [spread in size] [color] [];
+
+    x,y-position : in pixels, below and right to the object
+    blur : in pixels
+    spread in size : aditional size increment to the shadow
+    inset: if we wright inset after all, the shadow apears from inside!!!
+
+    we can specify multiple shadows for a specific element via comma
+
+similerly we have text shadow :
+
+    box-shadow: [x-position] [y-position] [blur] [spread in size] [color] [];
+
+examle:
+
+
+
+    card {
+        width: 250px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+    }
+
+    neon-red-text{
+        text-shadow: 0 0 3px red;
+    }
+

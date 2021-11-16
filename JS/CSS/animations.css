@@ -1,0 +1,19 @@
+PROPERTIES:
+    animation-name: 
+    animation-duration: 
+    animation-timing-function: linear / ease in / ease out / 
+    animation-delay: 
+    animation-iteration-count: 1, 2.. / infinite
+    animation-direction: forward / backward / alternate
+    animation-fill-mode: forwards / backwards / both 
+    (forward means, retain properties of last time frame after animation, 
+    and backwards means get properties of first time frame b4 animation)
+
+SHORT-HAND USAGE:
+element{ 
+animation: [name]* [duration]* [timing functon] [delay] [no. of iteration] [direction] [fill mode];
+}
+
+name and duration are must, others may or may not be there
+
+

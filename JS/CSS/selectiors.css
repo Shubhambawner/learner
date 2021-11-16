@@ -1,0 +1,30 @@
+.class1{ /*  class */
+}
+
+p{ /* elements  */
+}
+
+#i1{ /* id */
+}
+
+/*multiple selectors:*/
+
+.c1.c2.c3 { /* elements with classes c1 and c2 and c3*/
+}  
+
+#id1.c1.c2 { /* elements with id=id1 and classes c1 and c2*/
+}
+
+div.c1.c2 { /* div elements classes c1 and c2*/
+}
+
+s1, s2, s3{ /* element with any one of s1 , s2 or s3 selectors  */
+}
+
+/* hirarky  */
+
+s1 s2 s3 { /* element s3 inside s2 inside s1 */
+
+}
+
+
