@@ -1,0 +1,19 @@
+:link /* before being clicked */
+:visited /* after clicked */
+:hover /* while hover */
+:active /* while being clicked & holded */
+
+!
+all these have to be in the above order strictly
+!
+
+USAGE: 
+
+div.head :visited{ /*style the div.head after being clicked */
+
+}
+
+div.head :visited div.tail{ /*style the div.tail after div.head has been clicked */
+
+}
+
