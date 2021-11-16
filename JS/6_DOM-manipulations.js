@@ -34,4 +34,3 @@ f1.innerHTML += '<h3>this is f1</h3>' //build
 e1.appendChild(f1) //append
 
 
-//5. changes detections: -------------------------------------------

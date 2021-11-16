@@ -1,0 +1,49 @@
+
+0.-------------------------------------------
+properties:
+
+    border-color
+    border-style
+    border-width
+    border-radius
+
+1.-------------------------------------------
+styling selected sides of border
+
+    border-color: red (all 4 sides)
+    border-color: red blue (top bottom:red, right left:blue)
+    border-color: red blue green(top :red, right left:blue, bottom:green)
+    border-color: red blue green black
+
+2.-------------------------------------------
+styles:
+
+    none
+    solid
+
+    dashed
+    dotted
+    double
+
+    ridge
+    grove
+
+    inset
+    outset
+
+    hidden
+
+
+3.-------------------------------------------
+short hand:
+
+  * all sides:
+    border: [color] [style] [radius]  
+
+  * styling specific side:
+    border-top: [color] [style] [radius]
+    
+  * style is must, others be or not be there
+
+  * border-radius has to be set differently
+

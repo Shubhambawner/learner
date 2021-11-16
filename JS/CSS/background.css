@@ -1,0 +1,21 @@
+
+PROPERTIES :
+1. background-color: rgb(0,0,0) / black
+2. background-image: url("abc.jpg")
+3. background-repeat: repeat-x / repeat-y / no-repeat
+4. background-attachment: fixed / scroll  
+5. background-position: top  left / 40px 30px 
+
+
+USAGE:
+
+background: [color] [url_image] [repeat_value] [attaqchment] [position_top] [position_left]
+
+may skip any of the properties, but order is important
+
+
+example:
+div{
+    background: black url("abc.jpg") repeat-x scroll 40px 30px
+
+}
