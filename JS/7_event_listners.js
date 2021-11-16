@@ -9,6 +9,7 @@
  * mousein
  * mouseout
  * mouseover
+ * mousemove
  */
 
 /**keyboard events:

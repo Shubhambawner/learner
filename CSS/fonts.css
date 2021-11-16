@@ -8,8 +8,6 @@
     * go to google fonts, select the perticular font
     * copy the html, past in header as:
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Estonia&display=swap" rel="stylesheet">
     * get the css too, and apply wherever needed: 
         font-family: 'Estonia', cursive;
 

@@ -1,0 +1,19 @@
+whenever some css property changes, the way in which change hapens
+is transition
+
+individual use:------------------------------------------------------------
+
+transition-duration: 
+transition-timing-function:
+transition-delay:
+
+this will apply for changes in all the properties of an elements,
+transition-duration is best used this way
+
+short hand use:------------------------------------------------------------ 
+element{ 
+transition: [property]* [duration]* [timing-functon] [delay]
+}
+
+here, property to apply transition and duration of transition are must, others follow
+
