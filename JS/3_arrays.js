@@ -1,6 +1,6 @@
 obj = { 1: 'a', 2: 'b', 3: 'c' };
 
-arr = ['a', 1,2,3,4,5, "b", obj]
+arr = ['a', 1, 2, 3, 4, 5, "b", obj]
 
 //setting and getting elements-----------
 arr.length //8
@@ -13,8 +13,8 @@ arr.length //81
 
 
 //modifications:-----------------------------------------------------------
-brr = arr.slice(1,5); //brr = [1, 2, 3, 4, 50] and arr = ["a", 1,2,3,4,50, "b",obj]
-brr = arr.splice(1,5); //brr = [1, 2, 3, 4, 50] and arr = ["a","b",obj]
+brr = arr.slice(1, 5); //brr = [1, 2, 3, 4, 50] and arr = ["a", 1,2,3,4,50, "b",obj]
+brr = arr.splice(1, 5); //brr = [1, 2, 3, 4, 50] and arr = ["a","b",obj]
 brr.concat(arr);  //brr = [1, 2, 3, 4, 50,  "a","b",obj]
 
 //array as stack/Queue:------------------------------------------------------------
@@ -32,6 +32,11 @@ arr.indexOf(obj) //2
 arr.sort() //dictionary order for words :arr = [1, 2, 3, 4, 50, 'a', 'b']
 arr.reverse() // arr = ['b', 'a', 50, 4, 3, 2, 1]
 
+//Array.prototype.map() method:
+ar1 = [1, 2, 3, 4]
+ar2 = Array.map(function(x){ return 2 * x; })
+//ar2 = [2,4,6,8]
+//when we create new array from existing, 
 
 
 
