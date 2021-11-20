@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <h3>hello</h3>
     <div class="board">
         <div class="detail">here:</div>
         <button id="fly" style="cursor: move;">---X---</button>
@@ -23,6 +22,7 @@
         let mousepressed = false;
         g.onmousedown = function (e) {
             f.onmousemove = function (e) {
+                console.log('f')
                 g.style.top = `${e.y - (g.clientHeight) / 2}px`
                 g.style.left = `${e.x - (g.clientWidth) / 2}px`
                 h.innerHTML = `X:${e.y - (g.clientHeight) / 2}, Y:${e.x - (g.clientWidth) / 2}`
@@ -43,15 +43,16 @@
         #fly {
             position: absolute;
             width: 15%;
-            height: 5%;
+            
         }
 
         .board {
             width: 100%;
-            height: 90vw;
+            height: 90vh;
             border: solid
         }
     </style>
+    
 </body>
 
 </html>
