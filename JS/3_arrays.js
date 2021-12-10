@@ -17,6 +17,8 @@ brr = arr.slice(1, 5); //brr = [1, 2, 3, 4, 50] and arr = ["a", 1,2,3,4,50, "b",
 brr = arr.splice(1, 5); //brr = [1, 2, 3, 4, 50] and arr = ["a","b",obj]
 brr.concat(arr);  //brr = [1, 2, 3, 4, 50,  "a","b",obj]
 
+frr = arr.slice(); // copy of object arr is created, and asigned to frr
+
 //array as stack/Queue:------------------------------------------------------------
 h = arr.pop() // h = obj and arr = ["a","b"]
 arr.push(obj) // arr = ["a","b",obj]

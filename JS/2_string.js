@@ -18,7 +18,7 @@ s1 =+ s2;//Hello World!Hello World!
 //1. substring() & slice():
 s1.substring(0,9)// 0 to 9, NOT including 9
 'Hello Wor'
-s1.slice(0,9)
+s1.slice(0,9) //both methods dont modify actual string, but return results
 'Hello Wor'
 
 s1.substring(9,0)
@@ -51,8 +51,10 @@ s8 = s1.indexOf('or');
 
 //Number-string methods:----------------------------------------------------
 //1. parseInt('345'):
-u = parseInt('3') //u = 3 i.e converts the string to a number, till first occurence of non-int character
-u = parseInt('3.4') // 34 i.e converts the string to a number
+u = parseInt('3') //u = 3 
+u = parseInt('3.4')//3 converts the string to a number till first occurence of non-int character
+u = parseFloat('3.4') //3.4
+
 //2. toString():
 u.toString(); //'34' i.e converts the number to a string
 

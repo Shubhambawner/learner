@@ -6,12 +6,10 @@ using namespace std;
 
 int main()
 {
-  int aa,ba,ca;
-  cin>>aa>>ba>>ca;
-	stack<int> mystack;
-	mystack.push(aa);
-	mystack.push(ba);
-	mystack.push(ca);
+  stack<int> mystack;
+	mystack.push(88);
+	mystack.push(66);
+	mystack.push(77);
 
 	// Stack top
   cout << --mystack.top()<<endl;

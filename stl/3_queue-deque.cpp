@@ -7,7 +7,7 @@ int main()
 {
     //circular queue
     //only use when:
-    //memory constraint & frequent deletions & insertions from front &rear 
+    //memory constraint & frequent deletions & insertions from front & rear 
     queue<int> q;
     q.push(2);
     q.push(23);

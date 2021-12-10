@@ -18,7 +18,7 @@ var myNumber = 1 / 0;//NaN
 var myBoolean = true;
 var myBoolean = false; //any nonzero number is bool true, 0 is false
 
-// null and undefined and NaN----------------------------------------------------
+// null and undefined and NaN------------------------------------------------------
 var j = null;
 var t;
 console.log(j, t);//null undefined
@@ -28,7 +28,7 @@ console.log(j, t);//null undefined
  * 
  */
  
-// arithmatic and logical operators-------------------------------------------------
+// arithmatic and logical operators-----------------------------------------------
 a = 'a'; b = 'b';
 j = typeof b; //j = 'string'
 k = typeof a; //k = 'string'
@@ -110,6 +110,10 @@ for (const i of arr) { // i is element
  * for..in works, iterating over the object keys
  * for..of doesnt work, because it is not iterable
  */
+
+arr.forEach(element => {
+     console.log(i)
+ });
 
 
 

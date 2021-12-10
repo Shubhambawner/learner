@@ -1,6 +1,7 @@
 
 //1. finding the dom elements -------------------------------------------
 e1 = document.getElementById('i1')
+//ID can only start with alphabets, not numbers!!!!
 e2 = document.getElementsByClassName('c1') 
 // note that array of multiple elements will be stored in e2 !!
 
@@ -21,6 +22,8 @@ e1.style.color = 'red'
 
 e1.classList.add('red') // css class red will be added
 e1.classList.contains('red') //true
+e1.classList.toggle('red') // if there, remove, else, add
+
 //classlist is an arraylike object, so can be iteratd too
 e1.classList.forEach(element => {
     console.log(element)
