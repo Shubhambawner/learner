@@ -1,3 +1,7 @@
+import ReactDOM from 'react-dom';
+import React from 'react';
+import './index.css';
+
 class Square extends React.Component {
   //console.log(props.value)
   #x = this.props.value[1];
