@@ -1,6 +1,3 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import './index.css';
 
 class Square extends React.Component {
   //console.log(props.value)
@@ -116,7 +113,7 @@ class Game extends React.Component {
       squares[8].stateNumber++;
       let oponentKing = squares[8].turn == 0 ? "1K" : "0K";
       let king = squares[8].turn == 0 ? "0K" : "1K";
-      //console.log(isUnderCheck(king, i, j, squares))
+
       if (isUnderCheck(king, i, j, squares)) {
         alert("the piece is pin! ");
       } else {
@@ -124,21 +121,6 @@ class Game extends React.Component {
         else squares[8].turn = "1";
 
         squares[8].underCheck = isUnderCheck(oponentKing, i, j, squares);
-        
-        if(squares[8].underCheck){
-           let k = null;
-          for(let m in squares){
-            for(let n in squares[m]){
-              if(squares[m][n]==oponentKing){
-                k = m+""+n
-              }
-            }
-          }
-          
-          if(getRange(k[0], k[1], 'K', squares).length==0){
-            alert("game over, winner is "+ king)
-          }
-        }
 
         vrr.push({ squares: squares });
         this.setState({ H: vrr, current: this.state.current + 1 });
@@ -284,7 +266,7 @@ function Wi() {
 function mark(trr, squares) {
   
   for (var j of trr) {
-    //console.log(j, 'mark')
+    console.log(j, 'mark')
     if (!squares[j[0]][j[1]])
       document.querySelector("#t" + j).classList.add("blue-mark");
     else {
@@ -295,7 +277,7 @@ function mark(trr, squares) {
 
 function unmark(trr) {
   for (var j of trr) {
-    //console.log(j, 'unmark')
+    console.log(j, 'unmark')
     document.querySelector("#t" + j).classList.remove("green-mark");
     document.querySelector("#t" + j).classList.remove("blue-mark");
     document.querySelector("#t" + j).classList.remove("red-mark");
@@ -310,26 +292,12 @@ function movePieceTo(i, j, tsquares, ib, jb) {
 }
 
 //TODO
-function isUnderCheck(cking, i, j, squares) {
-  let king = null;
-  for(let m in squares){
-    for(let n in squares[m]){
-      if(squares[m][n]==cking){
-        king = m+""+n
-      }
-    }
-  }
-  //console.log(king)
-  for (let m in squares) {
-    if(!Array.isArray(squares[m]))continue;
-    
-    for (let n in squares) {
-      
-      if (squares[m][n] &&  getRange(m, n, squares[m][n][1], squares).indexOf(king) != -1){
-        //alert("check!!")
-        return true;
-      }
-      //console.log(m,n)
+function isUnderCheck(king, i, j, squares) {
+  for (let m of squares) {
+    for (let n of squares) {
+      //if (getRange(i, j, squares[m][n], squares).indexOf(king) != -1)
+      //  return true;
+      console.log(m,n)
     }
   }
   return false;
@@ -337,11 +305,8 @@ function isUnderCheck(cking, i, j, squares) {
 }
 
 
-
-function getRange(ii, jj, p, squares) {
-  let i = ValueOf(ii)
-  let j = ValueOf(jj)
-  //console.log(i,j,p,squares)
+function getRange(i, j, p, squares) {
+  //console.log(p)
   let arr = [];
   if (p == "p") {
     //console.log(p)
@@ -357,22 +322,14 @@ function getRange(ii, jj, p, squares) {
   } else if (p == "K") {
     arr = kingRange(i, j, squares);
   }
-  let brr = [];
-  if (squares[8].underCheck) {
-    let cking = squares[i][j][0]==0?"0K":"1K"
-    for (let ii of arr) {
-      let sc = movePieceTo(ii[0], ii[1], squares, i, j);
-      sc[8].underCheck = false;
-      if(!isUnderCheck(cking, i, j, sc)){
-        brr.push(ii)
-      }
+  brr = [];
+  if (squares[8].underCheck != null) {
+    for (let i of arr) {
     }
-    return brr;
   }
-//console.log(arr)
+
   return arr;
 }
-
 
 function pawnRange(i, j, squares) {
   //if(isPin(i, j, squares)) return [];
@@ -468,7 +425,7 @@ function knightRange(i, j, squares) {
       squares[i - 2][j - 1][0] != squares[i][j][0])
   )
     arr.push(i - 2 + "" + (j - 1));
-  //console.log(arr);
+  console.log(arr);
   return arr;
 }
 function kingRange(i, j, squares) {
@@ -516,7 +473,7 @@ function chessStart(arr) {
 function Cr(i, j, squares) {
   arr = []
   
-  for(let c = i-1, cc = j-1 ; c>=0 && cc>=0 ; c--,cc--){
+  for(let c = i-1, cc = j-1 ; c*cc>=0 ; c--,cc--){
     if(squares[c][cc]!=null){
       if(squares[c][cc][0]!=squares[i][j][0])
         arr.push(c+""+cc)
@@ -598,18 +555,6 @@ function superSlice(arr) {
   return brr;
 }
 
-function ValueOf(i){
-if(i==0) return 0;
-if(i==1) return 1;
-if(i==2) return 2;
-if(i==3) return 3;
-if(i==4) return 4;
-if(i==5) return 5;
-if(i==6) return 6;
-if(i==7) return 7;
-return null;
-}
-
 function mapURL(str){
 switch(str){
     case "0p":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png";break;
@@ -631,3 +576,6 @@ switch(str){
 // ========================================
 
 ReactDOM.render(<Game />, document.getElementById("root"));
+
+
+//export default App
