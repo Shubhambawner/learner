@@ -530,7 +530,7 @@ function chessStart(arr) {
 }
 
 function Cr(i, j, squares) {
-  arr = []
+  let arr = []
   
   for(let c = i-1, cc = j-1 ; c>=0 && cc>=0 ; c--,cc--){
     if(squares[c][cc]!=null){
@@ -569,7 +569,7 @@ function Cr(i, j, squares) {
   return arr 
 }
 function Vr(i, j, squares) {
-  arr = []
+  let arr = []
   
   for(let c = i-1; c>=0 ; c--){
     if(squares[c][j]!=null){
