@@ -1,7 +1,3 @@
-import ReactDOM from 'react-dom';
-import React from 'react';
-import './index.css';
-
 class Square extends React.Component {
   //console.log(props.value)
   #x = this.props.value[1];
@@ -134,9 +130,23 @@ class Game extends React.Component {
               }
             }
           }
+          let abr = false;
+          for(let m in squares){
+            if(!Array.isArray(squares[m]))continue
+            for(let n in squares[m]){
+              if(squares[m][n] && squares[m][n][0]==oponentKing[0]){
+                let rt = getRange(m, n, squares[m][n][1], squares);
+                if(rt.length>0){
+                  abr = true
+                  break;
+                }
+              }
+            }
+          }
           
-          if(getRange(k[0], k[1], 'K', squares).length==0){
-            alert("game over, winner is "+ king)
+          if(!abr){
+            let winner = (king=="0K")?"White":"Black"
+            alert("game over, winner is "+ winner)
           }
         }
 
@@ -359,6 +369,7 @@ function getRange(ii, jj, p, squares) {
   }
   let brr = [];
   if (squares[8].underCheck) {
+    //console.log(i,j,typeof i, typeof j)
     let cking = squares[i][j][0]==0?"0K":"1K"
     for (let ii of arr) {
       let sc = movePieceTo(ii[0], ii[1], squares, i, j);

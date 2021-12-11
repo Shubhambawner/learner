@@ -75,6 +75,7 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: 10vh;
+  color: #fff0;
 }
 
 .blackSquare{
@@ -90,6 +91,7 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: 10vh;
+  color: #fff0
 }
 .fit{
   height:100%;
