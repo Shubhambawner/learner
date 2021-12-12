@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">rrrrrrr
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -40,4 +40,23 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    $(function () {
+  var tickerLength = $('.container ol li').length;
+  var tickerHeight = $('.container ol li').outerHeight();
+  $('.container ol li:last-child').prependTo('.container ol');
+  $('.container ol').css('marginTop', -tickerHeight);
+  function moveTop() {
+    $('.container ol').animate({
+      top: -tickerHeight
+    }, 600, function () {
+      $('.container ol li:first-child').appendTo('.container ol');
+      $('.container ol').css('top', '');
+    });
+  }
+  setInterval(function () {
+    moveTop();
+  }, 300);
+});
+  </script>
 </html>

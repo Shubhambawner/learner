@@ -2,21 +2,31 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import './index.css';
 
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
 
 class Square extends React.Component {
   //console.log(props.value)
   #x = this.props.value[1];
   #y = this.props.value[2];
   #color = (this.#x + this.#y) % 2 == 0 ? "whiteSquare" : "blackSquare";
-  
+
 
   render() {
+    let p = this.#x + "" +this.#y
+    if(p=="00") this.#color+=" c00"
+    if(p=="07") this.#color+=" c07"
+    if(p=="70") this.#color+=" c70"
+    if(p=="77") this.#color+=" c77"
+
     return (
       <button
         id={"t" + this.#x + "" + this.#y}
         className={this.#color}
         onClick={() => this.props.onClick()}
-      ><img className= "fit" src={mapURL(this.props.value[0])} />
+      ><img className="fit" src={mapURL(this.props.value[0])} />
         {this.props.value[0]}
       </button>
     );
@@ -90,6 +100,8 @@ class Game extends React.Component {
 
   handleClick(i, j) {
     let squares = superSlice(this.state.H[this.state.current].squares);
+    let abr = false;
+    
     if (
       squares[i][j] &&
       !this.#winner &&
@@ -117,51 +129,70 @@ class Game extends React.Component {
       squares[8].stateNumber++;
       let oponentKing = squares[8].turn == 0 ? "1K" : "0K";
       let king = squares[8].turn == 0 ? "0K" : "1K";
+      
       //console.log(isUnderCheck(king, i, j, squares))
       if (isUnderCheck(king, i, j, squares)) {
-        alert("the piece is pin! ");
+        //alert("the piece is pin! "); handled in getRange!!!
       } else {
         if (squares[8].turn != "0") squares[8].turn = "0";
         else squares[8].turn = "1";
 
         squares[8].underCheck = isUnderCheck(oponentKing, i, j, squares);
+
         
-        if(squares[8].underCheck){
-           let k = null;
-          for(let m in squares){
-            for(let n in squares[m]){
-              if(squares[m][n]==oponentKing){
-                k = m+""+n
+        if (squares[8].underCheck) {
+          let k = null;
+          for (let m in squares) {
+            for (let n in squares[m]) {
+              if (squares[m][n] == oponentKing) {
+                k = m + "" + n
               }
             }
           }
-          let abr = false;
-          for(let m in squares){
-            if(!Array.isArray(squares[m]))continue
-            for(let n in squares[m]){
-              if(squares[m][n] && squares[m][n][0]==oponentKing[0]){
+          
+          for (let m in squares) {
+            if (!Array.isArray(squares[m])) continue
+            for (let n in squares[m]) {
+              if (squares[m][n] && squares[m][n][0] == oponentKing[0]) {
                 let rt = getRange(m, n, squares[m][n][1], squares);
-                if(rt.length>0){
+                if (rt.length > 0) {
                   abr = true
                   break;
                 }
               }
             }
           }
+
           
-          if(!abr){
-            let winner = (king=="0K")?"White":"Black"
-            alert("game over, winner is "+ winner)
-          }
         }
 
         vrr.push({ squares: squares });
         this.setState({ H: vrr, current: this.state.current + 1 });
 
+        
+
         unmark(this.#range);
         this.#piece = null;
         this.#range = [];
       }
+      if (!abr && squares[8].underCheck) {
+        abr = true
+      }else{
+        abr = false
+      }
+
+      let fg = document.getElementById("current");
+      if(fg){ 
+      fg.scrollIntoView({behavior: "smooth"});
+      //console.log(fg,'scrolling....')
+      }else{
+        //console.log(fg,'scrolling....')/** $$ here we see, setstate itself re-renders the element!!!!!! */
+      }
+    }
+    if(abr){
+      let kking = squares[8].turn==1?"Black":"White"
+      let winner = (kking == "0K") ? "White" : "Black"
+        toast("game over, winner is " + winner)
     }
   }
 
@@ -213,17 +244,21 @@ class Game extends React.Component {
     }
   }
 
+
+
   render() {
     //console.log(this.state.H[0].squares, "hre");
     let brr = superSlice(this.state.H);
     const arr = brr.map((j, i) => {
       let desc = "go to move: " + j.squares[8].stateNumber;
       //console.log(j,i, "hreyyyyyy");
-      if (i == brr.length - 1 && j.squares[8].stateNumber != 0) {
+      if (i == brr.length - 1 
+        //&& j.squares[8].stateNumber != 0
+        ) {
         desc = "current move: " + j.squares[8].stateNumber;
         return (
           <li key={i}>
-            <button>{desc}</button>
+            <button className="current-card button-card" id = "current">{desc}</button>
           </li>
         );
       }
@@ -231,24 +266,25 @@ class Game extends React.Component {
         desc = "reset";
         return (
           <li key={i}>
-            <button onClick={() => this.Reset()}>{desc}</button>
+            <button className="button-card" id = "reset" onClick={() => this.Reset()}>{desc}</button>
           </li>
         );
       }
 
       return (
         <li key={i}>
-          <button onClick={() => this.jumpTo(i)}>{desc}</button>
+          <button className="button-card" onClick={() => this.jumpTo(i)}>{desc}</button>
         </li>
       );
     });
 
+    //arr.push('4')
     let t = brr[this.state.current].squares[8].turn == 0 ? "whites" : "Blacks";
 
     return (
       <div className="game">
         <div className="game-board">
-          <h3>{"turn of: " + t}</h3>
+
           <Board
             squares={brr[this.state.current].squares}
             onClick={(i, j) => this.handleClick(i, j)}
@@ -257,10 +293,9 @@ class Game extends React.Component {
         </div>
 
         <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{arr}</ol>
+          <h3 className="card">{"turn of: " + t}</h3>
+          <ol  id="scrollbull">{arr}</ol>
         </div>
-        <img src="https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png" alt="pic" />
       </div>
     );
   }
@@ -297,7 +332,7 @@ function Wi() {
 //game specific functions
 ///////////////////////////////////////////////////////////////////////
 function mark(trr, squares) {
-  
+
   for (var j of trr) {
     //console.log(j, 'mark')
     if (!squares[j[0]][j[1]])
@@ -324,23 +359,23 @@ function movePieceTo(i, j, tsquares, ib, jb) {
   return squares;
 }
 
-//TODO
+
 function isUnderCheck(cking, i, j, squares) {
   let king = null;
-  for(let m in squares){
-    for(let n in squares[m]){
-      if(squares[m][n]==cking){
-        king = m+""+n
+  for (let m in squares) {
+    for (let n in squares[m]) {
+      if (squares[m][n] == cking) {
+        king = m + "" + n
       }
     }
   }
   //console.log(king)
   for (let m in squares) {
-    if(!Array.isArray(squares[m]))continue;
-    
+    if (!Array.isArray(squares[m])) continue;
+
     for (let n in squares) {
-      
-      if (squares[m][n] &&  getRange(m, n, squares[m][n][1], squares).indexOf(king) != -1){
+
+      if (squares[m][n] && getRoughRange(m, n, squares[m][n][1], squares).indexOf(king) != -1) {
         //alert("check!!")
         return true;
       }
@@ -351,9 +386,7 @@ function isUnderCheck(cking, i, j, squares) {
   //TODO
 }
 
-
-
-function getRange(ii, jj, p, squares) {
+function getRoughRange(ii, jj, p, squares) {
   let i = ValueOf(ii)
   let j = ValueOf(jj)
   //console.log(i,j,p,squares)
@@ -372,20 +405,31 @@ function getRange(ii, jj, p, squares) {
   } else if (p == "K") {
     arr = kingRange(i, j, squares);
   }
+  
+  //console.log(arr)
+  return arr;
+}
+
+
+function getRange(ii, jj, p, squares) {
+  let i = ValueOf(ii)
+  let j = ValueOf(jj)
+  //console.log(i,j,p,squares)
+  let arr = getRoughRange(i, j, p, squares)
   let brr = [];
-  if (squares[8].underCheck) {
+  if (true) {
     //console.log(i,j,typeof i, typeof j)
-    let cking = squares[i][j][0]==0?"0K":"1K"
+    let cking = squares[i][j][0] == 0 ? "0K" : "1K"
     for (let ii of arr) {
       let sc = movePieceTo(ii[0], ii[1], squares, i, j);
       sc[8].underCheck = false;
-      if(!isUnderCheck(cking, i, j, sc)){
+      if (!isUnderCheck(cking, i, j, sc)) {
         brr.push(ii)
       }
     }
     return brr;
   }
-//console.log(arr)
+  //console.log(arr)
   return arr;
 }
 
@@ -531,81 +575,81 @@ function chessStart(arr) {
 
 function Cr(i, j, squares) {
   let arr = []
-  
-  for(let c = i-1, cc = j-1 ; c>=0 && cc>=0 ; c--,cc--){
-    if(squares[c][cc]!=null){
-      if(squares[c][cc][0]!=squares[i][j][0])
-        arr.push(c+""+cc)
+
+  for (let c = i - 1, cc = j - 1; c >= 0 && cc >= 0; c--, cc--) {
+    if (squares[c][cc] != null) {
+      if (squares[c][cc][0] != squares[i][j][0])
+        arr.push(c + "" + cc)
       break;
     }
-    arr.push(c+""+cc)
+    arr.push(c + "" + cc)
   }
-  for(let c= i+1, cc = j+1; (c<=7 && cc<=7) ; c++,cc++){
-    if(squares[c][cc]!=null){
-      if(squares[c][cc][0]!=squares[i][j][0])
-        arr.push(c+""+cc)
+  for (let c = i + 1, cc = j + 1; (c <= 7 && cc <= 7); c++, cc++) {
+    if (squares[c][cc] != null) {
+      if (squares[c][cc][0] != squares[i][j][0])
+        arr.push(c + "" + cc)
       break;
     }
-    arr.push(c+""+cc)
+    arr.push(c + "" + cc)
   }
-  for(let cc = j-1,c=i+1 ; cc>=0 && c<=7 ; cc--,c++){
-    if(squares[c][cc]!=null){
-      if(squares[c][cc][0]!=squares[i][j][0])
-        arr.push(c+""+cc)
+  for (let cc = j - 1, c = i + 1; cc >= 0 && c <= 7; cc--, c++) {
+    if (squares[c][cc] != null) {
+      if (squares[c][cc][0] != squares[i][j][0])
+        arr.push(c + "" + cc)
       break;
     }
-    arr.push(c+""+cc)
+    arr.push(c + "" + cc)
   }
-  for(let cc= j+1, c = i-1; cc<=7 && c>=0 ; cc++,c--){
-    if(squares[c][cc]!=null){
-      if(squares[c][cc][0]!=squares[i][j][0])
-        arr.push(c+""+cc)
+  for (let cc = j + 1, c = i - 1; cc <= 7 && c >= 0; cc++, c--) {
+    if (squares[c][cc] != null) {
+      if (squares[c][cc][0] != squares[i][j][0])
+        arr.push(c + "" + cc)
       break;
     }
-    arr.push(c+""+cc)
+    arr.push(c + "" + cc)
   }
-  
-  
-  return arr 
+
+
+  return arr
 }
 function Vr(i, j, squares) {
   let arr = []
-  
-  for(let c = i-1; c>=0 ; c--){
-    if(squares[c][j]!=null){
-      if(squares[c][j][0]!=squares[i][j][0])
-        arr.push(c+""+j)
+
+  for (let c = i - 1; c >= 0; c--) {
+    if (squares[c][j] != null) {
+      if (squares[c][j][0] != squares[i][j][0])
+        arr.push(c + "" + j)
       break;
     }
-    arr.push(c+""+j)
+    arr.push(c + "" + j)
   }
-  for(let c= i+1; c<=7 ; c++){
-    if(squares[c][j]!=null){
-      if(squares[c][j][0]!=squares[i][j][0])
-        arr.push(c+""+j)
+  for (let c = i + 1; c <= 7; c++) {
+    if (squares[c][j] != null) {
+      if (squares[c][j][0] != squares[i][j][0])
+        arr.push(c + "" + j)
       break;
     }
-    arr.push(c+""+j)
+    arr.push(c + "" + j)
   }
-  for(let c = j-1; c>=0 ; c--){
-    if(squares[i][c]!=null){
-      if(squares[i][c][0]!=squares[i][j][0])
-        arr.push(i+""+c)
+  for (let c = j - 1; c >= 0; c--) {
+    if (squares[i][c] != null) {
+      if (squares[i][c][0] != squares[i][j][0])
+        arr.push(i + "" + c)
       break;
     }
-    arr.push(i+""+c)
+    arr.push(i + "" + c)
   }
-  for(let c= j+1; c<=7 ; c++){
-    if(squares[i][c]!=null){
-      if(squares[i][c][0]!=squares[i][j][0])
-        arr.push(i+""+c)
+  for (let c = j + 1; c <= 7; c++) {
+    if (squares[i][c] != null) {
+      if (squares[i][c][0] != squares[i][j][0])
+        arr.push(i + "" + c)
       break;
     }
-    arr.push(i+""+c)
+    arr.push(i + "" + c)
   }
-  
-  
-  return arr 
+
+
+  return arr
 }
 
 function superSlice(arr) {
@@ -614,36 +658,42 @@ function superSlice(arr) {
   return brr;
 }
 
-function ValueOf(i){
-if(i==0) return 0;
-if(i==1) return 1;
-if(i==2) return 2;
-if(i==3) return 3;
-if(i==4) return 4;
-if(i==5) return 5;
-if(i==6) return 6;
-if(i==7) return 7;
-return null;
+function ValueOf(i) {
+  if (i == 0) return 0;
+  if (i == 1) return 1;
+  if (i == 2) return 2;
+  if (i == 3) return 3;
+  if (i == 4) return 4;
+  if (i == 5) return 5;
+  if (i == 6) return 6;
+  if (i == 7) return 7;
+  return null;
 }
 
-function mapURL(str){
-switch(str){
-    case "0p":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png";break;
-    case "1p":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bp.png";break;
-    case "0K":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png";break;
-    case "0q":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wq.png";break;
-    case "0b":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wb.png";break;
-    case "0k":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wn.png";break;
-    case "0r":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wr.png";break;
-    case "1K":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png";break;
-    case "1q":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bq.png";break;
-    case "1b":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bb.png";break;
-    case "1k":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bn.png";break;
-    case "1r":return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/br.png";break;
-    default : return null;
+function mapURL(str) {
+  switch (str) {
+    case "0p": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wp.png";//break;
+    case "1p": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bp.png";//break;
+    case "0K": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wk.png";//break;
+    case "0q": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wq.png";//break;
+    case "0b": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wb.png";//break;
+    case "0k": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wn.png";//break;
+    case "0r": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/wr.png";//break;
+    case "1K": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bk.png";//break;
+    case "1q": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bq.png";//break;
+    case "1b": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bb.png";//break;
+    case "1k": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/bn.png";//break;
+    case "1r": return "https://images.chesscomfiles.com/chess-themes/pieces/neo/150/br.png";//break;
+    default: return null;
+  }
 }
-}
+
+
 
 // ========================================
 
-ReactDOM.render(<Game />, document.getElementById("root"));
+
+
+ReactDOM.render(<Game 
+  
+/>, document.getElementById("root"));
