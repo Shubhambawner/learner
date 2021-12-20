@@ -1,0 +1,4 @@
+//all under package folder!!!
+npx create-react-app {my-app-name}
+npm i {package name}
+npm start
