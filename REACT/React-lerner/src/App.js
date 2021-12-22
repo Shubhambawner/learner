@@ -1,4 +1,5 @@
 import TryIT from "./components/try"
+import H from "./components/hooks"
 
 //repo navigation :
 // * to access file in same folder: ./
@@ -7,7 +8,10 @@ import TryIT from "./components/try"
 
  function App(props) {
      return(
+         <>
+         <H />
          <TryIT />
+         </>
      )
  }
  const y = 8;
