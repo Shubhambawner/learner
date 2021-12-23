@@ -90,9 +90,3 @@ greetBye = greet('bye')
 greetHello('sam') //hello sam
 greetBye('sam') //Bye sam
 
-/**
- * CALLBACK FUNCTION:
- * the function that takes other functuion as an input, and runs that while its own execution is called 
- * a call back function
- * ex: setInterval
- */
