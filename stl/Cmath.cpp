@@ -2,7 +2,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-    
+/*
+
+
+!!! CAUTIONS !!!
+
+1. while using functions returning a float value, 
+    iff the number of digits exceed 9, it is returning e notation, 
+    that can't be converted back to int by ceil/floor, so even if logick is correct, the answer wont be.
+*/
     
 int main(){
     //max/min------------------------------
