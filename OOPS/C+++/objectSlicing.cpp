@@ -20,7 +20,7 @@ int main(void) {
 
     Animal e;
     Dog foo;
-    e = foo;
+    e = foo;//downslicing
     cout<<e.color<<'\n'; //Black
 
     Animal *ep;
