@@ -5,7 +5,7 @@ using namespace std;
 template<class T>
 void print(vector<T> a){
 
-    //iterator pointer:
+    //iterator pointer:(could also do with index, as vector is supporting arraqy form indexing)
     for (auto i = a.begin(); i < a.end(); i++)
     {
         cout<<a[i-a.begin()]<<"|";
