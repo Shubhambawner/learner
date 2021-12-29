@@ -39,6 +39,8 @@ int main(){
     
 
     a.reserve(20);
+
+    //length or size of vector
     cout<<a.size()<<"\t"<<a.capacity()<<"\n";
 
     
