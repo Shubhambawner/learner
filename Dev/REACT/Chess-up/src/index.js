@@ -730,3 +730,15 @@ if(w>630 && w<780){
 ReactDOM.render(<Game 
   
 />, document.getElementById("root"));
+
+
+/*
+the localstorage is used to store the game state,so that reload dosnt make it lost.
+
+when we store object in local storage, we have to see, that the format of object being stored has to be the same in which it will be fetched from there,
+otherwise the object being fetched being different, will produce following error:
+
+Error: A cross-origin error was thrown. React doesn't have access to the actual error object in development. See https://reactjs.org/link/crossorigin-error for more information.
+
+
+*/
