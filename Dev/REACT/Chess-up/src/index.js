@@ -291,8 +291,16 @@ class Game extends React.Component {
             value={this.#status}
           />
         </div>
-
-        <div className="game-info">
+        <div className="card togle inactive" onClick={()=>{
+          let j = document.querySelector(".togle");
+          j.classList.toggle("active")
+          let k = document.querySelector(".game-info");
+          k.classList.toggle("inactive")
+        }}>
+          ...
+        </div>
+        <div className="game-info inactive">
+        
           <h3 className="card">{"turn of: " + t}</h3>
           <ol  id="scrollbull">{arr}</ol>
         </div>
@@ -324,10 +332,19 @@ function isObject(object) {
   return object != null && typeof object === 'object';
 }
 
-function Wi() {
+function Wi() {//depricated
   return false;
 }
 
+/////////////////////////////////////////////////////////////////////
+//game specific functions
+///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//game specific functions
+///////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//game specific functions
+///////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 //game specific functions
 ///////////////////////////////////////////////////////////////////////
@@ -438,22 +455,22 @@ function pawnRange(i, j, squares) {
   //if(isPin(i, j, squares)) return [];
   let arr = [];
   if (squares[i][j][0] == 0) {
-    if (i + 1 <= 7 && squares[i + 1][j] == null) arr.push(i + 1 + "" + j);
+    if (i + 1 <= 7 && squares[i + 1][j] == null){ arr.push(i + 1 + "" + j);
     if (i == 1) {
       if (squares[i + 2][j] == null) arr.push(i + 2 + "" + j);
-    }
-    if (squares[i + 1] && squares[i + 1][j + 1]) arr.push(i + 1 + "" + (j + 1));
-    if (squares[i + 1] && squares[i + 1][j - 1]) arr.push(i + 1 + "" + (j - 1));
+    }}
+    if (squares[i + 1] && squares[i + 1][j + 1] && squares[i+1][j+1][0] == 1) arr.push(i + 1 + "" + (j + 1));
+    if (squares[i + 1] && squares[i + 1][j - 1] && squares[i+1][j-1][0] == 1) arr.push(i + 1 + "" + (j - 1));
     //console.log(arr,'pawnb')
     return arr;
   } else {
     //black pawn
-    if (i - 1 >= 0 && squares[i - 1][j] == null) arr = [i - 1 + "" + j];
+    if (i - 1 >= 0 && squares[i - 1][j] == null){ arr = [i - 1 + "" + j];
     if (i == 6) {
       if (i - 1 >= 0 && squares[i - 1][j] == null) arr.push(i - 2 + "" + j);
-    }
-    if (squares[i - 1] && squares[i - 1][j + 1]) arr.push(i - 1 + "" + (j + 1));
-    if (squares[i - 1] && squares[i - 1][j - 1]) arr.push(i - 1 + "" + (j - 1));
+    }}
+    if (squares[i - 1] && squares[i - 1][j + 1] && squares[i-1][j+1][0] == 0) arr.push(i - 1 + "" + (j + 1));
+    if (squares[i - 1] && squares[i - 1][j - 1] && squares[i-1][j-1][0] == 0) arr.push(i - 1 + "" + (j - 1));
     //console.log(arr,'pawn')
     return arr;
   }
@@ -691,8 +708,10 @@ function mapURL(str) {
 
 
 // ========================================
-
-
+let w = window.innerWidth;
+if(w>630 && w<780){
+  window.alert("game supported for standard mobile/desktop view, for current device being used, game is unfer construction");
+}
 
 ReactDOM.render(<Game 
   
