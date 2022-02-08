@@ -3,6 +3,11 @@
   margin: 300px;
 }
 
+button:focus{
+  outline: none;
+  border: none;
+  background-color: #1900ff1c;
+}
 
 *{
   margin: 0;
@@ -66,9 +71,7 @@ ol, ul {
   width: 34px;
 }
 
-.square:focus {
-  outline: none;
-}
+
 
 .kbd-navigation .square:focus {
   background: #ddd;
@@ -78,12 +81,14 @@ ol, ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: url('https://images7.alphacoders.com/790/790762.jpg') no-repeat center center fixed;
+  background: url('https://images6.alphacoders.com/470/470093.png') no-repeat center center fixed;
   background-size: cover;
   width: 100vw;
     height: 100vh;
 }
-
+/*
+https://images7.alphacoders.com/790/790762.jpg
+*/
 .game-info {
   
   display: flex;
