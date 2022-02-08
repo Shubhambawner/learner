@@ -6,6 +6,9 @@ PROPERTIES :
 4. background-attachment: fixed / scroll  
 5. background-position: top  left / 40px 30px 
 
+6. background-size: auto / cover / contain 
+    1. contain: this will fit one of the aspects of img like width or height to the container
+7. background-origin: padding-box / border-box / content-box
 
 USAGE:
 
