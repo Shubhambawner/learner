@@ -85,10 +85,18 @@ class Game extends React.Component {
     //wont work, as fill just asigns references, so array of nulls is actually created only once.
     //console.log('hrr',hrr)
     let erra = chessStart(hrr);
-    this.state = {
-      H: [{ squares: erra }],
-      current: 0
-    };
+    let loc = localStorage.getItem("chess");
+    if(loc){
+      this.state = JSON.parse(loc);
+      console.log('state',this.state)
+    }else{
+      console.log('state no localstorage')
+      this.state = {
+        H: [{ squares: erra }],
+        current: 0
+      };
+    }
+    
   }
 
   #xo = "X";
@@ -167,7 +175,9 @@ class Game extends React.Component {
         }
 
         vrr.push({ squares: squares });
-        this.setState({ H: vrr, current: this.state.current + 1 });
+        let state3 = { H: vrr, current: this.state.current + 1 }
+        localStorage.setItem('chess', JSON.stringify(state3));//localstorage integration
+        this.setState(state3);
 
         
 
@@ -207,10 +217,12 @@ class Game extends React.Component {
     let a7 = [null, null, null, null, null, null, null, null];
     let hrr = [a0, a1, a2, a3, a4, a5, a6, a7];
     hrr.push({ turn: "0", stateNumber: 0, underCheck: null });
-    this.setState({
+    let state = {
       H: [{ squares: chessStart(hrr) }],
       current: 0
-    });
+    }
+    localStorage.setItem('chess', JSON.stringify(state));//localstorage integration
+    this.setState(state);
 
     this.#xo = "X";
     this.#status = "Next player: X";
@@ -237,7 +249,9 @@ class Game extends React.Component {
       this.#winner = Wi(squares);
       let H2 = superSlice(this.state.H);
       H2.push({ squares: squares });
-      this.setState({ H: H2, current: this.state.current + 1 });
+      let state2 = { H: H2, current: this.state.current + 1 };
+      localStorage.setItem('chess', JSON.stringify(state2));//localstorage integration
+      this.setState(state2);
     } else {
       console.log(this.state.H[this.state.current].squares, squares);
       alert("already on current move !");
