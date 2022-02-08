@@ -182,10 +182,12 @@ https://images7.alphacoders.com/790/790762.jpg
 
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgb(255 255 255 / 12%);;
+    background-color: rgb(54 54 54 / 62%);
+    color: aliceblue;
 }
 .button-card:hover{
-  background-color: #d7ecff;;
+  background-color: #d7ecff;
+  color: black;;
 }
 .button-card:active{
   background-color: royalblue;
@@ -254,7 +256,7 @@ https://images7.alphacoders.com/790/790762.jpg
     align-items: center;
   }
   .inactive{
-    display: none;
+    right: -30vw;
   }
   .togle{
     display: block;
@@ -306,14 +308,14 @@ https://images7.alphacoders.com/790/790762.jpg
   .button-card{
     margin: 3px 3px 0 0;
     border-radius: 4px;
-    background: azure;
+    
   }
   .current-card{
     position: fixed;
     top: 2vh;
     right: 24px;
     border-radius: 4px 15px 4px 4px;
-    background: #d7ecff;
+    
   }
   #scrollbull{
     display: flex;
@@ -482,7 +484,8 @@ https://images7.alphacoders.com/790/790762.jpg
       background: azure;
   }
   .button-card:hover{
-    background-color: #d7ecff;;
+    background-color: #d7ecff;
+    color: black;
   }
   .button-card:active{
     background-color: royalblue;
@@ -523,9 +526,13 @@ https://images7.alphacoders.com/790/790762.jpg
  }
 
  .togle{
-  width: 0.1rem;
-    height: 0.1rem;
+  width: 1rem;
+    height: 1rem;
     position: fixed;
     top: 0px;
     right: 0px;
+    padding: 0.5rem;
+}
+.iClass{
+  height: 100%;
 }
