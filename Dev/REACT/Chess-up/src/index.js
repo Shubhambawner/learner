@@ -113,7 +113,7 @@ class Game extends React.Component {
     let previousSQ = null;
     if (this.state.current > 0) {
       previousSQ = superSlice(this.state.H[this.state.current - 1].squares);
-      //console.log(previousSQ, 'passing inn', squares)
+      console.log(previousSQ, 'passing inn', squares)
 
     }
 
@@ -389,11 +389,11 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
       squares[ib][j] = null;
     }
     //piece promotion
-    if(squares[ib][jb][0]=='0'&& ValueOf(j)==7){
+    if(squares[ib][jb][0]=='0'&& ValueOf(i)==7){
       if(realMove) toast(`The Pawn is promoted to the Queen!`);
       squares[ib][jb] = '0q';
     }
-    if(squares[ib][jb][0]=='1'&& ValueOf(j)==0){
+    if(squares[ib][jb][0]=='1'&& ValueOf(i)==0){
       if(realMove) toast(`The Pawn is promoted to the Queen!`);
       squares[ib][jb] = '1q';
     }
@@ -438,7 +438,7 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
     //console.log(i,j,p,squares)
     let arr = [];
     if (p == "p") {
-      //console.log(previousSQ, 'passing to pawn range')
+      console.log(previousSQ, 'passing to pawn range')
       arr = pawnRange(i, j, squares, previousSQ);
     } else if (p == "r") {
       arr = rookhRange(i, j, squares);
@@ -480,7 +480,7 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
 
   function pawnRange(i, j, squares, previousSQ) {
     //if(isPin(i, j, squares)) return [];
-    //console.log(previousSQ, 'pawnRange previous square')
+    console.log(previousSQ, 'pawnRange previous square')
     let arr = [];
     if (squares[i][j][0] == 0) {
       //white pawn
@@ -495,8 +495,8 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
       //console.log(arr,'pawnb')
 
       //for n passed n pawn move
-      if (previousSQ && i == 5) {
-        //console.log(previousSQ, 'n pass n activated!!!!')
+      if (previousSQ && i == 4) {
+        console.log(previousSQ, 'n pass n activated!!!!')
         if (squares[4][j + 1] == '1p' && previousSQ[6][j + 1] == '1p' && j < 7) {
           arr.push(5 + "" + (j + 1));
         }
@@ -527,6 +527,7 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
           arr.push(2 + "" + (j - 1));
         }
       }
+      
       return arr;
     }
   }
