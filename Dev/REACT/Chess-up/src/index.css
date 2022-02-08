@@ -1,3 +1,9 @@
+#scrollbull::-webkit-scrollbar {
+  width: 0px;                                     /* a. width of the entire scrollbar */
+  margin: 300px;
+}
+
+
 *{
   margin: 0;
   padding: 0;
@@ -144,16 +150,24 @@ ol, ul {
     text-align: center;
     margin: 2vh;
     padding: 3vh;
-    border-radius: 3vh
+    border-radius: 3vh;
+
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    /*background-color: rgb(255 255 255 / 12%);;*/
 }
 
 .button-card{
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     text-align: center;
     margin: 2vh;
-    padding: 1vh;
+    padding: 1vw;
     border-radius: 3vh;
-    background: azure;
+    background: rgba(240, 255, 255, 0);
+
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(255 255 255 / 12%);;
 }
 .button-card:hover{
   background-color: #d7ecff;;
@@ -182,14 +196,25 @@ ol, ul {
 }
 
 .current-card{
-  background: #d7ecff;
+  background: #d7ecff56;
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(255 255 255 / 12%);;
 }
 #reset{
   background: #ff000054;
 }
-
+.glass{
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(255 255 255 / 12%);;
+}
 .togle{
   display: none;
+  /*Glassmorphism*/
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgb(255 255 255 / 12%);;
 }
 /*/////////////////////media queries begin////////////////////////*/
 /*/////////////////////media queries begin////////////////////////*/
@@ -247,16 +272,16 @@ ol, ul {
     width: auto;
     position: absolute;
     top: 0px;
-    left: 33px;
-    margin: 10px;
-    padding: 10px;
+    left: 4vw;
+    margin: 2vh 10px;
+    padding: 2vw;
     box-shadow: 0 6px 7px 0px rgb(0 0 0 / 19%);
   }
 
   
   #reset{
     position: fixed;
-    top: 9px;
+    top: 2vh;
     right: 142px;
     background: #ff000054;
   }
@@ -267,7 +292,7 @@ ol, ul {
   }
   .current-card{
     position: fixed;
-    top: 9px;
+    top: 2vh;
     right: 24px;
     border-radius: 4px 15px 4px 4px;
     background: #d7ecff;
@@ -283,6 +308,10 @@ ol, ul {
     left: 0px;
     overflow: scroll;
     max-height: 40vh;
+    padding: 0px;
+    margin: 2.5vw;
+    width: 95vw;
+
   }
 
  }
@@ -466,6 +495,13 @@ ol, ul {
   #reset{
     background: #ff000054;
   }
+ }
+
+ @media screen and (max-width: 340px){
+  #reset{
+    position: inherit;
+  }
+   
  }
 
  .togle{
