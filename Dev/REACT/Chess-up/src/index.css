@@ -78,6 +78,10 @@ ol, ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  background: url('https://images7.alphacoders.com/790/790762.jpg') no-repeat center center fixed;
+  background-size: cover;
+  width: 100vw;
+    height: 100vh;
 }
 
 .game-info {
@@ -106,7 +110,7 @@ ol, ul {
 }
  
 .whiteSquare{
-  background :#f9febe;
+  background :#f9febe4d;
     
   border: 1px solid #999;
   float: left;
@@ -120,11 +124,14 @@ ol, ul {
   text-align: center;
   width: 12vh;
   color: #fff0;
+
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
   
 }
 
 .blackSquare{
-  background : #8bc34a;
+  background : #8bc34a5b;
   border: 1px solid #999;
   float: left;
   font-size: 24px;
@@ -137,6 +144,9 @@ ol, ul {
   text-align: center;
   width: 12vh;
   color: #fff0;
+
+  backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
   
 }
 .fit{
@@ -151,7 +161,7 @@ ol, ul {
     margin: 2vh;
     padding: 3vh;
     border-radius: 3vh;
-
+    background: #ffffff59;
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     /*background-color: rgb(255 255 255 / 12%);;*/
@@ -180,6 +190,9 @@ ol, ul {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     border-radius: 20px;
     padding: 10px;
+    background: #ffffff59;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .c00{
