@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "D:/program_files/C++/MinGW/**"
             ],
             "defines": [
                 "_DEBUG",
@@ -11,10 +12,10 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "E:\\program_files\\Visual_studio\\N1\\VC\\Tools\\MSVC\\14.30.30705\\bin\\Hostx64\\x64\\cl.exe",
+            "compilerPath": "D:/program_files/MinGW/bin/gcc.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-msvc-x64"
+            "intelliSenseMode": "windows-gcc-x86"
         }
     ],
     "version": 4
