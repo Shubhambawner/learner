@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 
-
+//controlled components
 class Square extends React.Component {
   //console.log(props.value)
   #x = this.props.value[1];
@@ -65,6 +65,7 @@ class Board extends React.Component {
   }
 }
 
+//controlling component
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -78,7 +79,7 @@ class Game extends React.Component {
     let a7 = [null, null, null, null, null, null, null, null];
     let hrr = [a0, a1, a2, a3, a4, a5, a6, a7];
     //console.log('hrr',hrr)
-    hrr.push({ turn: "0", stateNumber: 0, underCheck: null });
+    hrr.push({ turn: "0", stateNumber: 0, underCheck: null,lastPieceMoved: null });
     //creating the multi dimentional array,
     //this:
     // hrr = Array(8).fill(Array(8).fill((null)));
@@ -180,13 +181,13 @@ class Game extends React.Component {
 
 
         }
-
+        squares[8].lastPieceMoved = squares[i][j]
         vrr.push({ squares: squares });
         let state3 = { H: vrr, current: this.state.current + 1, previous: this.state.previous + 1 };
         //console.log(this.state.previous + 1, 'settng as previous')
         localStorage.setItem('chess', JSON.stringify(state3));//localstorage integration
         this.setState(state3);
-
+        console.log(state3,'******************************')
 
 
         unmark(this.#range);
@@ -224,7 +225,7 @@ class Game extends React.Component {
     let a6 = [null, null, null, null, null, null, null, null];
     let a7 = [null, null, null, null, null, null, null, null];
     let hrr = [a0, a1, a2, a3, a4, a5, a6, a7];
-    hrr.push({ turn: "0", stateNumber: 0, underCheck: null });
+    hrr.push({ turn: "0", stateNumber: 0, underCheck: null, lastPieceMoved: null });
     let state = {
       H: [{ squares: chessStart(hrr) }],
       current: 0,
@@ -276,15 +277,20 @@ class Game extends React.Component {
 
     //render the moves array
     const arr = brr.map((j, i) => {
-      let desc = "go to move: " + j.squares[8].stateNumber;
+      let desc = null;
+      if(j.squares[8].stateNumber<10){
+      desc = "go to move: 0" + j.squares[8].stateNumber;}
+      else{
+      desc = "go to move: " + j.squares[8].stateNumber;}
       //console.log(j,i, "hreyyyyyy");
       if (i == brr.length - 1
         //&& j.squares[8].stateNumber != 0
       ) {
-        desc = "current move: " + j.squares[8].stateNumber;
+        desc = "latest move: " + j.squares[8].stateNumber;
         return (
           <li key={i}>
-            <button className="current-card button-card" id="current">{desc}</button>
+            <button className="current-card button-card" id="current">{desc}
+            <img className="fit2" src={mapURL(j.squares[8].lastPieceMoved)}></img></button>
           </li>
         );
       }
@@ -299,7 +305,8 @@ class Game extends React.Component {
 
       return (
         <li key={i}>
-          <button className="button-card" onClick={() => this.jumpTo(i)}>{desc}</button>
+          <button className="button-card" onClick={() => this.jumpTo(i)}>{desc}
+          <img className="fit2" src={mapURL(j.squares[8].lastPieceMoved)}></img></button>
         </li>
       );
     });

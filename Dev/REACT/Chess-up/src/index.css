@@ -2,6 +2,10 @@
   width: 0px;                                     /* a. width of the entire scrollbar */
   margin: 300px;
 }
+.game-info::-webkit-scrollbar {
+  width: 0px;                                     /* a. width of the entire scrollbar */
+  margin: 300px;
+}
 
 button:focus{
   outline: none;
@@ -12,7 +16,7 @@ button:focus{
 *{
   margin: 0;
   padding: 0;
-  transition-duration: 500ms;
+  transition-duration: 500ms;font-family: system-ui;
 }
 
 body {
@@ -176,14 +180,16 @@ https://images7.alphacoders.com/790/790762.jpg
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     text-align: center;
     margin: 2vh;
-    padding: 1vw;
+    padding: 0 1vw;
     border-radius: 3vh;
     background: rgba(240, 255, 255, 0);
-
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgb(54 54 54 / 62%);
     color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    align-items: center
 }
 .button-card:hover{
   background-color: #d7ecff;
@@ -196,7 +202,7 @@ https://images7.alphacoders.com/790/790762.jpg
 #sadsad{
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     border-radius: 20px;
-    padding: 10px;
+    padding: 1vw;
     background: #ffffff59;
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -219,7 +225,8 @@ https://images7.alphacoders.com/790/790762.jpg
   background: #d7ecff56;
   backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgb(255 255 255 / 12%);;
+    background-color: rgb(255 255 255 / 12%);
+    
 }
 #reset{
   background: #ff000054;
@@ -234,7 +241,12 @@ https://images7.alphacoders.com/790/790762.jpg
   /*Glassmorphism*/
   backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgb(255 255 255 / 12%);;
+    background-color: rgb(255 255 255 / 56%);;
+}
+
+.fit2{
+  height: 5vw;
+    max-height: 30px;
 }
 /*/////////////////////media queries begin////////////////////////*/
 /*/////////////////////media queries begin////////////////////////*/
@@ -275,7 +287,8 @@ https://images7.alphacoders.com/790/790762.jpg
   }
 
   #sadsad{
-    padding-top: 50px;
+    padding: 2vw;
+    padding-top: 15vw;
   }
   .game-board{
     position: relative;
@@ -296,24 +309,25 @@ https://images7.alphacoders.com/790/790762.jpg
     margin: 2vh 10px;
     padding: 2vw;
     box-shadow: 0 6px 7px 0px rgb(0 0 0 / 19%);
+    font-size: 5vw;
   }
 
   
   #reset{
     position: fixed;
     top: 2vh;
-    right: 142px;
+    right: 40vw;
     background: #ff000054;
   }
   .button-card{
     margin: 3px 3px 0 0;
     border-radius: 4px;
-    
+    font-size: 4vw;
   }
   .current-card{
     position: fixed;
     top: 2vh;
-    right: 24px;
+    right: 6vw;
     border-radius: 4px 15px 4px 4px;
     
   }
@@ -326,12 +340,12 @@ https://images7.alphacoders.com/790/790762.jpg
     position: fixed;
     top: 105vw;
     left: 0px;
-    overflow: scroll;
-    max-height: 40vh;
     padding: 0px;
     margin: 2.5vw;
     width: 95vw;
-
+    height: calc(99vh - 100vw);
+    overflow: scroll;
+    align-content: flex-start;
   }
 
  }
@@ -347,176 +361,7 @@ https://images7.alphacoders.com/790/790762.jpg
   }
  }
 
- @media screen and (max-height: 635px){
-  ol, ul {
-  
-    padding-left: 30px;
-      list-style-type: none;
-      max-height: 85%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      padding-inline-start: 0;
-  }
-  
-  .game-board{
-      display: flex;
-      flex-direction: row-reverse;
-      margin: 1vh;
-      max-height: 100vh
-  }
-  
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  
-  .game-info {
-    
-    display: flex;
-    justify-content: space-around;
-      flex-direction: column;
-      justify-content: space-around;
-      max-height: 100vh;
-  }
-  
-  .green-mark{
-    box-shadow: inset 1px 1px 12px 0px rgb(49 240 77 / 77%);
-  }
-  
-  .red-mark{
-        box-shadow: inset 1px 1px 12px 0px rgb(240 49 49);
-  }
-   
-  .blue-mark{
-        box-shadow: inset 1px 1px 12px 0px rgb(49 50 240);
-  }
-   
-  .whiteSquare{
-    background :#f9febe;
-      
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 12vh;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 12vh;
-    color: #fff0;
-    
-  }
-  
-  .blackSquare{
-    background : #8bc34a;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 12vh;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 12vh;
-    color: #fff0;
-    
-  }
-  .fit{
-    height:100%;
-    color:#fff0;
-  }
-  
-  .card{
-    width: 250px;
-      box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-      text-align: center;
-      margin: 2vh;
-      padding: 3vh;
-      border-radius: 3vh
-  }
-  
-  .button-card{
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-      text-align: center;
-      margin: 2vh;
-      padding: 1vh;
-      border-radius: 3vh;
-      background: azure;
-  }
-  .button-card:hover{
-    background-color: #d7ecff;
-    color: black;
-  }
-  .button-card:active{
-    background-color: royalblue;
-  }
-  
-  #sadsad{
-    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-      border-radius: 20px;
-      padding: 10px;
-  }
-  
-  .c00{
-    border-radius: 20px 0 0 0;
-  }
-  .c07{
-    border-radius: 0 20px 0 0;
-  }
-  .c70{
-    border-radius:0 0 0 20px;
-  }
-  .c77{
-    border-radius:   0 0 20px 0;
-  }
-  
-  .current-card{
-    background: #d7ecff;
-  }
-  #reset{
-    background: #ff000054;
-  }
- }
+ 
 
  @media screen and (max-width: 340px){
   #reset{
