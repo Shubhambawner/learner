@@ -1,0 +1,11 @@
+.current-card{
+    background: #d7ecff56;
+    backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      background-color: rgb(255 255 255 / 12%);
+      
+  }
+
+  main is backdrop filter blur and saturate, and it is applied to the main element to be made glasslike.
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
