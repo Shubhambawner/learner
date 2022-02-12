@@ -338,6 +338,10 @@ class Game extends React.Component {
           }
           let k = document.querySelector(".game-info");
           k.classList.toggle("inactive")
+          let k2 = document.querySelector(".github");
+          k2.classList.toggle("inactive")
+          let k3 = document.querySelector(".github2");
+          k3.classList.toggle("inactive");
         }}>
           <img className='iClass' src={hamburger} alt='more'></img>
         </div>
@@ -812,6 +816,8 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
   let w = window.innerWidth;
   if (w > 630 && w < 780) {
     window.alert("game supported for standard mobile/desktop view, for current device being used, game is unfer construction");
+  }if(w<=630){
+    window.alert("this site uses some advance UI properties, so it may produce lag on small screens, please switch to desktop for best experience. or, move to alternate site: https://chess-up.netlify.app/")
   }
 
 

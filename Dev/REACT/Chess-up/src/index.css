@@ -103,7 +103,7 @@ https://images7.alphacoders.com/790/790762.jpg
     max-height: 100vh;
     position: fixed;
     right: 0px;
-    bottom: 0px;
+    top: 6vh;
 }
 
 .green-mark{
@@ -248,6 +248,25 @@ https://images7.alphacoders.com/790/790762.jpg
   height: 5vw;
     max-height: 30px;
 }
+
+.github{
+  position: fixed;
+    height: 7vh;
+    width: 7vh;
+    bottom: 8vh;
+    right: 0vw;
+}
+.github2{
+  position: fixed;
+    height: 7vh;
+    width: 10vh;
+    bottom: 1vh;
+    right: 1vh;
+    margin: 0;
+    padding: 0;
+    left: auto;
+    top: auto;
+}
 /*/////////////////////media queries begin////////////////////////*/
 /*/////////////////////media queries begin////////////////////////*/
 /*/////////////////////media queries begin////////////////////////*/
@@ -312,6 +331,17 @@ https://images7.alphacoders.com/790/790762.jpg
     font-size: 5vw;
   }
 
+  .github2 {
+    position: fixed;
+    height: 6vh;
+    width: 6vh;
+    bottom: 1vh;
+    right: 1vh;
+    margin: 0;
+    padding: 0;
+    left: auto;
+    top: auto;
+}
   
   #reset{
     position: fixed;
@@ -380,4 +410,15 @@ https://images7.alphacoders.com/790/790762.jpg
 }
 .iClass{
   height: 100%;
+}
+.github2 {
+  position: fixed;
+  height: 6vh;
+  width: 6vh;
+  bottom: 1vh;
+  right: 1vh;
+  margin: 0;
+  padding: 0;
+  left: auto;
+  top: auto;
 }
