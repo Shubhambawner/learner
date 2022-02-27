@@ -18,14 +18,17 @@ var myNumber = 1 / 0;//NaN
 var myBoolean = true;
 var myBoolean = false; //any nonzero number is bool true, 0 is false
 
-// null and undefined and NaN------------------------------------------------------
+// 'null'  'undefined' 'not defined' and NaN------------------------------------------------------
 var j = null;
 var t;
-console.log(j, t);//null undefined
+console.log(j, t, newVariable);//null undefined undefined 
 /**
  * null is like a NULL pointer of c++, which is explicitly defined null
  * undefined is, vhen any identifier is not asigned any value
- * 
+ * not defined:
+ *  is when some variable being used is not even decleared, 
+ *  this can be seen only in JS modules with 'use strict', 
+ *  in frontend brousers, when a variable that is not decleard is encountered, JS interpreter itself automatically defines it, but as no value is asigned, it will stay undefined  
  */
  
 // arithmatic and logical operators-----------------------------------------------
@@ -65,14 +68,20 @@ if (1) {
 
 // access modifiers for identifiers :-----------------------------------------------------
 if (1) {
-    var x = 10; //  global
-    let y = 10; // scoped to the block
-    const z = 10;
-    w = 34; // by default it is decleared as global
+    //* access modifiers used while defining the variable: 
+    var x = 10; //  global, can be modified anywhere
+    let y = 10; // scoped to the block, can be re-asigned also inner content can be modified
+    const z = 10; // scoped to the block, cant be re-asigned but inner content can be modified
+    w = 34; // by default it is decleared as var 
 
     // let y = 10; // error:  variable y is already defined!
+    //re asigning: 
+    y = 20;
+    // z = 10; // Uncaught TypeError: Assignment to constant variable.
+    //! note, whenever JS interpreter finds '=' operator, it will check if the identifier is declared or not, 
+    //! if not, it will declare it as var, if it is decleared as const, it will throw an error
 }
-console.log(y, x, w); //only y not reachable!!
+console.log(x,w); //only x and w reachable!!
 
 /* here x is an identifier
  * is unique to every variable we create(no multiple objects of same name)
