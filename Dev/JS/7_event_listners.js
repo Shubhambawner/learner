@@ -35,10 +35,9 @@
  * change //when the form is changed (for input)
  * input //when the form is input (for input)
  * invalid //when the form is invalid (for input)
- * 
  */
 
-e1.addEventListener('click', function ho() {
+e1.addEventListener('click', ()=> {
     console.log('pressed!!')
 })
 
