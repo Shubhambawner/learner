@@ -14,12 +14,12 @@ function avr() {
 }
 /**
  * all arguments passed to function are stored in array 'arguments'
- * ant argument passed can be accessed under function via arguments array
+ * any argument passed can be accessed under function via arguments array
  * in js we need not to specify the number and type of arguments while creating a function
  * 
  */
 
-//2. dot-dot operator(rest parameters operator)
+//2. rest operator(rest parameters operator)
 function profit(cost, ...sellingPrise) {
     var a = 0;
     for (const i of sellingPrise) {
