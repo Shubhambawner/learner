@@ -9,7 +9,7 @@
  * SYNCRONUS FUNCTIONS:
  * functions for whose execution the JS code execution waits, is called SYNCRONUS
  * ex: forEach() , 
- * by default any function we create is syncronuous
+ * //* by default any function we create is syncronuous
  * 
  * Usefull to understand multi threading in js
  */

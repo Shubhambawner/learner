@@ -16,7 +16,7 @@ Math.max(1,2,3,4,5,6) //6
 Math.min(1,2,3,4,5,6) //1
 
 Math.log(Math.E) //1
-Math.log10(100) //2
+Math.log10(Math.PI) //0.4971498726941338 (~1/2)
 Math.log2(8) //3
 
 Math.random() //0.12681526181987857
