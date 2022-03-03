@@ -18,3 +18,25 @@ function getData(to_callback_Function){
    el.onclick = getData(updateUI());
 
    
+   
+//* Call-Back functions are by default Syncronous, 
+//* they are executed in the order they are written, and they
+//* mani function will only return when all callbacks are complete
+function sayHelloSync (name,callback){
+    callback('hello '+name)
+}
+
+console.log('before')
+
+//sayHelloSync (name, callbackFunction)
+sayHelloSync('BrainBell',(result) => {
+console.log(result)
+})
+
+console.log('after')
+
+/**
+before
+hello BrainBell
+after
+ */

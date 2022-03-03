@@ -25,7 +25,7 @@ function profit(cost, ...sellingPrise) {
     for (const i of sellingPrise) {
         a += i;
     }
-    return a
+    return a * sellingPrise.length - cost
 }
 /**
  * all values after cost argument get stored in array named sellingPrise
@@ -60,7 +60,7 @@ person.prototype.fullName = function () {
 }
 
 /**
- * @param prototype:
+ * //* prototype:
  * every function object has a common parameters and functions, defined under an object named prototype
  * this is like class body of that object.
  * 

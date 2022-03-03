@@ -1,4 +1,5 @@
 //* for copying of arrays, json objects, symbolls, functions :::::
+//* Same is the case for equating the objects, arrays, symbols, functions
 
 
 //! Not a copy: array is not coppied , just its reference is given
