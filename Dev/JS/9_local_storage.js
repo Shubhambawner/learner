@@ -14,11 +14,14 @@ localStorage.getItem(2)
 '77,2,3,4,5,a,b,[object Object]'
 
 /**
- * 
- * complex arrays: [1,2,3,[4,5,6,[7,8,9]]] becoms: '1,2,3,4,5,6,7,8,9'
- * josn object becoms: [object Object]
- * only string forms are stored in localstorage
- * 
- */
+  // ! distortion of data
+    * complex arrays: [1,2,3,[4,5,6,[7,8,9]]] becoms: '1,2,3,4,5,6,7,8,9'
+    * josn object becoms: [object Object]
+    * only string forms are stored in localstorage
+    * 
+  // * so, use JSON.stringify() to store dataa to the localstorage
+  // * and apply JSON.parse() to the data retrived the localstorage
+  // ? same goes for fetch requests to bakend, storing into database,...
+*/
 
 
