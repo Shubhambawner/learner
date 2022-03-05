@@ -32,7 +32,7 @@ let isEven = (num)=>{
 
 // 4. Check if a number is even using ternary operator
 let isEven2 = (num)=>{
-    return num%2==0?true:false;
+    return (num%2==0)?true:false;
 }
 
 // 5. "Consider an array of size 10 having a mixture of even and odd numbers.
@@ -54,10 +54,9 @@ let even = (arr)=>{
 //? why is the size given, it could be done without that too!
 
 // 6 Consider an array of size 10 with different numbers.
-//      6.a) Get the maximum value among them without using Math
+//      6.a) Get the maximum value among them using Math
 let max = (arr)=>{
-    let max = Math.max(...arr);
-    return max;
+    return Math.max(...arr);
 }
 
 // 6 Consider an array of size 10 with different numbers.
@@ -98,12 +97,28 @@ let refineString = (str)=>{
     for (let index = 0; index < str.length; index++) {
         if(!charData[str.charCodeAt(index)]){
             ans+=str[index]
-            charData[str.charCodeAt(index)] = "present sir!!"
+            charData[str.charCodeAt(index)] = true //26 bytes
         }
     }
     console.log(ans);
     return ans
 }
+
+let refineStringBit = (str)=>{
+    let charData = 0 // we will use this array as a hash table, with key being index , each index corrosponds to the char with absolute value equal to that index
+    let ans = ""
+    for (let index = 0; index < str.length; index++) {
+        if(!charData[str.charCodeAt(index)]){
+            ans+=str[index]
+            charData[str.charCodeAt(index)] = true //26 bytes
+        }
+    }
+    console.log(ans);
+    return ans
+}
+
+
+let parseString = (str)=> [...new Set(str)].join('') //most probably set uses hash tables internally
 
 let removeDuplicates = (str)=>{
     let charData = {}
