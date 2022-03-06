@@ -90,3 +90,13 @@ greetBye = greet('bye')
 greetHello('sam') //hello sam
 greetBye('sam') //Bye sam
 
+/**
+ * there's a way that anonymous functions can be useful 
+ * even without ever being assigned to variables or passed as arguments to other functions: 
+ * JavaScript provides a mechanism for simultaneously declaring and invoking a function 
+ * using a single expression. It's called an Immediately invoked function expression (IIFE), 
+ */
+ (function() {
+    console.log('IIFL invoked!!!')
+  })();
+
