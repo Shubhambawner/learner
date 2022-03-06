@@ -34,7 +34,7 @@ int main()
   cout<<myStack.top()<<"\n";
     //! if we try to access the top() when stack is empty, it BREAKS THE CODE, SEGMENTATION FAULT
     stack<int>myStack2;
-    cout<<myStack2.top();
+    //cout<<myStack2.top(); // <-- will break the code
 
 
   //stack pop
@@ -44,6 +44,14 @@ int main()
   printStack(&myStack);
   printStack(&myStack);
   
+  //swaping contents of two stacks
+  printStack(&myStack);
+  printStack(&myStack2);
+
+  myStack2.swap(myStack);
+  
+  printStack(&myStack);
+  printStack(&myStack2);
 }
 
 void printStack(stack<int>*st){
