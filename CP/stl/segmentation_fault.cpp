@@ -11,7 +11,7 @@
 //! Dereferencing uninitialized pointer 
 //! accessing top() of empty stack in stl
 //! Stack Overflow 
-//! 
+//! De-referencing a NULL pointer 
 //! 
 //! 
 //! 
