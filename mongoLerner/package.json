@@ -4,11 +4,15 @@
   "description": "my mongoDB ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js",
+    "dev":"nodemon index.js"
   },
   "author": "sam",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "mongoose": "^6.2.4"
   }
 }
