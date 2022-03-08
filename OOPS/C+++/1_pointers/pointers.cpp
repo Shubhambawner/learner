@@ -2,8 +2,8 @@
 #include<stack>
 using namespace std;
 void addA(stack<string>*stak){
-   // *stak.push("A"); /* error: request for member 'push' in 'stak', which is of pointer type */
-   // *stak->push("A"); /*void value not ignored as it ought to be*/
+   //? *stak.push("A"); /* error: request for member 'push' in 'stak', which is of pointer type */
+   //! here, stak is object of type: stack<string>*
    stak->push("A");
    cout<<stak<<'\n';
 }

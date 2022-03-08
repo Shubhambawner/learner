@@ -1,9 +1,29 @@
-/**
- * obj
- */
-/**
- * cbj
- */
+/*
+     references in java a:: pointers in c++
+
+similarities:
+
+     1.both are memory location (of some object )
+     2.multiple references/pointers to same obj. are possible 
+        [references are scope restricted, i.e obj from one scope cant have reference from other scope]
+     3.pointers can have null value, references too can.
+     4.both references/pointers can be decleared at compile time, & asigned some object via new operator at runtime.
+     5.object slicing applicable as it is, to both,  pointers & references
+        (i.e. asigning derived class obj to base class pointer, & then all extra param. & methods r sliced off & ....)
+        
+differences:
+
+    1. pointers have global scope, can manipulate the object belonging to anywhere.
+        but, references are scope specific, i.e. can't pass these references 
+        to other methods & modify objects from main methid
+    2. de-referencing:
+        pointers need to be de-referenced to fetch the data , 
+        but references dont need to, its automatic.
+    3. pointer arithmatic:
+        not possible with references, as the references are not accessible as hexa-decimal numbers 
+
+*/
+
 class cbj extends obj {
     public int c= 2000;
     public int a= 6666; // over riding parameter to be 6666
@@ -51,28 +71,3 @@ public class references {
         
     }
 }
-/*
-     references in java a:: pointers in c++
-
-similarities:
-
-     1.both are memory location (of some object )
-     2.multiple references/pointers to same obj. are possible 
-        [references are scope restricted, i.e obj from one scope cant have reference from other scope]
-     3.pointers can have null value, references too can.
-     4.both references/pointers can be decleared at compile time, & asigned some object via new operator at runtime.
-     5.object slicing applicable as it is, to both,  pointers & references
-        (i.e. asigning derived class obj to base class pointer, & then all extra param. & methods r sliced off & ....)
-        
-differences:
-
-    1. pointers have global scope, can manipulate the object belonging to anywhere.
-        but, references are scope specific, i.e. can't pass these references 
-        to other methods & modify objects from main methid
-    2. de-referencing:
-        pointers need to be de-referenced to fetch the data , 
-        but references dont need to, its automatic.
-    3. pointer arithmatic:
-        not possible with references, as the references are not accessible as hexa-decimal numbers 
-
-*/

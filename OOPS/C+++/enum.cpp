@@ -11,7 +11,7 @@ days_of_week day1, day2; //define variables
 day1 = Mon; //give values to
 day2 = Thu; //variables
 int diff = day2 - day1; //can do integer arithmetic
-cout << "Days between = " << diff << endl;
+cout << "Days between = " << diff << endl;// 3
 if(day1 < day2) //can do comparisons
 cout << "day1 comes before day2\n";
 
