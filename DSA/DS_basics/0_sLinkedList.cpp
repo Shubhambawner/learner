@@ -10,7 +10,7 @@ struct node
         this->data = n;
         this->next = NULL;
     }
-    node* operator ++(node n){
+    node* operator++(node n){
         return n.next;
     }
 };
