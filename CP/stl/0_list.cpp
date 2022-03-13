@@ -1,3 +1,5 @@
+//* https://www.geeksforgeeks.org/list-cpp-stl/
+
 #include <iostream>
 #include <list>
 #include <forward_list>
@@ -35,8 +37,8 @@ int main()
     l.pop_front();//1,2,3,4,5,6,7,8,9
 
     //accessing elements:-------------------------------------------
-    //cout<<l[0]<<"---\n"; //not possible in list!!
-    //only way: pointers:
+    //cout<<l[0]<<"---\n"; //!not possible in list!!
+    //!only way: pointers:
     
     //pointer iterator operations---------------------------------
     auto n =  l.begin();//*n = 1
@@ -63,6 +65,9 @@ int main()
     //1.pointed by iterator n:
     n = l.erase(n);//*n = 3, so 3 will get erased, *n=4 now
     //note, modifying n this way is mandatory, else segmentation fault appears
+
+    // is list empty?
+    cout<<l.empty(); // 1 if not, 0 if is empty
 
     //2.from node a to b, b exclusive
 

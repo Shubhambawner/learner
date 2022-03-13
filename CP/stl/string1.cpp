@@ -3,7 +3,8 @@
 using namespace std;
 int main(){
 
-    string j = "123";
+    string j = "1234567";
+    string h = string(j, 1, 3); //* constructor to construct from other strings
     
     //string length
     cout<<j.length()<<"\n";
