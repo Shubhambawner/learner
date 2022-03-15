@@ -45,6 +45,7 @@ int main(){
 
     //modify character
     str2[i] = 'T';
+    //!  str2[i] = ''; // this is empty char, string chars can only be replaced with non empty chars
     cout<<str2; // findthedoT
 
     //substr function
@@ -58,6 +59,9 @@ int main(){
     se = sub.erase(2,2); //125 everything from index 3 incl. itself erased!
     cout<<se;
 
-    //
+    //equate two strings
+    cout<<"\n\n";
+    cout<<("qwe"=="qwe")<<"\n"; //1
+    cout<<("qwe"=="qWe")<<"\n"; //0
     
 }
