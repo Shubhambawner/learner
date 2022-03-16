@@ -1,11 +1,10 @@
 /**
- * //! Palindrome is string with root ang 2 wings
- * //! like: 12345aaaaa54321 here the root is substring aaaaa
- * //! any single char or substring of same char. can be palindrome root.
-*/
+ * //* Palindrome is string with root ang 2 wings
+ * //* like: 12345aaaaa54321 here the root is substring aaaaa
+ * //* any single char or substring of same char. can be palindrome root.
+ */
 
-//* here, for searcing longest pal. we search for roots, and 
-
+//* here, for searcing longest pal. we search for roots, and then find corrosponding pall
 string longestPalindrome(string s)
 {
     if (s.empty())
@@ -19,14 +18,12 @@ string longestPalindrome(string s)
         if (n - i <= len / 2)
             break;
 
+        int j - i, k = i;
+
         while (k < n - 1 && s[k + 1] == s[k])
             ++k;
         i = k + 1;
 
-        if(len>k-j+1){
-            k+= (len-(k-j+1))/2;
-            j-= (len-(k-j+1))/2;
-        }
         while (k < n - 1 && j > 0 && s[k + 1] == s[j - 1])
         {
             ++k;
