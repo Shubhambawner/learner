@@ -5,6 +5,8 @@
  */
 
 //* here, for searcing longest pal. we search for roots, and then find corrosponding pall
+#include<bits/stdc++.h>
+using namespace std;
 string longestPalindrome(string s)
 {
     if (s.empty())
@@ -18,7 +20,7 @@ string longestPalindrome(string s)
         if (n - i <= len / 2)
             break;
 
-        int j - i, k = i;
+        int j = i, k = i;
 
         while (k < n - 1 && s[k + 1] == s[k])
             ++k;
