@@ -44,7 +44,7 @@ int main()
     auto n =  l.begin();//*n = 1
     n++;//*n=2
     n--;//*n=1
-    //move iterator i, 2 times
+    //move iterator n, 2 times
     advance(n,2);//*n = 3
 
     //-------------------------------------------------------------

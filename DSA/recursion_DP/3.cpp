@@ -34,42 +34,10 @@ int fibonacci(int n)
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-//* print sub-sequences
-//! more efficient way: power set algorithm
-list<list<int>> List;
-list<int> temp;
-void getSubsequences(int arr[], int size, int start = 0)
-{
-    if (start >= size)
-    {
-        List.push_back(temp);
-        return;
-    }
-    temp.push_back(arr[start]);
-    getSubsequences(arr,size, start + 1);
-    temp.pop_back();
-    getSubsequences(arr,size, start + 1); 
-}
-void print(list<list<int>> arr, int i = 1)
-{
-    while (!arr.empty())
-    {
-        cout<<i++<<"----";
-        list<int> g = *arr.begin();
-        list<int>::iterator it;
-        for (it = g.begin(); it != g.end(); ++it)
-            cout << *it << " ";
-        cout << '\n';
-        arr.pop_front();
-    }
-}
+
 int main()
 {
     // cout<<palindrome("MADAM");
     // cout<<flip("1234567890");
     // cout<<fibonacci(10);
-    int arr[] = {1, 2, 3, 4, 5};
-    getSubsequences(arr,16);
-    print(List);
-    cout << "\nend\n";
 }

@@ -1,4 +1,4 @@
-//doubly linked list
+// doubly linked list
 
 #include <iostream>
 using namespace std;
@@ -14,150 +14,54 @@ public:
     {
         this->data = n;
     }
+    
 };
 
 class dLinkedList
 {
 public:
     node *head = NULL;
-    int length;
 
     dLinkedList()
     {
-        this->length = 0;
         this->head = NULL;
     }
 
-    node *at(int n)
-    {
-        if (n >= 0 && n < this->length)
-        {
-            node *tnode = this->head;
-            while (n--)
-            {
-                tnode = tnode->next;
-            }
-            return tnode;
-        }
-        else
-        {
-            throw "invalid_index";
-        }
-        return NULL;
+    static void insertMiddle(node*left, node*middle, node*right){
+        left->next=middle;
+        middle->next = right;
+
+        right->prev = middle;
+        middle->prev = left;
     }
 
-    void push_back(int data)
-    {
-        node *dnode = new node(data);
-        if (this->length > 0)
-        {
-            node *tnode = this->at(this->length - 1);
-            tnode->next = dnode;
-            dnode->prev = tnode;
-        }
-        else
-        {
-            this->head = dnode;
-        }
-        this->length++;
+    static void attach(node*left, node*right){
+        left->next=right;
+        right->prev=left;
     }
 
-    node *insert(int n, int data)
-    {
-        node *m = new node(data);
-        node *t = this->at(n);
-        if (n == this->length)
-            this->push_back(data);
-        if (n > 0)
-        {
-            t->prev->next = m;
-            m->prev = t->prev;
-        }
-        if (n < this->length)
-        {
-            t->prev = m;
-            m->next = t;
-        }
-        if (n == 0)
-        {
-            this->head = m;
-        }
-        this->length++;
+    node* append_back(node*toAdd, node*target){
+        if(toAdd==NULL || target==NULL) return NULL;
+        node*temp = target->next;
+        insertMiddle(target, toAdd, temp);
     }
 
-    void remove(int n)
-    {
-        node *tnode = this->at(n);
-        if (n >= 0 && n < this->length)
-        {
-            if (n == 0)
-            {
-                this->head = tnode->next;
-                if (this->length != 1)
-                    this->head->prev = NULL;
-            }
-            else if (n == this->length - 1)
-            {
-                tnode->prev->next = NULL;
-                tnode->prev = NULL;
-            }
-            else
-            {
-                tnode->next->prev = tnode->prev;
-                tnode->prev->next = tnode->next;
-            }
-            this->length--;
+    node* append_front(node*toAdd, node*target){
+        if(this->head==target){
+            this->head = toAdd;
+            this->head->next = target;
+            target->prev = toAdd;
+            return toAdd;
         }
-        else
-        {
-            throw "invalid_index/underFlow";
-        }
+        node*temp = target->prev;
+        insertMiddle(temp, toAdd, target);
     }
 
-    void push_front(int data)
-    {
-        if (this->length == 0)
-        {
-            this->head = new node(data);
-            this->length++;
-        }
-        else
-        {
-            node *t = this->head;
-            this->head = new node(data);
-            this->head->next = t;
-            t->prev = this->head;
-            this->length++;
-        }
+    node* remove_front(node*toAdd, node*target){
+
     }
 
-    void pop_back()
-    {
-        if (this->length > 0)
-        {
-            node*tnode = this->head;
-            if(this->length == 1){
-                this->head = NULL;
-                tnode->next = tnode->prev = NULL;
-            }else{
-                while (tnode->next!=NULL)
-                {
-                    tnode->prev->next = NULL;
-                    tnode->prev = NULL ;
-                }
-                
-            }
-            this->length--;
-        }
-        else
-        {
-            throw "underFlow";
-        }
-    }
+    node* remove_back(node*toAdd, node*target){
 
-    void pop_front(){
-        this->head = this->head->next;
-        this->head->prev->next = NULL;
-        this->head->prev = NULL;
     }
 };

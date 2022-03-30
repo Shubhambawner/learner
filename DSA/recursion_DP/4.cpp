@@ -1,0 +1,162 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+template <class T>
+void print(T arr, int i = 1);
+
+// //* print sub-sequences
+// //! more efficient way: power set algorithm
+list<list<int>> List;
+list<int> temp;
+void getSubsequences(int arr[], int size, int start = 0)
+{
+    if (start >= size)
+    {
+        List.push_back(temp);
+        return;
+    }
+    temp.push_back(arr[start]);
+    getSubsequences(arr, size, start + 1);
+    temp.pop_back();
+    getSubsequences(arr, size, start + 1);
+}
+
+vector<vector<int>> ans;
+vector<int> t;
+int sum = 0, a = 0;
+void getSummingSequence(int arr[], int size, int start = 0)
+{
+    if (sum == a)
+    {
+        ans.push_back(t);
+        // t.clear();sum=0; //! we dont have to clear temp. variables, they are in fact, used dynamically !!
+        return;
+    }
+    if (size == start)
+    {
+        // t.clear(); //! we dont have to clear temp. variables, they are in fact, used dynamically !!
+        return;
+    }
+
+    sum += arr[start];
+    t.push_back(arr[start]);
+    getSummingSequence(arr, size, start + 1);
+    sum -= arr[start];
+    t.pop_back();
+    getSummingSequence(arr, size, start + 1);
+}
+
+// for loop aproach: //* always go for pure recursive one
+void getMultiSummingSequence(int arr[], int size, int start = 0)
+{
+    if (sum > a)
+        return;
+
+    if (sum == a)
+    {
+        ans.push_back(t);
+        // t.clear();sum=0; //! we dont have to clear temp. variables, they are in fact, used dynamically !!
+        return;
+    }
+    if (size <= start)
+        return;
+
+    int rev = sum;
+    vector<int> revData = t;
+    for (; sum <= a;)
+    {
+        t.push_back(arr[start]);
+        sum += arr[start];
+        getMultiSummingSequence(arr, size, start + 1);
+    }
+    sum = rev;
+    t = revData;
+
+    getMultiSummingSequence(arr, size, start + 1);
+}
+
+// pure recursion approach: //* always go for pure recursive one
+// void getMultiSummingSequence(int arr[], int size, int start = 0)
+// {
+//     if (sum > a)
+//     {
+//         return;
+//     }
+
+//     if (sum == a)
+//     {
+//         ans.push_back(t);
+//         // t.clear();sum=0; //! we dont have to clear temp. variables, they are in fact, used dynamically !!
+//         return;
+//     }
+//     if (size <= start)
+//         return;
+
+//     if (sum <= a) //* never implement the for loop with
+//     {
+//         t.push_back(arr[start]);
+//         sum += arr[start];
+//         getMultiSummingSequence(arr, size, start);
+//         sum -= arr[start];
+//         t.pop_back();
+//     }
+
+//     getMultiSummingSequence(arr, size, start + 1);
+// }
+
+// https://leetcode.com/problems/combination-sum-ii/
+void combinationSum2(int target, vector<int> candidates, int starter = 0)
+{
+    if (target == 0)
+    {
+        // if(!check.count(temp)){ check.insert(temp);}
+        ans.push_back(t);
+        return;
+    }
+    if (target < 0)
+    {
+        return;
+    }
+
+    if (starter >= candidates.size())
+        return;
+
+    temp.push_back(candidates[starter]);
+    combinationSum2(target - candidates[starter], candidates, starter + 1);
+    temp.pop_back();
+
+    while (starter + 1 < candidates.size() && candidates[starter] == candidates[starter + 1])
+        starter++;
+
+    combinationSum2(target, candidates, starter + 1);
+}
+
+
+int main()
+{
+    int arr[] = {1, 2, 3};
+    // getSubsequences(arr, 5);
+    // print(List);
+    a = 4;
+    // getConditionalSequence(arr, 7);
+    vector<int> candidates = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    combinationSum2(a, candidates, 2);
+    print(ans);
+    cout << "\nend\n";
+}
+
+// utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
+template <class T>
+void print(T arr, int i)
+{
+
+    for (auto g = arr.begin(); g != arr.end(); ++g)
+    {
+        cout << i++ << "---- ";
+        for (auto it = (*g).begin(); it != (*g).end(); ++it)
+        {
+            cout << *it << " ";
+        }
+        cout << '\n';
+    }
+}

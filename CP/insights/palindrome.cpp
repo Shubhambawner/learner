@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 /**
  * //* Palindrome is string with root ang 2 wings
  * //* like: 12345aaaaa54321 here the root is substring aaaaa
@@ -5,8 +7,6 @@
  */
 
 //* here, for searcing longest pal. we search for roots, and then find corrosponding pall
-#include<bits/stdc++.h>
-using namespace std;
 string longestPalindrome(string s)
 {
     if (s.empty())
