@@ -15,7 +15,7 @@ var project = {
     uid: 111, //user id of recruiter
     // cid: "", // this topic is not linked with one catagory, but many
     globalTags: [ ], // array of of tags (just like TAGs, a project can have multiple tags) (should we name it as tags?)
-    //! store slugified tag names as: tag:<slugified_tag_name>, use _key aspect of tag    
+    //! store slugified tag names as: tag:<slugified_tag_name>, or use _key aspect of tag  (which already is in this format )  
     
     type: 'project',
         
