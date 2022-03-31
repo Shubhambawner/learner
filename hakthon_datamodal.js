@@ -14,13 +14,9 @@ var project = {
     tid: 38, //tipoc id of project, or project id (should we name it as pids?)
     uid: 111, //user id of recruiter
     // cid: "", // this topic is not linked with one catagory, but many
-    cids: [  //* array of categories objects with minor detail st we dont need to call {db id type name
-        {
-            cid:2,
-            name:"JS",
-            link: '',//? should we have it?
-        } //category , and array of subcategories associated with it inside
-    ], // array of of categories (just like TAGs, a project can have multiple tags) (should we name it as tags?)
+    globalTags: [ ], // array of of tags (just like TAGs, a project can have multiple tags) (should we name it as tags?)
+    //! store slugified tag names as: tag:<slugified_tag_name>, use _key aspect of tag    
+    
     type: 'project',
         
     //2 Project specific data: that recruiter will set
@@ -36,19 +32,25 @@ var project = {
         //recruiter_uid: 420, // uid of recruiter
 
     //3 Recruiter specific data:
-    recruiter: {
-        uid: "", // user id of recruiter
-        username: "", // user name of recruiter
-        fullname:'',
-        userslug: '',
-        picture:'',
-        aboutme: "", // description of recruiter
-        status: "", // status of recruiter, online offline
-    }, // project recruiter
+    recruiter_uid:1, // project recruiter
     // tasks: [999, 907], // array of task ids //! is it needed? we can use for(i in task_data){} loop or Object.keys(task_data)
     
     //3 applicants and their data:
-    task_data: [999, 990], // array of Object ids of tasks    
+    task_data: [
+        {
+            task_id: (index), // task id
+            task_title: "", // task name
+            task_description: "", // task description
+            tools:[],
+            asset_header: "", // task header
+            asset_description:"",
+            asset_link:"",
+            response_type: "",// thread builder, file, text, link
+        },
+        
+    ], // array of Object ids of tasks 
+    
+    
 }
 
 // to update data in database see https://www.mongodb.com/docs/manual/reference/command/findAndModify/#examples
@@ -56,23 +58,17 @@ var project = {
 
 //an asset class just like feedbacks we have in the database
 //
-var task = {
-    pid: 999, // unique id
-    _key: "task:999",
-    tid:38,
-    uid:111,
+// var task = {
+//     pid: 999, // unique id
+//     _key: "task:999",
+//     tid:38,
+//     uid:111,
     
-    attachment_type:'project',
-    type: 'task',
+//     attachment_type:'project',
+//     type: 'task',
     
-    deadline: (project_end_time), // project end date 
-    asignment_resources: { 
-        thread_builder:true,
-        link:false,
-        file:false,
-        text:true
-    }
-}
+    
+// }
 
 //POST to the TOPIC
 var submissionInfo = {
@@ -85,29 +81,29 @@ var submissionInfo = {
     
     attachment_id:38,
     attachment_type:'project',
+    type:'submissionInfo',
     
-    status:'',// submitted, pending, reasigned, accepted.
+    eval_status:'',// pending, reasigned, accepted.
+    participant_status:'',// submitted, progress, reasigned.
+    certifiate_url:'',
+
     latest_subtask_submit_time: "", // latest submission time.
     
     selected_submit_time: "", // selected submission time
     data: [   
-        {
-            task_id: 999, // task id
-            submission:{
-                link:'',
-                text:'',
-                file:null,
-                thread_builder_id:344,
-                image:null
-            }, // task data
-            sharer:{
-                // sharer object 
-            },
-            
+        {           
             submit_time: Date.now(), // submit time, when user submits this sub task
-            status:'',// submitted, pending, reasigned, accepted.
+            eval_status:'',// pending, reasigned, accepted.
+            participant_status:'',// submitted, progress, reasigned.
         }
-    ]    
+    ] ,
+    
+    submission_histry:{
+        time:{
+            eval_status:'',// pending, reasigned, accepted.
+            response_url:'',// submitted, progress, reasigned.
+        }, // submission time, when user submits this sub task
+    }
 
 }
 

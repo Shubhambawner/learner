@@ -3,19 +3,19 @@ using namespace std;
 
 string padding = "\n";
 void recurse(){
-    padding+="|";
+    padding+="|  ";
     cout<<padding<<"recurse enter";
 }
 void returnRecurse(){
-    string temp = "\n";
-    for (int i = 0; i < padding.size()-2; i++)
-    {
-        temp+="|";
-    }
-    cout<<padding<<"recurse exit ";
-    padding = temp;
+    
+    cout<<padding<<"recurse end";
+    padding = padding.erase(padding.size()-3);
 }
-
+void returnRecurse(char a){
+    
+    cout<<padding<<"recurse end "<<a;
+    padding = padding.erase(padding.size()-3);
+}
 // utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
 template <class T>
 void print(T arr,  int i = 0)

@@ -12,9 +12,9 @@ void print(T*start, T*end){
 
 int main(){
     int a[10] = {1,2,3,4,5,6,7,8,9,0};
-    print<int>(a,a+10);
+    print(a,a+10);
 
     list<int> b = {1,2,3,4};
     cout<<*b.begin();
-    print<_List_iterator<int>>(b.begin(), b.end());
+   // print(b.begin(), b.end());
 }
