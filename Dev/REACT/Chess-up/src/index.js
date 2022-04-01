@@ -822,9 +822,7 @@ function movePieceTo(i, j, tsquares, ib, jb, realMove=true) { //realMove is a bo
 
 
   // ========================================
-  ReactDOM.render(<Game
-
-  />, document.getElementById("root"));
+  ReactDOM.render(<Game/>, document.getElementById("root"));
 
 
 /*
