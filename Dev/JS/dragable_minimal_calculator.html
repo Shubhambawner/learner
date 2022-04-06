@@ -1,0 +1,128 @@
+<!--https://www.javascripttutorial.net/javascript-dom/javascript-mouse-events/-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="board">
+        <div class="detail">here:</div>
+        <div class="formstyle calculator" style="position: absolute;">
+            <div id="fly"
+                style="width: 100%;background-color: aqua;display: flex;justify-content: space-between;min-width: 170.400px;cursor: move">
+                <p style="margin: 6px;">Calculator</p>
+                <button style="margin: 6px;" id="form_togler">-</button>
+            </div>
+            <br>
+            <br>
+            <form name="form1" id="form_calculator" style="background: #cee8ff;">
+
+
+
+                <!-- This input box shows the button pressed by the user in calculator. -->
+                <input id="calc" type="text" name="answer" onkeydown="if(event.keyCode == 13){event.preventDefault();} ">
+                <br>
+
+                <div>
+                    <!-- Display the calculator button on the screen. -->
+                    <!-- onclick() function display the number prsses by the user. -->
+                    <ul style="padding-inline-start: 32px;">
+                        <input type="button" value="1" onclick="form1.answer.value += '1' ">
+                        <input type="button" value="2" onclick="form1.answer.value += '2' ">
+                        <input type="button" value="3" onclick="form1.answer.value += '3' ">
+                        <input type="button" value="+" onclick="form1.answer.value += '+' ">
+                    </ul>
+                    <ul style="padding-inline-start: 32px;">
+                        <input type="button" value="4" onclick="form1.answer.value += '4' ">
+                        <input type="button" value="5" onclick="form1.answer.value += '5' ">
+                        <input type="button" value="6" onclick="form1.answer.value += '6' ">
+                        <input type="button" value="-" onclick="form1.answer.value += '-' ">
+                    </ul>
+                    <ul style="padding-inline-start: 32px;">
+                        <input type="button" value="7" onclick="form1.answer.value += '7' ">
+                        <input type="button" value="8" onclick="form1.answer.value += '8' ">
+                        <input type="button" value="9" onclick="form1.answer.value += '9' ">
+                        <input type="button" value="*" onclick="form1.answer.value += '*' ">
+                    </ul>
+                    <ul style="padding-inline-start: 32px;">
+
+                        <input type="button" value="/" onclick="form1.answer.value += '/' ">
+                        <input type="button" value="0" onclick="form1.answer.value += '0' ">
+                        <input type="button" value="." onclick="form1.answer.value += '.' ">
+                        <!-- When we click on the '=' button, the onclick() shows the sum results on the calculator screen. -->
+                        <input type="button" value="=" onclick="form1.answer.value = eval(form1.answer.value) ;">
+                    </ul>
+                    <ul style="padding-inline-start: 32px;">
+                        <!-- Display the Cancel button and erase all data entered by the user. -->
+                        <input type="button" value="Clear All" onclick="form1.answer.value = ' ' " id="clear">
+                    </ul>
+                    <br>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+    </div>
+    <script>
+        let body = document.querySelector('body')
+        let boxMover = document.querySelector('#fly')
+        let calculator = document.querySelector('.calculator')
+        let formTogler = document.querySelector('#form_togler')
+        let formCalculator = document.querySelector('#form_calculator')
+
+        formTogler.onclick = () => {
+            formCalculator.style.display = (formCalculator.style.display == 'none') ? "block" : "none";
+            formTogler.innerText = (formTogler.innerText == '-') ? '+' : '-';
+        }
+
+        boxMover.onmousedown = function (e) {
+            body.onmousemove = function (e) {
+                calculator.style.top = `${e.y - (boxMover.clientHeight) / 2}px`
+                calculator.style.left = `${e.x - (boxMover.clientWidth) / 2}px`
+            }
+            body.onmouseup = function (e) {
+                body.onmousemove = null
+            }
+
+
+        }
+
+        // let customCalculatorFunction = (input)=>{
+        //     for(let i = 0; i<input.length; i++){
+        //         if(isNaN(i) && i!='+' && i!='-' && i!='*' && i!='/' && i!='+' && i!='.') window.alert("invalid input to calculator!")
+        //     }
+        // }
+        // Document.onmouseup = function (e) {
+        //     f.onmousemove = null
+        // }
+        //
+        // Document.onmouseout = function (e) {
+        //     f.onmousemove = null
+        // }
+
+        //document.addEventListener('mouseup', function(){console.log('yyyyy')})
+
+    </script>
+    <style>
+        #fly {
+            position: absolute;
+
+
+        }
+
+        .board {
+            width: 100%;
+            height: 90vh;
+            border: solid
+        }
+    </style>
+
+</body>
+
+</html>
