@@ -24,7 +24,7 @@ var project = {
     short_description: "", // project description
     description: "", // project description
     start_time: "", // project start date
-    end_time: [], // array of project end dates from which applicants can select one
+    end_time: [1,2,3], // array of project end dates from which applicants can select one
     status:'',//,draft, published, closed
     uploadedpictures: [
         {name: "", url: "", description: ""},
@@ -42,9 +42,14 @@ var project = {
             task_title: "", // task name
             task_description: "", // task description
             tools:[],
-            asset_header: "", // task header
-            asset_description:"",
-            asset_link:"",
+            assets:[
+                {
+                    asset_header: "", // task header
+                    asset_description:"",
+                    asset_link:"",
+            
+                }
+            ],
             response_type: "",// thread builder, file, text, link
         },
         
@@ -70,11 +75,11 @@ var project = {
     
 // }
 
-//POST to the TOPIC
+//*POST to the TOPIC
 var submissionInfo = {
-    _key: "post:453", // MongoDB object ID
+    _key: "post:453", // nodebb key // created by nodebb itself
     pid:453,
-    tid: 38, // task id
+    tid: 38, // topic id of project to which submission is made
 
     uid: 1, // user id of  applicant (mongodb wala ?)
     name:'', // user name
@@ -83,27 +88,28 @@ var submissionInfo = {
     attachment_type:'project',
     type:'submissionInfo',
     
-    eval_status:'',// pending, reasigned, accepted.
-    participant_status:'',// submitted, progress, reasigned.
-    certifiate_url:'',
+    certifiate_url:{
+        url:'',
+        timestmp:'',
+        issued_by:'',
+    },
 
-    latest_subtask_submit_time: "", // latest submission time.
+    latest_task_submit_time: "", // latest submission time.
     
     selected_submit_time: "", // selected submission time
-    data: [   
-        {           
-            submit_time: Date.now(), // submit time, when user submits this sub task
-            eval_status:'',// pending, reasigned, accepted.
-            participant_status:'',// submitted, progress, reasigned.
-        }
-    ] ,
+    timestmp: "", // created by nodebb itself
     
-    submission_histry:{
-        time:{
-            eval_status:'',// pending, reasigned, accepted.
+    submission_histry:[ //array of submission objects, 
+        {
+            eval_status:'',// pending, reasigned, accepted,rejected
             response_url:'',// submitted, progress, reasigned.
+            submit_time: Date.now(), // submit time, when user submits this task
+
+            task_submissions:{  // array of topic submissions
+                999: 'http://...' // task_id:link //? to pass all of the tasks, or only one?
+            }
         }, // submission time, when user submits this sub task
-    }
+    ]
 
 }
 
