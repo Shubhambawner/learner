@@ -36,7 +36,7 @@ var project = {
     // tasks: [999, 907], // array of task ids //! is it needed? we can use for(i in task_data){} loop or Object.keys(task_data)
     
     //3 applicants and their data:
-    task_data: [
+    tasks: [
         {
             task_id: (index), // task id
             task_title: "", // task name
