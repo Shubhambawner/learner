@@ -1,15 +1,24 @@
 let a = 1;
 
-$("#add").on("click", function() {
-    console.log("tt")
-    $("#list").append(`<li id="item${a}" onClick="changeState(${a})" >Item ${a}  <button id='remove' onClick="removeItem(${a})">remove ${a++}</button></li>`);
+$("body").on("click","#add", function() {
+    $(this).parents().first().append(
+        `<div id="dynamic">Item ${a++}  
+            <input type="text" id="item" name="item" placeholder="Item" ></input>
+            <button id='remove' >-</button>  
+            <button id='add' >++</button> 
+            <button id='addSelected' >+=</button> 
+        </div>`);
+    someIntentionalBug();
+})
+$("body").on("click","#addSelected", function() {
+    $(this).parents().first().append(
+        $("#selected").children().clone().attr("id","dynamic")
+    );       
+    someIntentionalBug();
 })
 
-let changeState = (a)=>{
-    $(`div#state`)[0].innerHTML = `<p>${a}</p>`;
-}
-let removeItem = (a)=>{
-    $(`#item${a}`).remove();
-}
+$("body").on("click", "#remove", function(){$(this).parents().first().remove(); someIntentionalBug();})
 
-console.log("script loaded")
+$("body").on("click", "div#dynamic", function(){$(`div#selected`)[0].innerHTML = `<div>${$(this).html()}</div>`; someIntentionalBug(); })
+
+$("body").on("click", "input", function(){ someIntentionalBug(); })
