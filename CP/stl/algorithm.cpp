@@ -16,6 +16,8 @@ int main(){
 
     int arr[] ={1,2,3,4,5,6,7,44,8,9,0};
 
+    swap(arr[1], arr[2]);
+
     sort(arr, arr+11);
 
     reverse(arr,arr+ 11);

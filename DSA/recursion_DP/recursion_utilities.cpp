@@ -33,6 +33,21 @@ void print(T arr,  int i = 0)
     }
 }
 template <class T>
+void print2(T arr,  int i = 0)
+{
+
+    for (auto g = arr.begin(); g != arr.end(); ++g)
+    {
+        cout<<padding;
+        cout << i++ << "---- \n";
+        for (auto it = (*g).begin(); it != (*g).end(); ++it)
+        {
+            cout << *it << " \n";
+        }
+        cout << "|\n";
+    }
+}
+template <class T>
 void srint(T arr,  int i = 0)
 {
     cout<<padding;
