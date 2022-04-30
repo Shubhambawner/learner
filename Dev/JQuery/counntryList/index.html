@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Search by filters: task 1</h1>
+    <input type="radio" id="r0" name="searchBy" value="alpha">country codes<br>
+    <input type="radio" id="r2" name="searchBy" value="capital">capital city<br>
+    <input type="radio" id="r3" name="searchBy" value="lang">languages<br>
+    <input type="radio" id="r5" name="searchBy" value="name" checked>country full name<br>
+    <input type="text" id="input" placeholder="search">
+    <table id="dynamic"></table>
+    <h1>Search in all countries:</h1>
+    <input type="text" id="input2" placeholder="Search in all countries">
+    <button id="all">see All countries</button>
+    <table id="dynamicAll"></table>
+    <div id="selected"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        let countries = {
+            searchCountry: (req) => {
+                if (req) req.abort();
+                let searchType = $("input[name='searchBy']:checked").val()
+                let searchQuery = $("#input").val();
+                return $.ajax({
+                    url: `https://restcountries.com/v2/${searchType}/${searchQuery}${searchType == `name` ? `?fullText=true` : ``}`,
+                    method: "GET",
+                    success: function (data) {
+                        $("#dynamic").html(`<tr>
+            <th>Name</th>
+            <th>region</th>
+            <th>languages</th>
+        </tr>`);
+                        $("#selected").html("");
+
+                        //console.log(data)
+                        data.forEach(function (elem) {
+                            //console.log(elem)
+                            $("#dynamic").append(
+                                `<tr>
+                            <td class="showlist" data-details=${JSON.stringify(elem).replaceAll(' ', '_')}>${elem.name}</td>
+                            <td>${elem.region}</td>
+                            <td>${elem.languages.map(elem => elem.name).join(',')}</td>
+                            </tr>`
+                            );
+                        });
+                    },
+                    error: function (err) {
+                        //console.log(err);
+                    }
+                });
+            },
+            getAllCountries: () => {
+                return $.ajax({
+                    url: `https://restcountries.com/v2/all`,
+                    method: "GET",
+                    success: function (data) {
+                        $("#dynamicAll").html(`<tr>
+            <th>Name</th>
+            <th>region</th>
+            <th>languages</th>
+        </tr>`);
+                        $("#selected").html("");
+
+                        //console.log(data)
+                        data.forEach(function (elem) {
+                            //console.log(elem)
+                            $("#dynamicAll").append(
+                                `<tr>
+                            <td class="showlist" data-details=${JSON.stringify(elem).replaceAll(' ', '_')}>${elem.name}</td>
+                            <td>${elem.region}</td>
+                            <td>${elem.languages.map(elem => elem.name).join(',')}</td>
+                            </tr>`
+                            );
+                        });
+                    },
+                    error: function (err) {
+                        //console.log(err);
+                    }
+                });
+            },
+            searchAllCountries: () => {
+                let searchQuery = $("#input2").val();
+                $("#dynamicAll tr").each(
+                    function () {
+                        $(this).toggle(
+                            $(this).text().toLowerCase().indexOf(searchQuery) > -1
+                        )
+                    }
+                );
+                $("#selected").html("");
+            },
+            showDirty: function (details) {
+                $("#selected").html(details);
+            }
+        }
+    </script>
+    <script>
+        let req = null;
+        $("#input").keyup(function (e) {
+            req = countries.searchCountry(req)
+        });
+        $("#input2").keyup(function (e) {
+            req = countries.searchAllCountries()
+        });
+        $(`[type="radio"]`).change(function (e) {
+            req = countries.searchCountry(req)
+        });
+        $("#all").click(function (e) {
+            if (req) req.abort();
+            if ($(`#all`).text() == "hide") {
+                $(`#dynamicAll`).html("")
+                $(`#all`).text("see All countries")
+            } else {
+                $(`#dynamicAll`).html("loading...")
+                req = countries.getAllCountries()
+                $(`#all`).text("hide")
+            }
+        });
+        $('body').on('click', '.showlist', 
+        function(){countries.showDirty($(this).attr('data-details'))}
+        );
+
+        $('#all').click()
+    </script>
+
+</body>
+
+</html>
