@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <h3>welcome to CMS (criminal management system)</h3>
+    <h1 id="entry">Login</h1>
+    <form id="login">
+        <h4>status:unauthorised, dare to edit the data?</h4>
+        <p>note: we don't have silly passwords like: adminDG#123$ and dummy usernames like adminUser</p>
+        <input type="text" id="username" placeholder="username">
+        <input type="password" id="password" placeholder="password">
+    </form>
+    <button id="loginBtn">Login</button>
+
+
+
+    <script>
+
+        $('body').on('click', "#loginBtn", function (e) {
+            e.preventDefault();
+            if ($("#loginBtn").text() == `Log Out`) {
+                localStorage.clear();
+                $("#loginBtn").text(`Login`);
+                $("#username").val(``);
+                $("#password").val(``);
+                $("#login").show();
+                $('#entry').text('log in')
+            } else {
+                let username = $("#username").val();
+                let password = $("#password").val();
+                $.ajax({
+                    url: `https://api.jsonbin.io/v3/b/626d6ee925069545a32b431b`,
+                    method: "GET",
+                    headers: {
+                        "X-Access-Key": "$2b$10$7Di3QhGKxrSHitSaHWLxS.DWHjApvm/aomc9oDIudsOILVdpdxHvm",
+                        "X-JSON-Path": `$.${username}[\"${password}\"]`
+                    },
+                    success: function (data) {
+                        //console.log(data);
+                        $("#loginBtn").text(`Log Out`);
+                        $('#entry').text('logged inn!')
+                        $("#login").hide();
+                        localStorage.setItem(`auth`, data.record[0]);
+                    },
+                    error: function (err) {
+                        window.alert(err);
+                    }
+                });
+            }
+        });
+        let isLoggedIn = localStorage.getItem('auth')
+        if (isLoggedIn) {
+            $("#loginBtn").text(`Log Out`);
+            $("#login").hide();
+            $('#entry').text('logged inn!')
+        }
+    </script>
+
+
+    <h1>manage criminals:</h1>
+    <input type="text" id="input" placeholder="Search in all users">
+    <button id="all">see users</button>
+    <button id="addBtn">add users</button>
+    <p>note:smash on criminals's name to shake him down</p>
+    <table id="dynamic"></table>
+    <div id="selected"></div>
+
+    <script>
+        let users = {
+            getAllUsers: async () => {
+                return await $.ajax({
+                    url: `https://api.jsonbin.io/v3/b/626d7b3f38be296761fa43bc`,
+                    method: "GET",
+                    headers: {
+                        "X-Access-Key": "$2b$10$7Di3QhGKxrSHitSaHWLxS.DWHjApvm/aomc9oDIudsOILVdpdxHvm",
+                        "Content-Type": "application/json"
+                    },
+                    success: function (data) {
+                        $("#dynamic").html(`<tr>
+                            <th>Name</th>
+                            <th>Country</th>
+                            <th>City</th>
+                            <th>Gender</th>
+                            <th>Adress</th>
+                        </tr>`);
+                        $("#selected").html("");
+
+                        console.log(data)
+                        data.record.forEach(function (elem) {
+                            //console.log(elem)
+                            $("#dynamic").append(
+                                `<tr>
+                            <td class="showlist" data-details=${JSON.stringify(elem).replaceAll(' ', '_')}>${elem.name}</td>
+                            <td>${elem.country}</td>
+                            <td>${elem.city}</td>
+                            <td>${elem.gender}</td>
+                            <td>${elem.adress}</td>
+                            </tr>`
+                            );
+                        });
+                    },
+                    error: function (err) {
+                        //console.log(err);
+                    }
+                });
+            },
+            searchAllUsers: () => {
+                let searchQuery = $("#input").val();
+                $("#dynamic tr").each(
+                    function () {
+                        $(this).toggle(
+                            $(this).text().toLowerCase().indexOf(searchQuery) > -1
+                        )
+                    }
+                );
+                $("#selected").html("");
+            },
+            showDirty: function (details) {
+                details = JSON.parse(details);
+                $("#selected").html(`
+                <form id="update"  >
+                    <input type="text" id="name" value="${details.name}">
+                    <input type="text" id="country"  id="input2" placeholder="Search in all countries" value="${details.country}">
+                    <input type="text" id="city" value="${details.city}">
+                    <input type="text" id="adress" value="${details.adress}">
+                    <input type="text" id="gender" value="${details.gender}">
+                    <button id="updateBtn" data-id=${details.id}>update</button>
+                    <button id="addNewBtn" >add as new criminal</button>
+                    <button id="deleteBtn" data-id=${details.id}>delete</button>
+                    <p>note:try editing the country, it will bleed !</p>
+                </form>
+                `);
+                $("#selected").append(`<table id="dynamicAll"></table>`)
+            },
+            updateUser: async function (id, data, userData) {
+                let i = 0;
+                data.id = id
+                console.log(id, data, userData)
+                for (i; i < userData.length; i++) {
+                    if (userData[i].id == id) break;
+                }
+                userData[i] = data;
+                var settings = {
+                    "url": "https://api.jsonbin.io/v3/b/626d7b3f38be296761fa43bc",
+                    "method": "PUT",
+                    "timeout": 0,
+                    "headers": {
+                        "X-Master-Key": localStorage.getItem('auth'),
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify(UserData),
+                    success:function(){
+                        console.log('record updated !')
+                        window.alert('record updated !')
+                    },
+                    error:function(err){
+                        console.log('record not updated !', JSON.stringify(err))
+                        window.alert('record not updated !'+ JSON.stringify(err))
+                    }
+                };
+                return await $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+
+            },
+            deleteUser: async function (userData) {
+                var settings = {
+                    "url": "https://api.jsonbin.io/v3/b/626d7b3f38be296761fa43bc",
+                    "method": "PUT",
+                    "timeout": 0,
+                    "headers": {
+                        "X-Master-Key": localStorage.getItem('auth'),
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify(userData),
+                    success:function(){
+                        console.log('record updated !')
+                        window.alert('user deleted !')
+                    },
+                    error:function(err){
+                        console.log('record not updated !', JSON.stringify(err))
+                        window.alert('user not deleted !'+ JSON.stringify(err))
+                    }
+                };
+                return await $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+
+            }
+
+
+        }
+    </script>
+    <script>
+        let UserData = null;
+        $("#input").keyup(function (e) {
+            users.searchAllUsers()
+        });
+        $("#all").click(async function (e) {
+            if ($(`#all`).text() == "hide") {
+                $(`#dynamic`).html("")
+                $(`#all`).text("see users")
+            } else {
+                $(`#dynamic`).html("loading...")
+                UserData = await users.getAllUsers()
+                UserData = UserData.record
+
+                $(`#all`).text("hide")
+            }
+        });
+        $('body').on('click', '.showlist',
+            function () { users.showDirty($(this).attr('data-details')) }
+        );
+        $('body').on('click', '#updateBtn', async function (e) {
+            e.preventDefault();
+            let data = {};
+            data.name = $('#name').val()
+            data.country = $('#country').val()
+            data.city = $('#city').val()
+            data.adress = $('#adress').val()
+            data.gender = $('#gender').val()
+            $(`#dynamic`).html("updating record...")
+            try {
+                await users.updateUser(parseInt($(this).attr('data-id')), data, UserData)
+            } catch (error) {
+                console.log(error)
+            }
+            UserData = await users.getAllUsers()
+            UserData = UserData.record
+        })
+        
+        $('body').on('click', "#addNewBtn", async function(e){
+            e.preventDefault();
+            let data = {};
+            data.name = $('#name').val()
+            data.country = $('#country').val()
+            data.city = $('#city').val()
+            data.adress = $('#adress').val()
+            data.gender = $('#gender').val()
+            $(`#dynamic`).html("updating record...")
+            let i = 0;
+            for(let j =0;j<UserData.length;j++){
+                i = UserData[j]['id']>i?UserData[j]['id']:i
+            }
+            try {
+                await users.updateUser(i+1, data, UserData)
+            } catch (error) {
+                console.log(error)
+            }
+            UserData = await users.getAllUsers()
+            UserData = UserData.record
+        })
+
+        $('body').on('click', "#addBtn", async function(e){
+            e.preventDefault();
+            $("#selected").html(`
+                <form id="update"  >
+                    <input type="text" id="name" placeholder="name" >
+                    <input type="text" id="country"  id="input2" placeholder="country">
+                    <input type="text" id="city" placeholder="city">
+                    <input type="text" id="adress" placeholder="adress" >
+                    <input type="text" id="gender" placeholder="gender">
+                    <button id="addNewBtn" >add</button>
+                </form>
+                `);
+                $("#selected").append(`<table id="dynamicAll"></table>`)
+        })
+
+
+        $('body').on('click', "#deleteBtn", async function(e){
+            e.preventDefault();
+            $(`#dynamic`).html("updating record...")
+            let i = 0;
+            let newUserData = [];
+            let did = $(this).attr('data-id')
+            for(let j =0;j<UserData.length;j++){
+                if(UserData[j]['id']!=did)newUserData.push(UserData[j])
+            }
+            try {
+                await users.deleteUser(newUserData)
+            } catch (error) {
+                console.log(error)
+            }
+            UserData = await users.getAllUsers()
+            UserData = UserData.record
+        })
+
+        $('#all').click()
+    </script>
+
+    <script>
+        let countries = {
+            searchCountry: (req) => {
+                if (req) req.abort();
+                let searchType = 'name'
+                let searchQuery = $("#country").val();
+                return $.ajax({
+                    url: `https://restcountries.com/v2/${searchType}/${searchQuery}`,
+                    method: "GET",
+                    success: function (data) {
+                        $("#dynamicAll").html(``);
+                        
+
+                        //console.log(data)
+                        data.forEach(function (elem) {
+                            //console.log(elem)
+                            $("#dynamicAll").append(
+                                `<tr>
+                        <td class="showlistCountry" data-details=${JSON.stringify(elem).replaceAll(' ', '_')}>${elem.name}</td>
+                        </tr>`
+                            );
+                        });
+
+                    },
+                    error: function (err) {
+                        //console.log(err);
+                    }
+                });
+            },
+
+        }
+
+
+        let req = null;
+        $('body').on('keyup', "#country", function (e) {
+            e.preventDefault()
+            let top = `${$('#country').position().top + $('#country').height()}px`
+            let left = `${$('#country').position().left}px`
+            console.log(top, left)
+            $("#dynamicAll").css({
+                position: 'absolute',
+                top: top,
+                left: left,
+                color: 'red'
+            });
+            $(`#dynamicAll`).html("loading...")
+            req = countries.searchCountry(req)
+        });
+        $('body').on('click', '.showlistCountry', function () {
+            console.log($(this).text())
+            $('#country').val(`${$(this).text()}`)
+        })
+        $('body').on('focusout', '#country', function(){
+            console.log('rrr')
+            setTimeout(
+                ()=>{
+                    $('#dynamicAll').html(``);
+                }, 700
+            )
+        })
+    </script>
+
+</body>
+
+</html>
