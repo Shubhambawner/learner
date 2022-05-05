@@ -1,0 +1,44 @@
+body{
+  background-color: #f4b5ff;
+    background-blend-mode: soft-light;
+    background-image: url(bg.jpg);
+    background-attachment: scroll;
+    background-size: 120px;
+}
+
+.card .design{
+  width: 100%;
+  height: 80%;
+
+}
+
+.card{
+  width:90%;
+  height: 50vh;
+  background-color: rgba(255, 255, 255, 0.37);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000;
+  margin-bottom: 3vh;
+}
+
+.showcase{
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.design{
+  background-repeat: repeat-x;
+  background-size: contain;
+  border-radius: inherit;
+}
+
+.card h3{
+  padding-left: 2rem;
+  font-family: 'Stylish', sans-serif;
+}
+
+.showcase{
+  font-family: 'Montserrat', sans-serif;
+}
