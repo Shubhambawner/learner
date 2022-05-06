@@ -1,19 +1,39 @@
-body{
+body {
   background-color: #f4b5ff;
-    background-blend-mode: soft-light;
-    background-image: url(bg.jpg);
-    background-attachment: scroll;
-    background-size: 120px;
+  background-blend-mode: soft-light;
+  background-image: url(./img/bg.jpg);
+  background-attachment: scroll;
+  background-size: 120px;
+  background-attachment: fixed;
+  margin: 0;
 }
 
-.card .design{
+.header {
+  position: fixed;
+  width: 100vw;
+  background: #f0f8ff9e;
+  height: 40vh;
+  z-index: 2;
+}
+
+.showcase {
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
+  top: 45vh;
+}
+
+.card .design {
   width: 100%;
   height: 80%;
 
 }
 
-.card{
-  width:90%;
+.card {
+  width: 90%;
   height: 50vh;
   background-color: rgba(255, 255, 255, 0.37);
   border-radius: 10px;
@@ -21,24 +41,43 @@ body{
   margin-bottom: 3vh;
 }
 
-.showcase{
-  display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.design{
+.design {
   background-repeat: repeat-x;
   background-size: contain;
   border-radius: inherit;
 }
 
-.card h3{
+.card h3 {
   padding-left: 2rem;
-  font-family: 'Stylish', sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
-.showcase{
+.header h1 {
+  font-family: 'Poiret One', cursive;
+  font-size: 7rem;
+  font-weight: 400;
+  margin-block-end: 4px;
+  color: #4b0050;
+  text-align: center;
+}
+
+.header h2 {
   font-family: 'Montserrat', sans-serif;
+  margin-block-end: 7rem;
+  color: #5a3f69;
+  font-size: inherit;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+a:hover {
+  color: #d80098;
+}
+
+a:active {
+  color: #1e0c87;
+}
+
+a:visited {
+  color: #4f0000;
 }

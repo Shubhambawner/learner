@@ -5,17 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IWT 6</title>
+    <title>IWT 6 (fonts)</title>
     <link rel="stylesheet" href="a6.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&family=Stylish&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+    <!--
+    # BEHAVOIUR OF LINK HREF TAG IN HTML:
+        ## Pre connect attribute :
+    the resources with pre-connect are from other origins, 
+    and so, the seperate connection needs to be made to those origins
+    without pre-connect:
+    for each resource, it's remote origin is first connected, then downloaded. this happens one after other for all resources.
+    with preconnect:
+    all the connections are simultaneously parallely made, then each resource is downloaded one by one
+    ref:https://css-tricks.com/using-relpreconnect-to-establish-network-connections-early-and-increase-performance/ 
+    -->
+    <!--
+        # Z INDEX with NESTED ELEMENTS:
+        . if A and B are 2 direct children of same parent, 
+        and if A's z-index is greater than B's, 
+        . then A will be on top of B
+        also, all the child elements of A will be on top of all the B's child elements
+        No matter what are their z-indices...
+        (here A is .header, B is .showcase, common parent being body.)
+        ! use: to create MULTI-Layerd website:  ex: https://www.wix.com/website-template/view/html/2170
+    -->
+</head>
 
 <body>
     <div class="header">
         <h1>Patterns</h1>
-        <h2>Welcome to the diverse collection of patterns, feel lost in their beauty!</h2>
+        <h2>Welcome to the diverse collection of patterns, feel lost in their beauty!<br>
+        <a href="https://www.nitrr.ac.in/">Visit us</a></h2>
     </div>
     <div class="showcase">
         <div class="card">
@@ -55,7 +80,7 @@
             <h3>Pattern 9</h3>
         </div>
         <div class="card">
-            <div style="background-image:url(i10.jp)"class="design"></div>
+            <div style="background-image:url(i10.jpg)"class="design"></div>
             <h3>Pattern 10</h3>
         </div>
     </div>

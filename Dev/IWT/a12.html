@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT 11 (Cookie setter)</title>
+</head>
+
+<body>
+    <button onclick="auth()">set Auth cookie</button>
+    <button onclick="authClear()">remove auth cookie</button><br><br>
+    <input type="text" class="i1" placeholder="cookie">
+    <input type="text" class="i2" placeholder="value">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <div class="status">auth status: </div>
+    Cookie: <div class="cookie"></div>
+    <script>
+        var cookieDiv = document.querySelector('div.cookie');
+        var input1 = document.querySelector('.i1');
+        var input2 = document.querySelector('.i2');
+        function setCookie() {
+            if (!check()) window.alert('no auth cookie found')
+            if (!(input1.value && input2.value)) {
+                window.alert("please fill the cookie-value pair")
+            }
+            let cookie = `${input1.value}=${input2.value}; expires=${new Date(new Date().getTime() + 1000000000)}`
+            document.cookie = document.cookie + cookie;
+        };
+        function getCookie() {
+            var cookie = document.cookie;
+            cookieDiv.innerHTML = cookie;
+        }
+        function auth() {
+            var cookie = document.cookie + `auth=secretCode; expires=${new Date(new Date().getTime() + 1000000000)}`;
+            updateStatus()
+        }
+        function authClear() {
+            var cookie = document.cookie + `auth=;`;
+            updateStatus()
+        }
+        function check() {
+            var cookie = document.cookie;
+            if (cookie.includes("auth=secretCode")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function updateStatus() {
+            if (check()) {
+                document.querySelector('div.status').innerHTML = "auth status: auth cookie found";
+            } else {
+                document.querySelector('div.status').innerHTML = "auth status: auth cookie not found";
+            }
+        }
+        updateStatus()
+    </script>
+</body>
+
+</html>

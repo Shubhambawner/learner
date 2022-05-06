@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT 8 (blinking effect)</title>
+</head>
+<body style="color:white">
+    this is blinking effect in action...
+    <script>
+        var body = document.querySelector('body');
+        setInterval(function () {
+            body.style.color = body.style.color == 'white' ? 'black' : 'white';
+            body.style.background = body.style.background == 'white' ? 'black' : 'white';
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+function onLogin(req){
+    search for cocredDetails object in cocredDetails collection for user 
+    if(not found) then create
+    return the details of user to frontend
+}
+
+----------------------------------------------------------------------------------------
+/* query for req. will have priceList ID , moduleID, amount */
+
+function purchaseModule(req){
+    . if (not logged in) error: unauthorised
+
+    . priceList.getPriceList(priceListID)
+    . if(found)
+        . verify module and amount with priceList 
+        . get debit amount as cocreds found in priceList object
+        . get expiry by incrementing Date.now with moduleDuration(which is in days)
+    . else throw error: valid priceList not found
+
+    . processTransaction("debit",amount, req)
+    . if (error: no balance) throw error: insufficient funds
+
+    module_purchase_order.createModulePurchase( purchaseOrderID, priceList object, expiry)
+
+    return purchaseOrderID
+    if(error)
+}
+
+----------------------------------------------------------------------------------------------
+
+/*
+req. will have razorpayIDs of successfull payment, and cocredOrderID for order that is done, and error msg for failure payment
+*/
+
+function onPaymentFailureWebhook(req){
+    . validate that webhook from raz. is authenticly making this call, and giving all the 3 datapoints needed: paymentID, orderID and cocredOrderID.
+    ( if webhooks can't be configured to give back the cocredOrderID, we will have to make one db call to find it by razorpay's orderID, sadly)
+    . processTransaction("credit", amount,  req)
+    . cocred_Orders.updateRazorpayDetails({paymentID, "success"}, req, cocredOrderID )
+}
+
+function onPaymentFailureWebhook(req){
+    . validate that webhook from raz. is authenticly making this call, and giving all the 3 datapoints needed: paymentID, orderID and cocredOrderID.
+    ( ... )
+    . if(not authentick) error: unauthorised
+    . cocred_Orders.updateRazorpayDetails({paymentID, "failure", 
+    error:"payment processing error"+ error from razorpay }, req, cocredOrderID )
+}
+
+function generateOrderID(req){
+    . if (not logged in) error: unauthorised
+    . cocred_Orders.initiateCocredOrder(req) 
+    . make razorpay order via their API
+    . if (could not be made) 
+        .   cocred_Orders.updateRazorpayDetails({status: "failed", 
+        error: "orderID generation failed: "+ error message from razorpay api}, req, cocredOrderID ) 
+        .   throw error...
+    . else 
+        .   cocred_Orders.updateRazorpayDetails({status: "pending", orderID}, req, cocredOrderID ) 
+    . return orderID and cocredOrderID (to frontend client side)
+}
+
+------------------------------------------------------------------------------------------
+
+function initiatePayment(){         //client side
+    . validate login
+    . call server for generateOrderID(req), get orderID and cocredOrderID 
+    . if error: orderID not generated!
+    . if success: 
+        . initiate razorpay object with orderID and callback url with cocredOrderID  // tough part
+        . razorpay SDK will handle the payment, and: 
+            *   redirect to success/failure
+            *   fire the success/failure webhooks that is configured, to notify the server with paymentID, orderID and cocredOrderID.
+}
+
+callback url: success page and failure page with razorpay hooks configurated for each.
+
+function initiateModulePurchase(){
+    . validate login
+    . call purchaseModule(priceListID) server api with priceListID
+    . if(error: no item found) show error
+    . if(error: no balance) show error
+}
+------------------------------------------------------------------------------------
+
+// I will do it as a single db query with transaction pipeline in mongoDB, will this b good?
+
+run checkInvoices() everyday 12.00 AM via schedulerJS { need to research }
+
+
+//? say auto deduct warning period is 2 days, on 30th there is invoice due, so 
+on 28th, 29th, 30th the code will detect the invoice, and try to debit, if not possible will throw notiff.
+BUT, what after 30th ? 
+should we let them manually pay for resuming the course, 
+or still each day this pending invoice has to be detected and notified for ?
+
+
+//? for when due is on 30th, say jan 30th it auto deducted, feb 30th there were no funds, also, for full march there were no funds, so not allowed to enter,
+but on march 25 funds got added, 
+now, 
+on march 30, the auto-deduct should cut the amount for which month ?
+March (which he almost didnt attend as didnt pay, but now would have accessories and submission rights,etc... , if pays)
+OR, April ?
+OR, his entire month's cource will resume from 25th as a beginning date?  from where he left (which is not possible in case of live cources altho)
+
+
+function checkinvoices(){
+    . get threshold days as warning days from config
+    . in module_purchase_orders collection, find all purchase module objects that:
+        1. have invoices array as a subdocument 
+        2. have invoice due date of latest pending invoice less than today's date + warning days 
+        3. have invoice due date of latest pending invoice more than today's date
+        ( latest pending asset means: invoice whose index is least in array of invoices, as they are kept sorted w.r.t. time while creating ) 
+    . with each object, we do : 
+        . get the latest invoice, 
+        . get the cocreds due as amount 
+        . processTransaction("debit", amount)
+        . if(error: insufficient cocreds)
+            . notifyUser(message: cocreds topup needed !+ no. of cocreds, cource ) ( how ! => maybee add a notification, which is not created yet )
+        . else
+            . updateSubscription(invoiceOrderID)
+}
+
+
+
+
+------------------------------------------------------------------------------------------
+
+
+//TODO-----------------------------------------------
+4. web hooks for when payment done (failed and success)
+https: //razorpay.com/docs/webhooks/setup-edit-payments/
+===============================================================================================
+function createModulePurchase( purchaseOrderID, priceList, expiry){
+    . if no purchaseOrderID or priceList or expiry, throw error: missing credential
+    . if(invoice array is there in priceList) create module_purchase_order with invoices object, each having proper expiry date with acc. to duration as subscriptionTime and subscriptionTimeUnit from priceList
+        *   1st invoice paid, others pending, with their IDs, timestamps and expiris..
+        *   adding subsceiptionTime, subscriotionTimeUnit, ... to module_purchase_order
+        store in module_purchase_orders
+    . else: create module_purchase_order in module_purchase_orders with and expiry and  all required other data fields: created = Date.now, status = "active", ...
+    . return created purchaseOrderID
+}
+
+function updateSubscription(invoiceOrderID, status="paid"){
+    if(no ID) error: no ID given
+    update invoiceOrder to active for module_purchase
+}
+
+
+function validateModule(moduleID, uid){
+    . find object in module_purchase_objects such that:
+        1. uid = uid
+        2. moduleID = moduleID
+        3. expiry >= date.now()
+    . if found: return {validated=true, purchaseOrderID }
+    . else return false
+}
+
+function validateSubscription(moduleID, uid, subscriptionTimeUnit){
+    . find object in module_purchase_objects such that:
+        1. uid = uid
+        2. moduleID = moduleID
+        4. subscriptionTimeUnit = subscriptionTimeUnit
+        4. subscriptionTime = subscriptionTime
+        3. invoices.invoiceDate >= date.now - subscriptionTimeUnit*subscriptionTime (in microseconds)
+        4. status = paid
+    . if found: return {validated=true, purchaseOrderID }
+    . else return false
+}
+==========================================================================================================================
+
+
+function getPriceList(priceListID){
+    . return priceList object if found
+    . else return false
+}
+
+
+==========================================================================================================================
+
+// all functions related to cocredDetails collection
+
+/*
+type:"debit","credit"
+amount:number
+req
+}
+*/
+function processTransaction(type, amount, req){
+    . if(not authentick ) unauthorised
+    . call cerdit or debit transaction functions acc. to type sending the amount 
+}
+
+function processDebitTransaction(amount, req){
+    
+    . lock cocredDetail object
+    . validate balance against given amount
+    . if(not found enough balance) 
+        . unlock cocredDetail document in database
+        . throw the error: insufficient cocredits
+    . push this debit transaction in cocredDetails of user in cocredDetails collection with above created invoiceOrderID/purchaseOrderID
+    . decrease cocredDetails's cocred balance 
+    . unlock cocredDetail object
+
+}
+
+function processCreditTransaction(amount, req){
+    
+    . lock 
+    . increment cocredDetails's cocred balance 
+    . push the cocred transaction to cocredDetails of user in cocredDetails collection
+    . update details like last updated by and last updated time...
+    . unlock
+
+}
+
+==========================================================================================================================
+
+function createModulePurchase( purchaseOrderID, priceList, expiry){
+    . if no purchaseOrderID or priceList or expiry, throw error: missing credential
+    . if(invoice array is there in priceList) create module_purchase_order with invoices object, each having proper expiry date with acc. to duration as subscriptionTime and subscriptionTimeUnit from priceList
+        *   1st invoice paid, others pending, with their IDs, timestamps and expiris..
+        *   adding subsceiptionTime, subscriotionTimeUnit, ... to module_purchase_order
+        store in module_purchase_orders
+    . else: create module_purchase_order in module_purchase_orders with and expiry and  all required other data fields: created = Date.now, status = "active", ...
+    . return created purchaseOrderID
+}
+
+function updateSubscription(invoiceOrderID, status="paid"){
+    if(no ID) error: no ID given
+    update invoiceOrder to active for module_purchase
+}
+
+
+function validateModule(moduleID, uid){
+    . find object in module_purchase_objects such that:
+        1. uid = uid
+        2. moduleID = moduleID
+        3. expiry >= date.now()
+    . if found: return {validated=true, purchaseOrderID }
+    . else return false
+}
+
+function validateSubscription(moduleID, uid, subscriptionTimeUnit){
+    . find object in module_purchase_objects such that:
+        1. uid = uid
+        2. moduleID = moduleID
+        4. subscriptionTimeUnit = subscriptionTimeUnit
+        4. subscriptionTime = subscriptionTime
+        3. invoices.invoiceDate >= date.now - subscriptionTimeUnit*subscriptionTime (in microseconds)
+        4. status = paid
+    . if found: return {validated=true, purchaseOrderID }
+    . else return false
+}
+
+
+==========================================================================================================================
+
+function onLogin(req){
+    if (not logged in) throw error
+    search for cocredDetails object in cocredDetails collection for user 
+    if(not found) then create
+    return the details of user to frontend
+}
+
+----------------------------------------------------------------------------------------
+/*
+type: "cocred"/"debit"
+data:{
+    amount:number
+    (if cocred topup:)
+    razorpayOrderID,
+    razorpayPaymentID,
+    (else if module purchase:)
+    expiry
+    amount
+    invoice (if subscription module,it's the as is object fetched from priceList)
+req
+}
+*/
+function processTransaction(string type, object data, req){
+
+    if(not authentick ) unauthorised
+    lock cocredDetails of user
+    if( already it is Locked ) then return error
+    
+    if(type == 'debit'){
+        . valiadte balance of user in cocredDetails , against the debit amount
+        . if(not found enough balance) 
+            . unlock cocredDetail document in database
+            . throw the error
+        . if(invoice object is provided) create purchase object with invoices object,
+            *   1st invoice paid, others pending, with their IDs, timestamps and expiris..
+            *   adding subsceiptionTime, subscriotionTimeUnit, ... to purchase object
+            store in module_purchase_orders
+        . else: create purchase object in module_purchase_orders with all required data fields: created, status...
+        . push this debit transaction in cocredDetails of user in cocredDetails collection
+        . decrease cocredDetails's cocred balance 
+    }
+    else if(type == 'cocred'){
+        . update cocredOrder object with razorpay orderID, paymentID, status = success, timestamp... 
+        . push the cocred transaction to cocredDetails of user in cocredDetails collection
+        . increment cocredDetails's cocred balance 
+    }
+    else{
+        throw error: invalid transaction type!
+    }
+
+    unlock cocredDetail document in database
+}
+/*
+data:{
+    amount:number
+    expiry
+    amount
+    invoice (if subscription module,it's the as is object fetched from priceList)
+req
+}
+*/
+function processDebitTransaction(){
+    if(not authentick ) unauthorised
+
+    let db_resp = await db.FindOne("cocredDetails", 
+    { query:{uid:1, cocredBalance:{$gte:amount}, status:"unlocked"} , 
+      update:{
+          $set:{status:"locked"}, 
+          $incr:{cocredBalance:-1*amount} , 
+          $set:{status:"locked"}} 
+        }
+        new:true
+        )
+    if(db_resp.lastErrorObject.updatedExisting){ 
+        . create purchase_order object in purchase_orders
+        . push this debit transaction in cocredDetails of user in cocredDetail collection
+        return { status:success }
+    }
+    else return { error: " try after some time "}
+}
+/*
+data:{
+    amount:number
+    razorpayOrderID,
+    razorpayPaymentID,
+req
+}
+*/
+function processCreditTransaction(){
+    if(not authentick ) unauthorised
+    . lock
+    . increment cocredDetails's cocred balance 
+    . push the cocred transaction to cocredDetails of user in cocredDetails collection
+    . unlock
+    . update cocredOrder object with razorpay orderID, paymentID, status = success, timestamp... 
+}
+----------------------------------------------------------------------------------------
+
+function purchaseCocreds(req){
+    if (not logged in) error: unauthorised
+    . make cocredOrder object with null fields for raz. order & payments and uid store in cocredOrders collection
+    . make razorpay order 
+    . if (could not be made) update createOrder accordingly...
+    . store orderID in cocredOrder
+    . return orderID (to frontend client side)
+}
+
+function purchaseModule(req){
+    if (not logged in) error: unauthorised
+    verify module and amount with priceList (by getting pricelist for req.priceListID )
+    get debit amount as the module price found in priceList collection
+    get expiry from module 
+    if(priceList has invoice object) processTransaction("debit", {amount, expiry, invoice}, req)
+    else processTransaction("debit", {amount, expiry}, req)
+}
+
+
+-----------------------------------------------------------------------------------------
+
+function initiatePayment(){         //client side
+    validate login
+    call server for purchaseCocreds(req), get orderID 
+    initiate razorpay object with orderID and callback url      // needs research
+}
+
+function initiatepurchaseModule(){
+    validate login
+    call purchaseModule(priceListID) server api with priceListID
+}
+------------------------------------------------------------------------------------
+
+
+function paymentSuccess(req){
+    processTransaction("cocred", {req.razorpayOrderID, razorpayPaymentID}, req)
+}
+
+function paymentFailure(req){
+    if(not authentick) error: unauthorised
+    update cocredOrder object with razorpay paymentID, status = failed, timestamp...
+}
+
+------------------------------------------------------------------------------------------
+
+
+//TODO-----------------------------------------------
+1. module purchase
+2. cocred purchase
+3. re-name remaning collections: db.cocredDetails.renameCollection(cocred_details)
+4. web hooks for when payment done (failed and success)
+https: //razorpay.com/docs/webhooks/setup-edit-payments/

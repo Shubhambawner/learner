@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT 7 (JS clock)</title>
+</head>
+
+<body>
+    <div class="clock"> </div>
+    <div class="calander"> </div>
+    <style>
+        @font-face {
+            font-family: "digital";
+            src: url("Digital.otf")format("opentype");
+            ;
+        }
+
+        .clock {
+            font-family: "digital";
+            font-size: 10rem;
+            color: red;
+        }
+
+        .calander {
+            font-size: larger;
+            color: wheat;
+        }
+
+        body{
+            background: black;
+        }
+    </style>
+
+
+    <script>
+        var clock = document.querySelector('.clock');
+        var calander = document.querySelector('.calander');
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var day = date.getDay();
+        var months = date.getMonth();
+        var year = date.getFullYear();
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        clock.innerHTML = days[day] + ', ' + months[months] + ' ' + date.getDate() + ', ' + year + ' ' + hours + ':' + minutes + ':' + seconds;
+        setInterval(function () {
+            date = new Date();
+            hours = date.getHours();
+            minutes = date.getMinutes();
+            seconds = date.getSeconds();
+            day = date.getDay();
+            month = date.getMonth();
+            year = date.getFullYear();
+            days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            clock.innerHTML = hours + ':' + minutes + ':' + seconds;
+            calander.innerHTML = days[day] + ', ' + months[month] + ' ' + date.getDate() + ', ' + year
+        }, 1000);
+    </script>
+</body>
+
+</html>

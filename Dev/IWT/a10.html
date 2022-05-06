@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT 10 (JS form checks )</title>
+    <link rel="stylesheet" href="a5.css">
+</head>
+
+<body>
+    <card>
+    <div >
+        <div class="container">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label class="name">Name</label>
+            <label id="name_error" class="error"></label>
+            <input id="name" type="text" name="name" placeholder="Enter your name" onkeyup="checkname()">
+            
+            <label class="email">Email</label>
+            <label id="email_error"  class="error"></label>
+            <input id="email"  type="email" name="email" placeholder="Enter your email" onkeyup="checkemail()">
+            
+            <label class="password">Password</label>
+            <label id="password_error"  class="error"></label>
+            <input id="password"  type="password" name="password" placeholder="Enter your password"  onkeyup="checkpassword()" >
+            
+            <button class="registerbtn" onclick="submit()">Submit</button>
+        </div>
+        <div class="container signin">
+            <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+
+        <script src="a10.js"></script>
+
+    </div>
+</card>
+</body>
+
+</html>
