@@ -1,0 +1,10 @@
+<!ELEMENT BOOKS (book)> 
+
+<!ELEMENT books (book*)> 
+<!ELEMENT book (title,author,isbn,publisher,edition,price)> 
+<!ELEMENT title (#PCDATA)> 
+<!ELEMENT author (#PCDATA)> 
+<!ELEMENT isbn (#PCDATA)> 
+<!ELEMENT publisher (#PCDATA)> 
+<!ELEMENT edition (#PCDATA)> 
+<!ELEMENT price (#PCDATA)> 

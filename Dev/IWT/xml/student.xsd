@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="student">
+        <xs:complextype>
+            <xs:sequence>
+                <xs:element name="roll_no" type="xs:string" />
+                <xs:element name="name">
+                    <xs:complextype>
+                        <xs:sequence>
+                            <xs:element name="first_name" type="xs:string" />
+                            <xs:element name="last_name" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complextype>
+                </xs:element>
+                <xs:element name="father-name">
+                    <xs:complextype>
+                        <xs:sequence>
+                            <xs:element name="first_name" type="xs:string" />
+                            <xs:element name="last_name" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complextype>
+                </xs:element>
+                <xs:element name="branch" type="xs:string" />
+                <xs:element name="year" type="xs:integer" />
+                <xs:element name="addr">
+                    <xs:complextype>
+                        <xs:sequence>
+                            <xs:element name="door-no" type="xs:string" />
+                            <xs:element name="street" type="xs:string" />
+                            <xs:element name="city" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complextype>
+                </xs:element>
+                <xs:element name="email" type="xs:string" />
+                <xs:element name="phno" type="xs:integer" />
+            </xs:sequence>
+        </xs:complextype>
+    </xs:element>
+</xs:schema>

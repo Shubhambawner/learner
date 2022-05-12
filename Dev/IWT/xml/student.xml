@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<student xmlns:xsi="xmlschema-instance" xsi:SchemaLocation="student.xsd">
+    <roll_no>08A01D2501</roll_no>
+    -
+    <name>
+        <first_name>A</first_name>
+        <Last_name>Aruna</Last_name>
+    </name>
+    -
+    <father_name>
+        <first_name>Venkateswara</first_name>
+        <Last_name>Rao</Last_name>
+    </father_name>
+    <branch>computer engineering</branch>
+    <year>1ST Year</year>
+    -
+    <address>
+        <door-no>32-15/1-44</door-no>
+        <street>B.R.Nagar-1</street>
+        <city>Gurgaon</city>
+    </address>
+    <email>iaaruna@yahoo.com</email>
+    <phno>9949643372</phno>
+    <roll_no>08A01D2501</roll_no>
+    -
+    <name>
+        <first_name>Prathap</first_name>
+        <Last_name>Rudra</Last_name>
+    </name>
+    -
+    <father_name>
+        <first_name>Venkateswara </first_name>
+        <Last_name>B</Last_name>
+    </father_name>
+    <branch> computer engineering (mtech) </branch>
+    <year>1st Year</year>
+    -
+    <address>
+        <door-no>door no 603/n</door-no>
+        <street>Recoloney</street>
+        <city>Delhi</city>
+    </address>
+    <email>brprathap@gmail.com</email>
+    <phno>9866145423</phno>
+    <roll_no>08A01D2503</roll_no>
+    -
+    <name>
+        <first_name>Ramesh</first_name>
+        <Last_name>Kumar</Last_name>
+    </name>
+    -
+    <father_name>
+        <first_name>Venkateswara</first_name>
+        <Last_name>Rao</Last_name>
+    </father_name>
+    <branch> computer engineering(mtech) </branch>
+    <year>1st Year</year>
+    -
+    <address>
+        <door-no>32-15/1-44</door-no>
+        <street>B.R.Nagar-1</street>
+        <city>Gurgaon</city>
+    </address>
+    <email>itrameshch@gmail.com</email>
+    <phno>9985150379</phno>
+    <roll_no>08A01D2504</roll_no>
+    -
+    <name>
+        <first_name>kishore</first_name>
+        <Last_name>Galla</Last_name>
+    </name>
+    -
+    <father_name>
+        <first_name>Venkateswara</first_name>
+        <Last_name>Rao</Last_name>
+    </father_name>
+    <branch> Computer engineering (mtech) </branch>
+    <year>1st Year</year>
+    -
+    <address>
+        <door-no>32-15/1-44</door-no>
+        <street>B.R.Nagar-1</street>
+        <city>Gurgaon</city>
+    </address>
+    <email>galla_kishore@yahoo.com</email>
+    <phno>990837394</phno>
+    <roll_no>08A01D2505</roll_no>
+    -
+    <name>
+        <first_name>Madhu</first_name>
+        <Last_name>Garlapati</Last_name>
+    </name>
+    -
+    <father_name>
+        <first_name>Venkateswara</first_name>
+        <Last_name>Rao</Last_name>
+    </father_name>
+    <branch> commputer engineering (mtech) </branch>
+    <year>1st Year</year>
+    -
+    <address>
+        <door-no>32-15/1-44</door-no>
+        <street>B.R.Nagar-1</street>
+        <city>Gurgaon</city>
+    </address>
+    <email>madhubabu.garlapati@gmail.com</email>
+    <phno>9908005778</phno>
+</student>
