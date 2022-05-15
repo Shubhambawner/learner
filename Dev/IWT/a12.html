@@ -9,38 +9,61 @@
 </head>
 
 <body>
-    <button onclick="auth()">set Auth cookie</button>
-    <button onclick="authClear()">remove auth cookie</button><br><br>
-    <input type="text" class="i1" placeholder="cookie">
-    <input type="text" class="i2" placeholder="value">
-    <button onclick="setCookie()">Set Cookie</button>
-    <button onclick="getCookie()">Get Cookie</button>
-    <div class="status">auth status: </div>
-    Cookie: <div class="cookie"></div>
     <script>
-        var cookieDiv = document.querySelector('div.cookie');
-        var input1 = document.querySelector('.i1');
-        var input2 = document.querySelector('.i2');
-        function setCookie() {
-            if (!check()) window.alert('no auth cookie found')
-            if (!(input1.value && input2.value)) {
-                window.alert("please fill the cookie-value pair")
+        
+        var setCookie = (name, value, days = 3, path = '/') => {
+            var input1 = document.querySelector('.i1');
+            var input2 = document.querySelector('.i2');
+
+            let Name = name ? name : input1.value;
+            let Value = value ? value : input2.value;
+
+            let cookie = `${Name}=${encodeURIComponent(Value)}`;
+
+            // Add expiry date
+            if (days) {
+                const expiry = new Date();
+                expiry.setDate(expiry.getDate() + days);
+                cookie += `; expires=${expiry.toUTCString()}`;
             }
-            let cookie = `${input1.value}=${input2.value}; expires=${new Date(new Date().getTime() + 1000000000)}`
-            document.cookie = document.cookie + cookie;
+
+            // Add Path
+            if (path) cookie += `; path=${path}`;
+
+            // Set an HTTP cookie
+            document.cookie = cookie;
         };
-        function getCookie() {
-            var cookie = document.cookie;
-            cookieDiv.innerHTML = cookie;
+
+        var clearAll = function(){
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let c = cookies[i].trim().split('=');
+                let name = c[0];
+                let value = '';
+                setCookie(name, value, -1)
+            }
+            console.log(document.cookie)
         }
-        function auth() {
-            var cookie = document.cookie + `auth=secretCode; expires=${new Date(new Date().getTime() + 1000000000)}`;
+
+        var  getCookie = function() {
+            var cookieDiv = document.querySelector('div.cookie');
+
+            cookieDiv.innerHTML = document.cookie.replace(/ ;/i, '<br>');;
+        }
+
+        var auth = function() {
+            let name = 'auth';
+            let value = `AuthValue${Math.random()}`;
+            setCookie(name, value, 3)
             updateStatus()
         }
         function authClear() {
-            var cookie = document.cookie + `auth=;`;
+            let name = 'auth';
+            let value = ``;
+            setCookie(name, value, -1)
             updateStatus()
         }
+
         function check() {
             var cookie = document.cookie;
             if (cookie.includes("auth=secretCode")) {
@@ -58,6 +81,17 @@
         }
         updateStatus()
     </script>
+
+    <button onclick="auth()">set Auth cookie</button>
+    <button onclick="authClear()">remove auth cookie</button><br><br>
+    <button onclick="clearAll()">remove all cookies</button><br><br>
+    <input type="text" class="i1" placeholder="cookie">
+    <input type="text" class="i2" placeholder="value">
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="getCookie()">Get Cookie</button>
+    <div class="status">auth status: </div>
+    Cookie: <div class="cookie"></div>
+
 </body>
 
 </html>
