@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+	<CD>
+        <ID>1</ID>
+		<USER>Bob Dylan</USER>
+		<COUNTRY>USA</COUNTRY>
+	</CD>
+	<CD>
+        <ID>2</ID>
+		<USER>Bonnie Tyler</USER>
+		<COUNTRY>UK</COUNTRY>
+	</CD>
+	<CD>
+        <ID>3</ID>
+		<USER>Dolly Parton</USER>
+		<COUNTRY>USA</COUNTRY>
+	</CD>
+	<CD>
+        <ID>4</ID>
+		<USER>Gary Moore</USER>
+		<COUNTRY>UK</COUNTRY>
+	</CD>
+	<CD>
+        <ID>5</ID>
+		<USER>Eros Ramazzotti</USER>
+		<COUNTRY>EU</COUNTRY>
+	</CD>
+	<CD>
+        <ID>6</ID>
+		<USER>Bee Gees</USER>
+		<COUNTRY>UK</COUNTRY>
+	</CD>
+	<CD>
+        <ID>7</ID>
+		<USER>Dr.Hook</USER>
+		<COUNTRY>UK</COUNTRY>
+	</CD>
+	<CD>
+        <ID>8</ID>
+		<USER>Rod Stewart</USER>
+		<COUNTRY>UK</COUNTRY>
+	</CD>
+	<CD>
+        <ID>9</ID>
+		<USER>Andrea Bocelli</USER>
+		<COUNTRY>EU</COUNTRY>
+	</CD>
+	<CD>
+        <ID>10</ID>
+		<USER>Percy Sledge</USER>
+		<COUNTRY>USA</COUNTRY>
+	</CD>
+</CATALOG>

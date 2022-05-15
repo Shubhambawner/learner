@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="a15.css"?>
+<!DOCTYPE BOOKDATA SYSTEM "a15.dtd">
+
+<BOOKDATA>
+
+    <BOOK>
+        <TITLE>Physics</TITLE>
+        <AUTHOR> H.C. Verma</AUTHOR>
+        <EDITION>2011 4th edition</EDITION>
+        <PRICE>100/-</PRICE>
+    </BOOK>
+
+    <BOOK>
+        <TITLE>Physics</TITLE>
+        <AUTHOR> I.E. Irodove</AUTHOR>
+        <EDITION>2019 1st edition</EDITION>
+        <PRICE>100/-</PRICE>
+    </BOOK>
+
+    <BOOK>
+        <TITLE>Anand</TITLE>
+        <AUTHOR> YASHWANT RAJPUT</AUTHOR>
+        <EDITION>2021 edition</EDITION>
+        <PRICE>100/-</PRICE>
+    </BOOK>
+
+    <BOOK>
+        <TITLE>Hindi pustak</TITLE>
+        <AUTHOR> SHRADDHA PATEL</AUTHOR>
+        <EDITION>2021 4th edition</EDITION>
+        <PRICE>100/-</PRICE>
+    </BOOK>
+
+    <BOOK>
+        <TITLE>Game of Life</TITLE>
+        <AUTHOR> ANIMESH SHARMA</AUTHOR>
+        <EDITION>2018 edition</EDITION>
+        <PRICE>100/-</PRICE>
+    </BOOK>
+
+
+</BOOKDATA>

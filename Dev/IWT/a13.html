@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+	<input id="i" type="text" value="0" />
+	<button onclick="searchUser()">Search User</button>
+	<div id="display"></div>
+	<script>
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET", "a13.xml", false);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+		var x = xmlDoc.getElementsByTagName("CD");
+
+		const searchUser = function () {
+			let i = document.querySelector("#i").value;
+			let flag = true;
+			for (let j = 0; j < x.length; j++) {
+				element = x[j];
+				if (element.getElementsByTagName("ID")[0].childNodes[0].nodeValue == i) {
+					showUser(parseInt(i));flag = false;
+				}
+			};
+			if(flag) window.alert("No such user");
+		}
+
+		const showUser = function (i) {
+			i--;
+			document.querySelector(`#display`).innerHTML =
+				"<table border='1'>"
+				+ "<tr><td>"
+				+ x[i].getElementsByTagName("ID")[0].childNodes[0].nodeValue
+				+ "</td><td>"
+				+ x[i].getElementsByTagName("USER")[0].childNodes[0].nodeValue
+				+ "</td><td>"
+				+ x[i].getElementsByTagName("COUNTRY")[0].childNodes[0].nodeValue
+				+ "</td></tr>"
+				+ "</table>"
+		}
+	</script>
+
+</body>
+
+</html>

@@ -1,21 +1,21 @@
-form{
-    width: 50%;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-    padding: 3%;
-    position: absolute;
-    left: 25%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        
+form {
+  width: 50%;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  padding: 3%;
+  position: absolute;
+  left: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 /* Add padding to containers */
 .container {
   padding: 2vw;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 /* Full-width input fields */
@@ -51,7 +51,7 @@ input:focus {
 }
 
 .bluebtn:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Add a blue text color to links */
@@ -65,25 +65,31 @@ a {
   text-align: center;
 }
 
-.card{
+.card {
   margin-top: 3vh;
   margin-bottom: 3vh;
   padding: 3vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 3vw; 
+  border-radius: 3vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: 40%;
 }
 
-.error{
-    color: red;
-    font-size: 0.8rem;
+.error {
+  color: red;
+  font-size: 0.8rem;
 }
 
 .xBody {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.cBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

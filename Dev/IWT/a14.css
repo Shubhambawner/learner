@@ -1,0 +1,47 @@
+* {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+BOOKDATA {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+BOOK {
+    margin: 3vh;
+    margin-bottom: 3vh;
+    padding: 3vw;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    border-radius: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* min-width: 40%; */
+    width: 200px;
+}
+
+TITLE {
+    font-weight: 700;
+    color: rgb(255, 0, 0);
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+
+
+EDITION {
+    color: brown;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    font-size: 16px;
+}
+
+AUTHOR {
+    color: rgb(60, 110, 10);
+}
+
+PRICE {
+    color: rgb(193, 213, 5);
+}

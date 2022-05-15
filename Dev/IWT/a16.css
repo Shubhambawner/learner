@@ -1,0 +1,45 @@
+* {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+STUDENTDATA {
+    display: flex;
+    flex-wrap: wrap;
+    letter-spacing: 2px;
+}
+
+STUDENT {
+    padding: 10px 30px;
+    margin: 20px;
+}
+
+ROLLNUM {
+    font-weight: 700;
+    color: blue;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+NAME,
+COLLEGE,
+BRANCH,
+YEAR,
+EMAIL {
+    color: brown;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    font-size: 16px;
+}
+
+COLLEGE {
+    color: rgb(60, 110, 10);
+}
+
+BRANCH {
+    color: rgb(193, 213, 5);
+}
+
+EMAIL {
+    color: rgb(0, 157, 157);
+}

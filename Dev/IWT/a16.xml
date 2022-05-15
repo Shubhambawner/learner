@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="a16.css"?>
+
+<STUDENTDATA>
+
+    <STUDENT>
+        <NAME> Harish Verma</NAME>
+        <COLLAGE>IITD</COLLAGE>
+        <YEAR>2011</YEAR>
+        <ROLLNO>10034</ROLLNO>
+        <BRANCH>IT</BRANCH>
+        <EMAIL>Physics@gmail.com</EMAIL>
+    </STUDENT>
+
+    <STUDENT>
+        <NAME> Irin Irodove</NAME>
+        <COLLAGE>IITB</COLLAGE>
+        <YEAR>2019</YEAR>
+        <ROLLNO>10023</ROLLNO>
+        <BRANCH>IT</BRANCH>
+        <EMAIL>Physics@gmail.com</EMAIL>
+    </STUDENT>
+
+    <STUDENT>
+        <NAME> YASHWANT ANAND</NAME>
+        <COLLAGE>NITD</COLLAGE>
+        <YEAR>2021</YEAR>
+        <ROLLNO>10046</ROLLNO>
+        <BRANCH>IT</BRANCH>
+        <EMAIL>Anand@gmail.com</EMAIL>
+    </STUDENT>
+
+    <STUDENT>
+        <NAME> SHRADDHA PATEL</NAME>
+        <COLLAGE>NITRR</COLLAGE>
+        <YEAR>2021</YEAR>
+        <ROLLNO>10012</ROLLNO>
+        <BRANCH>CSE</BRANCH>
+        <EMAIL>Hindipustak@gmail.com</EMAIL>
+    </STUDENT>
+
+    <STUDENT>
+        <NAME> ANIMESH SHARMA</NAME>
+        <COLLAGE>IITD</COLLAGE>
+        <YEAR>2018</YEAR>
+        <ROLLNO>10057</ROLLNO>
+        <BRANCH>IT</BRANCH>
+        <EMAIL>Game of Life@gmail.com</EMAIL>
+    </STUDENT>
+
+
+</STUDENTDATA>
