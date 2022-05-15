@@ -50,3 +50,4 @@ int main()
     vector<int> a = {2, 8, 5, 4};
     cout << minSwaps(a);
 }
+ 
