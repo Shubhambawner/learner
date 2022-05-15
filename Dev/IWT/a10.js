@@ -30,16 +30,3 @@ function checkpassword() {
     return password.length > 6;
 }
 
-function submit() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    if (checkname() || checkemail() || checkpassword()) {
-        window.alert("Success");
-        return true;
-    }else{
-        window.alert("Please fix the errors: " + checkname() + " " + checkemail() + " " + checkpassword());
-        return false;
-    }
-
-}

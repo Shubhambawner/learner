@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <div class="card">
-        
+    <form>
+        <div class="card">
+
             <div class="container">
                 <h1>Register</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -19,25 +20,59 @@
                 <label class="name">Name</label>
                 <label id="name_error" class="error"></label>
                 <input id="name" type="text" name="name" placeholder="Enter your name" onkeyup="checkname()">
-                
+
                 <label class="email">Email</label>
-                <label id="email_error"  class="error"></label>
-                <input id="email"  type="email" name="email" placeholder="Enter your email" onkeyup="checkemail()">
-                
+                <label id="email_error" class="error"></label>
+                <input id="email" type="email" name="email" placeholder="Enter your email" onkeyup="checkemail()">
+
                 <label class="password">Password</label>
-                <label id="password_error"  class="error"></label>
-                <input id="password"  type="password" name="password" placeholder="Enter your password"  onkeyup="checkpassword()" >
-                
-                <button class="bluebtn" onclick="submit()">Submit</button>
+                <label id="password_error" class="error"></label>
+                <input id="password" type="password" name="password" placeholder="Enter your password"
+                    onkeyup="checkpassword()">
+
+                <button class="bluebtn" >Submit</button>
                 <div class="signin">
                     <p>Already have an account? <a href="#">Sign in</a>.</p>
                 </div>
             </div>
 
             <script src="a10.js"></script>
+            <script>
+                document.querySelector('.bluebtn').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var name = document.querySelector('#name').value;
+                    var email = document.querySelector('#email').value;
+                    var password = document.querySelector('#password').value;
+                    var name_error = document.querySelector('#name_error');
+                    var email_error = document.querySelector('#email_error');
+                    var password_error = document.querySelector('#password_error');
+                    var error = false;
+                    if (name_error) {
+                        name_error.innerHTML = 'Name is required';
+                        error = true;
+                    } else {
+                        name_error.innerHTML = '';
+                    }
+                    if (email_error) {
+                        email_error.innerHTML = 'Email is required';
+                        error = true;
+                    } else {
+                        email_error.innerHTML = '';
+                    }
+                    if (password_error) {
+                        password_error.innerHTML = 'Password is required';
+                        error = true;
+                    } else {
+                        password_error.innerHTML = '';
+                    }
+                    if (error == false) {
+                        alert('Form submitted');
+                    }
+                });
+            </script>
 
-        
-    </div>
+        </div>
+    </form>
 </body>
 
 </html>
