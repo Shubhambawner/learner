@@ -1,0 +1,21 @@
+{
+  "name": "stock_analyser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dataFetcher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "mysql": "^2.18.1",
+    "node-fetch": "^3.2.4"
+  },
+  "keywords": [
+    "sql",
+    "node",
+    "js"
+  ],
+  "author": "Shubham Bawner",
+  "license": "ISC"
+}

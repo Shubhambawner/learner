@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CATALOG>
-	<CD>
-        <ID>1</ID>
-		<USER>Bob Dylan</USER>
-		<COUNTRY>USA</COUNTRY>
-	</CD>
-	<CD>
-        <ID>2</ID>
-		<USER>Bonnie Tyler</USER>
-		<COUNTRY>UK</COUNTRY>
-	</CD>
-	<CD>
-        <ID>3</ID>
-		<USER>Dolly Parton</USER>
-		<COUNTRY>USA</COUNTRY>
-	</CD>
-	<CD>
-        <ID>4</ID>
-		<USER>Gary Moore</USER>
-		<COUNTRY>UK</COUNTRY>
-	</CD>
-	<CD>
-        <ID>5</ID>
-		<USER>Eros Ramazzotti</USER>
-		<COUNTRY>EU</COUNTRY>
-	</CD>
-	<CD>
-        <ID>6</ID>
-		<USER>Bee Gees</USER>
-		<COUNTRY>UK</COUNTRY>
-	</CD>
-	<CD>
-        <ID>7</ID>
-		<USER>Dr.Hook</USER>
-		<COUNTRY>UK</COUNTRY>
-	</CD>
-	<CD>
-        <ID>8</ID>
-		<USER>Rod Stewart</USER>
-		<COUNTRY>UK</COUNTRY>
-	</CD>
-	<CD>
-        <ID>9</ID>
-		<USER>Andrea Bocelli</USER>
-		<COUNTRY>EU</COUNTRY>
-	</CD>
-	<CD>
-        <ID>10</ID>
-		<USER>Percy Sledge</USER>
-		<COUNTRY>USA</COUNTRY>
-	</CD>
-</CATALOG>
+<userCardList>
+	<userCard>
+        <rollno>20118001</rollno>
+		<name>Bob Dylan</name>
+		<country>USA</country>
+	</userCard>
+	<userCard>
+        <rollno>20118002</rollno>
+		<name>Bonnie Tyler</name>
+		<country>UK</country>
+	</userCard>
+	<userCard>
+        <rollno>20118003</rollno>
+		<name>Dolly Parton</name>
+		<country>USA</country>
+	</userCard>
+	<userCard>
+        <rollno>20118004</rollno>
+		<name>Gary Moore</name>
+		<country>UK</country>
+	</userCard>
+	<userCard>
+        <rollno>20118005</rollno>
+		<name>Eros Ramazzotti</name>
+		<country>EU</country>
+	</userCard>
+	<userCard>
+        <rollno>20118006</rollno>
+		<name>Bee Gees</name>
+		<country>UK</country>
+	</userCard>
+	<userCard>
+        <rollno>20118007</rollno>
+		<name>Dr.Hook</name>
+		<country>UK</country>
+	</userCard>
+	<userCard>
+        <rollno>20118008</rollno>
+		<name>Rod Stewart</name>
+		<country>UK</country>
+	</userCard>
+	<userCard>
+        <rollno>20118009</rollno>
+		<name>Andrea Bocelli</name>
+		<country>EU</country>
+	</userCard>
+	<userCard>
+        <rollno>201180010</rollno>
+		<name>Percy Sledge</name>
+		<country>USA</country>
+	</userCard>
+</userCardList>
