@@ -10,37 +10,49 @@ var queries = [
 
     // get all the data from the database
     "select * from nse_stocks_nitrr_tp;",
-
+    
     // find all the penny stocks (price < 1)
     "select * from `nse_stocks_nitrr_tp` where lastPrice < 100;",
+    
     // find most profitable penny stock of the day
     "select symbol, max(lastPrice - open) as dayProfit from `nse_stocks_nitrr_tp` where lastPrice < 100;",
+    
     // find volume wise distribution of the penny stocks
     "select symbol, totalTradedVolume, open from `nse_stocks_nitrr_tp` where lastPrice < 100;",
+    
     // find the penny stock with highest volume
     "select symbol, max(totalTradedVolume) from `nse_stocks_nitrr_tp` where lastPrice < 100;",
+    
     // find all  profit making penny stocks of the day
     "select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open > 0 and lastPrice < 100;",
+    
     // find all  loss making penny stocks of the day
     "select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open < 0 and lastPrice < 100;",
-
+    
     // find all the highly priced stocks (price > 1000)
     "select * from `nse_stocks_nitrr_tp` where lastPrice  > 1000;",
+    
     // find most profitable  highly priced stock of the day
     "select symbol, max(lastPrice - open) as dayProfit from `nse_stocks_nitrr_tp` where lastPrice  > 1000;",
+    
     // find volume wise distribution of the highly priced stock
     "select symbol, totalTradedVolume from `nse_stocks_nitrr_tp` where lastPrice > 1000;",
+    
     // find the  highly priced stock  with highest volume
     "select symbol, max(totalTradedVolume) as volume from `nse_stocks_nitrr_tp` where lastPrice > 1000;",
+    
     // find all of profit making highly priced stocks of the day
     "select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open > 0 and lastPrice > 1000;",
+    
     // find all  loss making highly priced stocks of the day
     "select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open < 0 and lastPrice > 1000;",
-
+    
     // add % change column
     "select symbol,lastPrice,open,100*(lastPrice - open)/open as `%change` from `nse_stocks_nitrr_tp`;",
+    
     // find all the stocks with % change > 10
     "select * from `nse_stocks_nitrr_tp` where 100*(lastPrice - open)/open > 10;",
+    
     // volume and % change wise distribution of the stocks
     "select symbol, totalTradedVolume, 100*(lastPrice - open)/open from `nse_stocks_nitrr_tp` ",
 ]
@@ -176,12 +188,14 @@ function saveData(data) {
             }
         });
 
-        for (let i = 0; i < data.length; i++) {    // insert statment
+        for (let i = 0; i < data
+            .length; i++) {    // insert statment
             let script = data[i]
             let sql = `INSERT INTO nse_stocks_nitrr_tp(symbol,open,dayHigh,dayLow,lastPrice,previousClose,yearHigh,yearLow,totalTradedVolume)
         VALUES('${script.symbol}',${script.open},${script.dayHigh},${script.dayLow},${script.lastPrice},${script.previousClose},${script.yearHigh},${script.yearLow},${script.totalTradedVolume})`;
 
-            // execute the insert statment
+            
+        // execute the insert statment
             connection.query(sql);
         }
     } catch (e) {
@@ -215,11 +229,11 @@ function terminate() {
 
 function printArray(arr) {
     try {
-        for (let i = 0; i < arr.length && i < 10; i++) {
+        for (let i = 0; i < arr.length && i < 5; i++) {
             console.log(JSON.stringify(arr[i]));
         }
-        if (arr.length >= 10)
-            console.log(` and ${arr.length - 10} more`);
+        if (arr.length >= 5)
+            console.log(` and ${arr.length - 5} more`);
     } catch (e) { console.log(e) }
 }
 
@@ -233,6 +247,7 @@ function getObjectFromRowDataPacket() {
             })
             return share;
         })
+        
         // console.log(data);
     } catch (e) { console.log(e) }
 }

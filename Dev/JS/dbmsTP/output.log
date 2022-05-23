@@ -1,0 +1,54 @@
+connection established at Tue May 24 2022 01:15:59 GMT+0530 (India Standard Time)
+
+
+searching for :find all the highly priced stocks (price > 1000) :
+select * from `nse_stocks_nitrr_tp` where lastPrice  > 1000;
+{"id":6,"symbol":"VMART","open":3080,"dayHigh":3350,"dayLow":3055,"lastPrice":3299,"previousClose":3065,"yearHigh":4849,"yearLow":2653,"totalTradedVolume":70389}
+{"id":8,"symbol":"NILKAMAL","open":2100,"dayHigh":2300,"dayLow":2001,"lastPrice":2058,"previousClose":1928,"yearHigh":3180,"yearLow":1851,"totalTradedVolume":127741}
+{"id":15,"symbol":"MTARTECH","open":1400,"dayHigh":1518,"dayLow":1384,"lastPrice":1462,"previousClose":1383,"yearHigh":2563,"yearLow":918,"totalTradedVolume":304339}
+{"id":18,"symbol":"SOTL","open":1046,"dayHigh":1098,"dayLow":1036,"lastPrice":1094,"previousClose":1038,"yearHigh":1830,"yearLow":932,"totalTradedVolume":6272}
+{"id":27,"symbol":"ESABINDIA","open":3860,"dayHigh":4250,"dayLow":3774,"lastPrice":3955,"previousClose":3792,"yearHigh":4250,"yearLow":1774,"totalTradedVolume":67182}
+ and 202 more
+
+
+searching for :find most profitable  highly priced stock of the day :
+select symbol, max(lastPrice - open) as dayProfit from `nse_stocks_nitrr_tp` where lastPrice  > 1000;
+{"symbol":"VMART","dayProfit":219}
+
+
+searching for :find volume wise distribution of the highly priced stock :
+select symbol, totalTradedVolume from `nse_stocks_nitrr_tp` where lastPrice > 1000;
+{"symbol":"VMART","totalTradedVolume":70389}
+{"symbol":"NILKAMAL","totalTradedVolume":127741}
+{"symbol":"MTARTECH","totalTradedVolume":304339}
+{"symbol":"SOTL","totalTradedVolume":6272}
+{"symbol":"ESABINDIA","totalTradedVolume":67182}
+ and 202 more
+
+
+searching for :find the  highly priced stock  with highest volume :
+select symbol, max(totalTradedVolume) as volume from `nse_stocks_nitrr_tp` where lastPrice > 1000;
+{"symbol":"VMART","volume":27388346}
+
+
+searching for :find all of profit making highly priced stocks of the day :
+select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open > 0 and lastPrice > 1000;
+{"symbol":"VMART","lastPrice":3299,"open":3080}
+{"symbol":"MTARTECH","lastPrice":1462,"open":1400}
+{"symbol":"SOTL","lastPrice":1094,"open":1046}
+{"symbol":"ESABINDIA","lastPrice":3955,"open":3860}
+{"symbol":"MARUTI","lastPrice":7891,"open":7800}
+ and 73 more
+
+
+searching for :find all  loss making highly priced stocks of the day :
+select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open < 0 and lastPrice > 1000;
+{"symbol":"NILKAMAL","lastPrice":2058,"open":2100}
+{"symbol":"METROPOLIS","lastPrice":1770,"open":1799}
+{"symbol":"NEULANDLAB","lastPrice":1037,"open":1038}
+{"symbol":"NESTLEIND","lastPrice":17050,"open":17060}
+{"symbol":"TCIEXP","lastPrice":1606,"open":1620}
+ and 122 more
+
+
+connection terminated at Tue May 24 2022 01:16:03 GMT+0530 (India Standard Time)
