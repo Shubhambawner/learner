@@ -8,3 +8,6 @@ https://stackoverflow.com/questions/52815608/er-not-supported-auth-mode-client-d
 from the rrot directory where server is installed: C:\Program Files\MySQL\MySQL Server 8.0\bin
 > ./mysql -u root -p
 Enter password: ********
+
+reason why this was used:
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
