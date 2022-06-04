@@ -6,6 +6,8 @@ const fs = require('fs');
 var access = fs.createWriteStream('output.log');
 process.stdout.write = process.stderr.write = access.write.bind(access);
 
+console.log(process.env)
+
 var queries = [
 
     // get all the data from the database

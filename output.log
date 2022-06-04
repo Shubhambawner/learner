@@ -1,4 +1,56 @@
-connection established at Mon May 23 2022 23:49:58 GMT+0530 (India Standard Time)
+{
+  ALLUSERSPROFILE: [32m'C:\\ProgramData'[39m,
+  APPDATA: [32m'C:\\Users\\bawne\\AppData\\Roaming'[39m,
+  CHROME_CRASHPAD_PIPE_NAME: [32m'\\\\.\\pipe\\crashpad_15772_FEBVXPMYHYWSKHAH'[39m,
+  CommonProgramFiles: [32m'C:\\Program Files\\Common Files'[39m,
+  [32m'CommonProgramFiles(x86)'[39m: [32m'C:\\Program Files (x86)\\Common Files'[39m,
+  CommonProgramW6432: [32m'C:\\Program Files\\Common Files'[39m,
+  COMPUTERNAME: [32m'DESKTOP-3CQESJG'[39m,
+  ComSpec: [32m'C:\\Windows\\system32\\cmd.exe'[39m,
+  DriverData: [32m'C:\\Windows\\System32\\Drivers\\DriverData'[39m,
+  HOMEDRIVE: [32m'C:'[39m,
+  HOMEPATH: [32m'\\Users\\bawne'[39m,
+  LOCALAPPDATA: [32m'C:\\Users\\bawne\\AppData\\Local'[39m,
+  LOGONSERVER: [32m'\\\\DESKTOP-3CQESJG'[39m,
+  NUMBER_OF_PROCESSORS: [32m'4'[39m,
+  OneDrive: [32m'C:\\Users\\bawne\\OneDrive'[39m,
+  OneDriveConsumer: [32m'C:\\Users\\bawne\\OneDrive'[39m,
+  ORIGINAL_XDG_CURRENT_DESKTOP: [32m'undefined'[39m,
+  OS: [32m'Windows_NT'[39m,
+  Path: [32m'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;D:\\program_files\\nodeJS\\;D:\\program_files\\Git\\cmd;D:\\program_files\\python;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\bawne\\AppData\\Local\\Microsoft\\WindowsApps;D:\\program_files\\Microsoft VS Code\\bin;C:\\Users\\bawne\\AppData\\Roaming\\npm;C:\\Users\\bawne\\AppData\\Local\\GitHubDesktop\\bin;D:\\program_files\\Git\\cmd;D:\\program_files\\C++\\MinGW\\bin;D:\\program_files\\python;D:\\program_files\\heroku\\bin;D:\\program_files\\MongoDB\\Server\\5.0\\bin;;D:\\program_files\\Microsoft VS Code Insiders\\bin'[39m,
+  PATHEXT: [32m'.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'[39m,
+  PROCESSOR_ARCHITECTURE: [32m'AMD64'[39m,
+  PROCESSOR_IDENTIFIER: [32m'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel'[39m,
+  PROCESSOR_LEVEL: [32m'6'[39m,
+  PROCESSOR_REVISION: [32m'8e0c'[39m,
+  ProgramData: [32m'C:\\ProgramData'[39m,
+  ProgramFiles: [32m'C:\\Program Files'[39m,
+  [32m'ProgramFiles(x86)'[39m: [32m'C:\\Program Files (x86)'[39m,
+  ProgramW6432: [32m'C:\\Program Files'[39m,
+  PSModulePath: [32m'C:\\Users\\bawne\\OneDrive\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'[39m,
+  PUBLIC: [32m'C:\\Users\\Public'[39m,
+  SESSIONNAME: [32m'Console'[39m,
+  SystemDrive: [32m'C:'[39m,
+  SystemRoot: [32m'C:\\Windows'[39m,
+  TEMP: [32m'C:\\Users\\bawne\\AppData\\Local\\Temp'[39m,
+  TMP: [32m'C:\\Users\\bawne\\AppData\\Local\\Temp'[39m,
+  USERDOMAIN: [32m'DESKTOP-3CQESJG'[39m,
+  USERDOMAIN_ROAMINGPROFILE: [32m'DESKTOP-3CQESJG'[39m,
+  USERNAME: [32m'bawne'[39m,
+  USERPROFILE: [32m'C:\\Users\\bawne'[39m,
+  windir: [32m'C:\\Windows'[39m,
+  ZES_ENABLE_SYSMAN: [32m'1'[39m,
+  TERM_PROGRAM: [32m'vscode'[39m,
+  TERM_PROGRAM_VERSION: [32m'1.67.2'[39m,
+  LANG: [32m'en_US.UTF-8'[39m,
+  COLORTERM: [32m'truecolor'[39m,
+  VSCODE_GIT_IPC_HANDLE: [32m'\\\\.\\pipe\\vscode-git-47a988f2b5-sock'[39m,
+  VSCODE_GIT_ASKPASS_NODE: [32m'D:\\program_files\\Microsoft VS Code\\Code.exe'[39m,
+  VSCODE_GIT_ASKPASS_EXTRA_ARGS: [32m'--ms-enable-electron-run-as-node'[39m,
+  VSCODE_GIT_ASKPASS_MAIN: [32m'd:\\program_files\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js'[39m,
+  GIT_ASKPASS: [32m'd:\\program_files\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh'[39m
+}
+connection established at Thu Jun 02 2022 21:42:56 GMT+0530 (India Standard Time)
 
 
 searching for :get all the data from the database :
@@ -8,12 +60,7 @@ select * from nse_stocks_nitrr_tp;
 {"id":3,"symbol":"VRLLOG","open":614,"dayHigh":652,"dayLow":603,"lastPrice":635,"previousClose":577,"yearHigh":659,"yearLow":241,"totalTradedVolume":2850422}
 {"id":4,"symbol":"STARHEALTH","open":679,"dayHigh":749,"dayLow":665,"lastPrice":740,"previousClose":679,"yearHigh":940,"yearLow":584,"totalTradedVolume":604996}
 {"id":5,"symbol":"WELENT","open":85,"dayHigh":93,"dayLow":85,"lastPrice":92,"previousClose":85,"yearHigh":131,"yearLow":69,"totalTradedVolume":1533550}
-{"id":6,"symbol":"VMART","open":3080,"dayHigh":3350,"dayLow":3055,"lastPrice":3299,"previousClose":3065,"yearHigh":4849,"yearLow":2653,"totalTradedVolume":70389}
-{"id":7,"symbol":"PAYTM","open":561,"dayHigh":632,"dayLow":552,"lastPrice":618,"previousClose":576,"yearHigh":1955,"yearLow":510,"totalTradedVolume":16047559}
-{"id":8,"symbol":"NILKAMAL","open":2100,"dayHigh":2300,"dayLow":2001,"lastPrice":2058,"previousClose":1928,"yearHigh":3180,"yearLow":1851,"totalTradedVolume":127741}
-{"id":9,"symbol":"MAYURUNIQ","open":365,"dayHigh":394,"dayLow":359,"lastPrice":375,"previousClose":352,"yearHigh":627,"yearLow":319,"totalTradedVolume":367180}
-{"id":10,"symbol":"COCHINSHIP","open":336,"dayHigh":350,"dayLow":330,"lastPrice":344,"previousClose":324,"yearHigh":434,"yearLow":281,"totalTradedVolume":1075024}
- and 741 more
+ and 746 more
 
 
 searching for :find all the penny stocks (price < 1) :
@@ -23,12 +70,7 @@ select * from `nse_stocks_nitrr_tp` where lastPrice < 100;
 {"id":19,"symbol":"BCG","open":56,"dayHigh":59,"dayLow":56,"lastPrice":59,"previousClose":56,"yearHigh":123,"yearLow":4,"totalTradedVolume":1686255}
 {"id":20,"symbol":"DHANI","open":55,"dayHigh":55,"dayLow":53,"lastPrice":55,"previousClose":53,"yearHigh":243,"yearLow":40,"totalTradedVolume":2680275}
 {"id":31,"symbol":"HSCL","open":65,"dayHigh":69,"dayLow":63,"lastPrice":67,"previousClose":65,"yearHigh":86,"yearLow":42,"totalTradedVolume":10219833}
-{"id":47,"symbol":"BANKINDIA","open":46,"dayHigh":47,"dayLow":45,"lastPrice":47,"previousClose":45,"yearHigh":87,"yearLow":41,"totalTradedVolume":2756798}
-{"id":58,"symbol":"KARURVYSYA","open":46,"dayHigh":47,"dayLow":45,"lastPrice":46,"previousClose":45,"yearHigh":61,"yearLow":38,"totalTradedVolume":6580825}
-{"id":85,"symbol":"PNB","open":30,"dayHigh":31,"dayLow":30,"lastPrice":31,"previousClose":30,"yearHigh":48,"yearLow":28,"totalTradedVolume":42055819}
-{"id":132,"symbol":"IBREALEST","open":74,"dayHigh":81,"dayLow":74,"lastPrice":75,"previousClose":74,"yearHigh":196,"yearLow":68,"totalTradedVolume":18424135}
-{"id":133,"symbol":"DBCORP","open":83,"dayHigh":85,"dayLow":82,"lastPrice":84,"previousClose":83,"yearHigh":125,"yearLow":78,"totalTradedVolume":175512}
- and 102 more
+ and 107 more
 
 
 searching for :find most profitable penny stock of the day :
@@ -43,12 +85,7 @@ select symbol, totalTradedVolume, open from `nse_stocks_nitrr_tp` where lastPric
 {"symbol":"BCG","totalTradedVolume":1686255,"open":56}
 {"symbol":"DHANI","totalTradedVolume":2680275,"open":55}
 {"symbol":"HSCL","totalTradedVolume":10219833,"open":65}
-{"symbol":"BANKINDIA","totalTradedVolume":2756798,"open":46}
-{"symbol":"KARURVYSYA","totalTradedVolume":6580825,"open":46}
-{"symbol":"PNB","totalTradedVolume":42055819,"open":30}
-{"symbol":"IBREALEST","totalTradedVolume":18424135,"open":74}
-{"symbol":"DBCORP","totalTradedVolume":175512,"open":83}
- and 102 more
+ and 107 more
 
 
 searching for :find the penny stock with highest volume :
@@ -63,12 +100,7 @@ select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open 
 {"symbol":"BCG","lastPrice":59,"open":56}
 {"symbol":"HSCL","lastPrice":67,"open":65}
 {"symbol":"BANKINDIA","lastPrice":47,"open":46}
-{"symbol":"PNB","lastPrice":31,"open":30}
-{"symbol":"IBREALEST","lastPrice":75,"open":74}
-{"symbol":"DBCORP","lastPrice":84,"open":83}
-{"symbol":"UNIONBANK","lastPrice":37,"open":36}
-{"symbol":"IIFLSEC","lastPrice":79,"open":78}
- and 4 more
+ and 9 more
 
 
 searching for :find all  loss making penny stocks of the day :
@@ -78,12 +110,7 @@ select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open 
 {"symbol":"THOMASCOOK","lastPrice":68,"open":69}
 {"symbol":"CENTRUM","lastPrice":24,"open":25}
 {"symbol":"IRFC","lastPrice":21,"open":22}
-{"symbol":"FEDERALBNK","lastPrice":85,"open":86}
-{"symbol":"NCC","lastPrice":64,"open":65}
-{"symbol":"GEOJITFSL","lastPrice":51,"open":52}
-{"symbol":"STARCEMENT","lastPrice":90,"open":93}
-{"symbol":"INOXWIND","lastPrice":93,"open":94}
- and 47 more
+ and 52 more
 
 
 searching for :find all the highly priced stocks (price > 1000) :
@@ -93,12 +120,7 @@ select * from `nse_stocks_nitrr_tp` where lastPrice  > 1000;
 {"id":15,"symbol":"MTARTECH","open":1400,"dayHigh":1518,"dayLow":1384,"lastPrice":1462,"previousClose":1383,"yearHigh":2563,"yearLow":918,"totalTradedVolume":304339}
 {"id":18,"symbol":"SOTL","open":1046,"dayHigh":1098,"dayLow":1036,"lastPrice":1094,"previousClose":1038,"yearHigh":1830,"yearLow":932,"totalTradedVolume":6272}
 {"id":27,"symbol":"ESABINDIA","open":3860,"dayHigh":4250,"dayLow":3774,"lastPrice":3955,"previousClose":3792,"yearHigh":4250,"yearLow":1774,"totalTradedVolume":67182}
-{"id":34,"symbol":"MARUTI","open":7800,"dayHigh":7955,"dayLow":7776,"lastPrice":7891,"previousClose":7587,"yearHigh":9050,"yearLow":6537,"totalTradedVolume":1161175}
-{"id":35,"symbol":"ENDURANCE","open":1253,"dayHigh":1314,"dayLow":1235,"lastPrice":1296,"previousClose":1246,"yearHigh":1989,"yearLow":1047,"totalTradedVolume":308775}
-{"id":36,"symbol":"KAJARIACER","open":1019,"dayHigh":1050,"dayLow":953,"lastPrice":1049,"previousClose":1009,"yearHigh":1375,"yearLow":885,"totalTradedVolume":409489}
-{"id":40,"symbol":"TANLA","open":1179,"dayHigh":1262,"dayLow":1157,"lastPrice":1218,"previousClose":1172,"yearHigh":2097,"yearLow":735,"totalTradedVolume":386757}
-{"id":44,"symbol":"AIAENG","open":1780,"dayHigh":1960,"dayLow":1775,"lastPrice":1859,"previousClose":1791,"yearHigh":2222,"yearLow":1475,"totalTradedVolume":160007}
- and 197 more
+ and 202 more
 
 
 searching for :find most profitable  highly priced stock of the day :
@@ -113,12 +135,7 @@ select symbol, totalTradedVolume from `nse_stocks_nitrr_tp` where lastPrice > 10
 {"symbol":"MTARTECH","totalTradedVolume":304339}
 {"symbol":"SOTL","totalTradedVolume":6272}
 {"symbol":"ESABINDIA","totalTradedVolume":67182}
-{"symbol":"MARUTI","totalTradedVolume":1161175}
-{"symbol":"ENDURANCE","totalTradedVolume":308775}
-{"symbol":"KAJARIACER","totalTradedVolume":409489}
-{"symbol":"TANLA","totalTradedVolume":386757}
-{"symbol":"AIAENG","totalTradedVolume":160007}
- and 197 more
+ and 202 more
 
 
 searching for :find the  highly priced stock  with highest volume :
@@ -133,12 +150,7 @@ select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open 
 {"symbol":"SOTL","lastPrice":1094,"open":1046}
 {"symbol":"ESABINDIA","lastPrice":3955,"open":3860}
 {"symbol":"MARUTI","lastPrice":7891,"open":7800}
-{"symbol":"ENDURANCE","lastPrice":1296,"open":1253}
-{"symbol":"KAJARIACER","lastPrice":1049,"open":1019}
-{"symbol":"TANLA","lastPrice":1218,"open":1179}
-{"symbol":"AIAENG","lastPrice":1859,"open":1780}
-{"symbol":"INGERRAND","lastPrice":1480,"open":1433}
- and 68 more
+ and 73 more
 
 
 searching for :find all  loss making highly priced stocks of the day :
@@ -148,12 +160,7 @@ select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open 
 {"symbol":"NEULANDLAB","lastPrice":1037,"open":1038}
 {"symbol":"NESTLEIND","lastPrice":17050,"open":17060}
 {"symbol":"TCIEXP","lastPrice":1606,"open":1620}
-{"symbol":"KOTAKBANK","lastPrice":1845,"open":1852}
-{"symbol":"SANOFI","lastPrice":6635,"open":6750}
-{"symbol":"KSB","lastPrice":1465,"open":1475}
-{"symbol":"LTTS","lastPrice":3555,"open":3570}
-{"symbol":"TITAN","lastPrice":2150,"open":2160}
- and 117 more
+ and 122 more
 
 
 searching for :add % change column :
@@ -163,12 +170,7 @@ select symbol,lastPrice,open,100*(lastPrice - open)/open as `%change` from `nse_
 {"symbol":"VRLLOG","lastPrice":635,"open":614,"%change":3.4202}
 {"symbol":"STARHEALTH","lastPrice":740,"open":679,"%change":8.9838}
 {"symbol":"WELENT","lastPrice":92,"open":85,"%change":8.2353}
-{"symbol":"VMART","lastPrice":3299,"open":3080,"%change":7.1104}
-{"symbol":"PAYTM","lastPrice":618,"open":561,"%change":10.1604}
-{"symbol":"NILKAMAL","lastPrice":2058,"open":2100,"%change":-2}
-{"symbol":"MAYURUNIQ","lastPrice":375,"open":365,"%change":2.7397}
-{"symbol":"COCHINSHIP","lastPrice":344,"open":336,"%change":2.381}
- and 741 more
+ and 746 more
 
 
 searching for :find all the stocks with % change > 10 :
@@ -184,12 +186,7 @@ select symbol, totalTradedVolume, 100*(lastPrice - open)/open from `nse_stocks_n
 {"symbol":"VRLLOG","totalTradedVolume":2850422,"100*(lastPrice - open)/open ":3.4202}
 {"symbol":"STARHEALTH","totalTradedVolume":604996,"100*(lastPrice - open)/open ":8.9838}
 {"symbol":"WELENT","totalTradedVolume":1533550,"100*(lastPrice - open)/open ":8.2353}
-{"symbol":"VMART","totalTradedVolume":70389,"100*(lastPrice - open)/open ":7.1104}
-{"symbol":"PAYTM","totalTradedVolume":16047559,"100*(lastPrice - open)/open ":10.1604}
-{"symbol":"NILKAMAL","totalTradedVolume":127741,"100*(lastPrice - open)/open ":-2}
-{"symbol":"MAYURUNIQ","totalTradedVolume":367180,"100*(lastPrice - open)/open ":2.7397}
-{"symbol":"COCHINSHIP","totalTradedVolume":1075024,"100*(lastPrice - open)/open ":2.381}
- and 741 more
+ and 746 more
 
 
-connection terminated at Mon May 23 2022 23:50:02 GMT+0530 (India Standard Time)
+connection terminated at Thu Jun 02 2022 21:43:01 GMT+0530 (India Standard Time)

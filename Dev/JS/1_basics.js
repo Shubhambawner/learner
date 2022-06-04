@@ -71,7 +71,7 @@ if (1) {
     //* access modifiers used while defining the variable: 
     var x = 10; //  global, can be modified anywhere
     let y = 10; // scoped to the block, can be re-asigned also inner content can be modified
-    const z = 10; // scoped to the block, cant be re-asigned but inner content can be modified
+    const z = 10; // scoped to the block, can NOT be re-asigned but inner content can be modified
     w = 34; // by default it is decleared as var 
 
     // let y = 10; // error:  variable y is already defined!
@@ -123,13 +123,3 @@ for (const i of arr) { // i is element
 arr.forEach(element => {
      console.log(i)
  });
-
-
-
-
-
-
-
-
-
-

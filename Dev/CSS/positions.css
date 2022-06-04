@@ -1,0 +1,27 @@
+/* static
+relative
+fixed
+absolute
+sticky */
+
+div.static{
+    /* default  */
+    position: static;
+}
+div.relative{
+    /* relative to initial position */
+    position: relative;
+}
+div.absolute{
+    /*  takes elements out of the regular document flow while also affecting the layout of the other elements on the page. */
+    position: absolute;
+}
+div.fixed{
+    /* fixed position relative to the viewport, no scroll */
+    position: fixed;
+}
+div.sticky{
+    /* element toggles between relative and fixed, depending on the scroll position. 
+    It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). */
+    position: sticky;
+}
