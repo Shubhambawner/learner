@@ -7,20 +7,21 @@ int main()
     while(n--){
         string t; cin>>t;
         string f; cin>>f;
-        int fc = -1;
-        for(int i = 0; i<t.size() ; i++){
-            char d = t[i];
-            int tfc = fc+1;
-            if(d==f[tfc]) fc = tfc;
-            else{
-                int y = 0;
-                while(tfc>y && d!=f[y]){ y++;}
-                if(d==f[y]) fc = y;
+        int lastIndex = f.size()-1;
+        map<char,int>pos;
+        // for(int i=0;i<f.size();i++){
+        //     pos[f[i]]=i+1;
+        // }
+        char c = f[lastIndex];
+        bool flag = false;
+        for(int i = t.size()-1; i>0; i--){
+            
+            if(t[i]==c){
+                c=f[--lastIndex];
             }
         }
-
-        if(f.size()-1==fc) cout<<"YES\n";
-        else cout<<"NO\n";
-
+        if((lastIndex%f.size())==0){
+            cout<<"YES\n";
+        }else cout<<"NO\n";
     }
 }
