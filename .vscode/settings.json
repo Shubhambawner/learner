@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        ".env": "plaintext",
         "iostream": "cpp",
         "chrono": "cpp",
         "vector": "cpp",
@@ -76,7 +77,8 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
