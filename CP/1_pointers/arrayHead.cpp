@@ -6,7 +6,7 @@ they need to return pointer, so the pointer to 1st element of array is returned.
 
 
 */
-//! array head pointer of array of sizr n is:
+//! array head pointer of array of size n is:
 //!     of type int[n]*
 //!     value same to first element's pointer, can also be de referenced to get thi 1st element
 
@@ -20,11 +20,11 @@ int main()
 {
     int arr[] = {1,2,3,4,5,6};
 
-    cout<<arr<<'\t'<<&arr[0]<<'\n';     //1       0x61fea4
+    cout<<arr<<'\t'<<&arr[0]<<'\n';     //0x61fea4       0x61fea4
 
     printArray(arr,6);
     int* ptr = SwapN(arr,3);
-    printArray(arr,6);
+    printArray(ptr,6);
 
     int*a = arr;
     cout<<a[0]<<'\t'<<a[1]<<'\t'<<a[2]<<'\t'<<a[3]<<'\n';
