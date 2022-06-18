@@ -28,4 +28,4 @@ int main()
         }
         cout<<p<<endl;
     }
-}
+}//constructively building the array : sum of previous elements....
