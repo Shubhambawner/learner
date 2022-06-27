@@ -1,3 +1,7 @@
 node_modules
 /.vscode
 *.exe
+p1.in
+p2.out
+solution.cpp
+tempCodeRunnerFile.cpp
