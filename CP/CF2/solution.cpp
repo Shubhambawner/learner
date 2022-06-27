@@ -1,36 +1,53 @@
 #include <bits/stdc++.h>
 #define ll long long int
+#define f(n) for(long long int i = 0; i<n; i++) //forward loop
+#define fa(a, n) for(long long int i = a; i<n; i++)
+#define r(n) for(long long int i = n-1; i>=0; i--) //reverse loop
+#define ra(n, a) for(long long int i = n-1; i>=a; i--)
 using namespace std;
-void printArr(int arr[], int n)
+int MIN = -1000000000;
+int MAX = 1000000000;
+void setup()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+#ifndef ONLINE_JUDGE
+    freopen("p1.in", "r", stdin);
+    freopen("p1.out", "w", stdout);
+#endif
+}
+
+template<class t>
+void Arr(t*arr, long long n){
     for (int i = 0; i < n; i++)
     {
-        //cout << arr[i] << " ";
+        cin>>arr[i];
+        // cout<<arr[i]<<" ";
     }
-    //cout << endl;
+    // cout<<" \n";
 }
-int main()
-{
-    ios::sync_with_stdio(0);cin.tie(0);
-    int t;
-    cin >> t;
-    while(t--){//cout<<"1\n";
-        int n,s;cin>>n>>s;
-        int arr[n];
-        for (int i = 0; i < n; i++)
-        {
-            cin>>arr[i];
-        }
-        int a = -1, b=-1, sum = 0, l=0,flag=false;
-        while(sum<s && b<n-1){b++;sum+=arr[b];l++;}
-        while(b<n-1){
-            while(sum==s && b<n-1){l=max(l,b-a);b++;sum+=arr[b];}
-            while(sum>s){a++;sum-=arr[a];}
-        }
-        l=max(l,b-a);
-        if(sum==s)
-        cout<<n-l<<"\n";
-        else cout<<"-1\n";
+
+void solve(){
+    int n;cin>>n;
+    long long A=MIN, sum = 0;
+    f(n){
+        long long j;cin>>j;
+        if(j>A){A=j;}
+        sum+=j;
     }
-    
+    if(sum+1>=2*A)cout<<"YES\n";
+    else cout<<"NO\n";
+}
+
+main()
+{
+    setup();
+    // // cout<<(int)'a';
+    long long int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
 }

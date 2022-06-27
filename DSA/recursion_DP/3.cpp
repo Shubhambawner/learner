@@ -34,10 +34,29 @@ int fibonacci(int n)
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
+int f(int n, vector<int> d){
+    if(d.size()==n && n>=2){
+        d.push_back(d[n-1]+d[n-2]);
+        return d[n];
+    }else if(n<2) return d[n];
+    else{
+        return f(n-2, d)+f(n-1, d);
+    }
+}
+
+int fbn(int n){
+    vector<int> d;
+    d.push_back(0);
+    d.push_back(1);
+    return f(n,d);
+}
+
+
 
 int main()
 {
     // cout<<palindrome("MADAM");
     // cout<<flip("1234567890");
-    // cout<<fibonacci(10);
+    cout<<fibonacci(20)<<endl;
+    cout<<fbn(20);
 }
