@@ -1,44 +1,37 @@
 #include "./ru.cpp"
 
-string padding = "\n";
-
 void recurse()
 {
-    padding += "|  ";
-    cout << padding << "recurse enter";
+    spacing += "|  ";
+    cout << spacing << "recurse enter";
 }
 
 void returnRecurse(char a = ' ')
 {
 
-    cout << padding << "recurse end " << a;
-    padding = padding.erase(padding.size() - 3);
+    cout << spacing << "recurse end " << a;
+    spacing = spacing.erase(spacing.size() - 3);
 }
 
 template <class T>
 void srint(T arr, int i = 0)
 {
-    cout << padding << "[";
-    for (auto g = arr.begin(); g != arr.end(); ++g)
-    {
-
-        cout << *g << " ";
-    }
-    cout << "]   ";
+    cout << spacing << "[" << arr << "]   ";
 }
 
-// utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
+// depricated: utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
+// can print it all directly, << got overloaded!
 template <class T>
 void print(T arr, string label = "collection", int i = 0)
 {
-    cout << padding << label << ": " << arr.size();
+    cout << spacing << label << ": " << arr.size();
     if (isAdvanced(arr))
     {
         cout << "[";
-        padding += "   ";
+        spacing += "   ";
         for (auto g = arr.begin(); g != arr.end(); ++g)
         {
-            cout << padding;
+            cout << spacing;
             cout << i++ << ": " << g->size() << "[";
             for (auto it = (*g).begin(); it != (*g).end(); ++it)
 
@@ -47,8 +40,8 @@ void print(T arr, string label = "collection", int i = 0)
             }
             cout << " ]";
         }
-        padding = padding.erase(padding.size() - 3);
-        cout << padding << "]";
+        spacing = spacing.erase(spacing.size() - 3);
+        cout << spacing << "]";
     }
     else
     {
@@ -62,7 +55,7 @@ void print2(T arr, int i = 0)
 
     for (auto g = arr.begin(); g != arr.end(); ++g)
     {
-        cout << padding;
+        cout << spacing;
         cout << i++ << ": [\n";
         for (auto it = (*g).begin(); it != (*g).end(); ++it)
         {
@@ -72,17 +65,18 @@ void print2(T arr, int i = 0)
     }
 }
 
-// utility funnction to print a 3d iterative container vector<vector<int>> list<vector<int>> ...
+// depricated: utility funnction to print a 3d iterative container vector<vector<int>> list<vector<int>> ...
+// can print it all directly, << got overloaded!
 template <class T>
 void trint(T arr, string label = "collection", int i = 0)
 {
-    cout << padding << label << ": " << arr.size() << "[";
-    padding += "   ";
+    cout << spacing << label << ": " << arr.size() << "[";
+    spacing += "   ";
     for (auto g = arr.begin(); g != arr.end(); ++g)
     {
         print(*g, to_string(i++));
     }
-    padding = padding.erase(padding.size() - 3);
-    cout << padding << "]";
+    spacing = spacing.erase(spacing.size() - 3);
+    cout << spacing << "]";
 }
 
