@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define ll long long
 using namespace std;
 //* default value of parameters passed in C++
 //* https://www.programiz.com/cpp-programming/default-argument#:~:text=In%20C%2B%2B%20programming%2C%20we%20can%20provide%20default%20values,calling%20the%20function%2C%20the%20default%20arguments%20are%20ignored.
@@ -34,29 +35,34 @@ int fibonacci(int n)
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-int f(int n, vector<int> d){
-    if(d.size()==n && n>=2){
+vector<long long> d = {0,1};
+long long fibonacci_dp(int n ){
+    if(n<d.size()) return d[n];
+    else if(n==d.size()){
         d.push_back(d[n-1]+d[n-2]);
         return d[n];
-    }else if(n<2) return d[n];
-    else{
-        return f(n-2, d)+f(n-1, d);
+    }else{
+        return fibonacci_dp(n-1)+fibonacci_dp(n-2);
     }
 }
 
-int fbn(int n){
-    vector<int> d;
-    d.push_back(0);
-    d.push_back(1);
-    return f(n,d);
+ll last_second=0,last=1,N=2;
+ll fibonacci_dp_space_optimised(int n){
+    if(N==n){
+        N++;
+        last = last+last_second;
+        last_second = last - last_second;
+        return last;
+    }else if(n==N-1)return last;
+    else if(n==N-2)return last_second;
+    else return fibonacci_dp_space_optimised(n-1)+fibonacci_dp_space_optimised(n-2);
 }
-
-
 
 int main()
 {
     // cout<<palindrome("MADAM");
     // cout<<flip("1234567890");
-    cout<<fibonacci(20)<<endl;
-    cout<<fbn(20);
+    // cout<<fibonacci(20)<<endl;
+    cout<<fibonacci_dp(45)<<"\n";
+    cout<<fibonacci_dp_space_optimised(45);
 }

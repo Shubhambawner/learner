@@ -3,6 +3,7 @@
 using namespace std;
 
 //! recursion approach: for looping and set, n! time complexicity
+//* bruite force for permutations,  select one of the list elements, permute all others behind it recursively
 vector<vector<int>> ans;
 vector<int>temp;
 void rc(unordered_set<int> permuter){

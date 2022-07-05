@@ -25,6 +25,10 @@ void Swap(int* a, int* b){
     *b=temp;
 }
 vector<vector<int>> ans;
+//* swaping based logic: 
+//* select first element from n available, swap now-first element with the selected one,
+//* repeat process for remaning n-1 elements array.
+//* when array size is 0, the permutation is made, return.
 void rc(int starter,vector<int>nums){
     recurse();srint(nums);
     if(starter==nums.size()-1){
@@ -35,7 +39,6 @@ void rc(int starter,vector<int>nums){
     {
         Swap(&nums[it],&nums[starter]);
         rc(starter+1, nums);
-        
     }
     returnRecurse('a');
 }
