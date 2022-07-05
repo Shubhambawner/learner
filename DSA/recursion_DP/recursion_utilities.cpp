@@ -49,6 +49,8 @@ void print(T arr, string label = "collection", int i = 0)
     }
 }
 
+// depricated: utility funnction to print a 3d iterative container vector<vector<int>> list<vector<int>> ...
+// can print it all directly, << got overloaded!
 template <class T>
 void print2(T arr, int i = 0)
 {
