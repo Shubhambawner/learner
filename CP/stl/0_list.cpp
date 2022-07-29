@@ -80,6 +80,9 @@ int main()
    
     l.sort(); //4 5 6 7 8 9
 
+    // size of ll
+    cout<<l.size()<<endl;
+
     //--------------------------------------------------
     // forward_list : singly linked list
 
