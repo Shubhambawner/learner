@@ -1,0 +1,8 @@
+https://www.mongodb.com/docs/manual/reference/method/js-cursor/ 
+
+cursor methods like .map .forEach that take call back
+
+.hasNext 
+
+.sort 
+

@@ -1,0 +1,26 @@
+almost all operations like getting, filtering finding counting validating ...
+can be done directly using database
+
+https://www.mongodb.com/docs/manual/reference/method/js-collection/
+
+prominant operations: 
+
+counting objects that match perticular keys https://www.mongodb.com/docs/manual/reference/method/db.collection.count/ 
+
+delete many using a key https://www.mongodb.com/docs/manual/reference/method/db.collection.deleteMany/
+
+find one doc using key 
+
+find one and modify 
+
+find all 
+
+find and modify all 
+
+insert a document 
+
+insert many documents 
+
+update one 
+
+update many 

@@ -1,0 +1,4 @@
+MongoDB does not store documents in a collection in a particular order. (??)
+When sorting on a field which contains duplicate values, 
+documents containing those values may be returned in any order.
+

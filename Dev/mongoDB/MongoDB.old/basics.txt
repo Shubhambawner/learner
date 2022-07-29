@@ -1,0 +1,4 @@
+relational database
+schema can be different
+no sql 
+https://docs.google.com/spreadsheets/d/1yAsnkl1X_M6KVPeeckQx5rUD2zEXpDGNKNk6ieBxIFo/edit#gid=1886521581
