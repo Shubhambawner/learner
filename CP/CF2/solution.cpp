@@ -59,10 +59,8 @@ main()
 {
     setup();
     // // cout<<(int)'a';
-    ll int t;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-    }
+    unordered_map<int,int> s;
+    int n = 4; int arr[4] = {1,2,3,3};
+        for(int i = 0; i<n;i++)s[arr[i]]++;
+        cout<<s;
 }

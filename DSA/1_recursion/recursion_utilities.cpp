@@ -13,6 +13,8 @@ void returnRecurse(char a = ' ')
     spacing = spacing.erase(spacing.size() - 3);
 }
 
+// depricated: utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
+// can print it all directly, << got overloaded!
 template <class T>
 void srint(T arr, int i = 0)
 {

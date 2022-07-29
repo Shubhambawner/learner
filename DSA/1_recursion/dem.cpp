@@ -1,18 +1,35 @@
 #include "./ru.cpp"
 using namespace std;
+
+int sum=0;
+    void rc(vector<int>& arr){
+      cout<<arr<<" "<<sum<<endl;
+        if(arr.size()==1){
+            return;
+        }
+        vector<int> brr;
+        int n = arr.size();
+        for(int i =0; i<n;i+=2){
+            int j=arr[i];
+            int tp=j;
+            if(i<n-1){j*=arr[i+1];tp=max(tp,arr[i+1]);}
+            brr.push_back(tp);
+            sort(brr.begin(),brr.end());
+            if(i<n-1) sum+=j;
+        }
+            sort(brr.begin(),brr.end());
+        return rc(brr);
+    }
+    int mctFromLeafValues(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        rc(arr);
+        return sum;
+    }
+
 int main()
 {
-    vector<vector<string>> v = {{"aa", "awa", "qaa", "aar"}, {"aa", "qaa", "aar"}, {"rtaa", "aawrawwa", "agqaa", "aahgear"}};
-    vector<list<string>> vv = {{"aa", "awa", "qaa", "aar"}, {"aa", "qaa", "aar"}, {"rtaa", "aawrawwa", "agqaa", "aahgear"}};
-    list<vector<int>> l = {{1, 2}, {3, 4, 5, 6}, {1, 2, 3, 4, 5, 6, 3, 4, 5, 6}, {3, 4, 5, 6}};
-    list<int> s = {1, 2, 3, 4, 5, 6};
-    map<int, list<vector<int>>> m = {{1, {{4, 4, 5, 6}, {6, 6}}}, {3, {{1, 4, 5}, {3, 5, 6}}}, {5, {{3, 4}, {5, 6}}}};
-
-    cout << v << endl << endl
-         << vv << endl << endl
-         << l << endl << endl
-         << m << endl << endl
-         << s << endl << endl;
+      vector<int> arr={7,12,8,10};
+      cout<<mctFromLeafValues(arr);
 }
 
 /*

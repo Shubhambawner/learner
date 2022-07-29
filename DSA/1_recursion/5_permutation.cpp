@@ -8,24 +8,26 @@ vector<vector<int>> ans;
 vector<int>temp;
 void rc(unordered_set<int> permuter){
     recurse();
-     srint(permuter);
+     cout<<spacing<<(permuter);
     if(permuter.size()==0){
         ans.push_back(temp);
-        srint(temp);
+        cout<<spacing<<(temp);
     }
     
     for(auto i:permuter){
-        cout<<padding<<"-"<<i<<"-";
         temp.push_back(i);
+        cout<<spacing<<"pushing "<<i<<", now temp: "<<temp;
+        //! unordered_set permuter cant be edited while iterating, so we have to create new one and pass inn.
         unordered_set<int> tpermuter = permuter;
         tpermuter.erase(i);;
         rc(tpermuter);
-        //! datastructure cant be edited while iterating, so we have to create new one and pass inn.
         temp.pop_back();;
+        cout<<spacing<<"popping back "<<i<<", now temp: "<<temp;
         
     }
        returnRecurse();
 }
+//permute only array of unique elements, no duplicates 😢
 vector<vector<int>> permute(vector<int>nums){
     
     unordered_set<int>  permuter;
@@ -41,5 +43,5 @@ int main()
     vector<int> nums = {1,2,3};
     permute(nums);
     cout<<"end\n";
-    print(ans);
+    cout<<ans;
 }

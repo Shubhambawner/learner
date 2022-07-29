@@ -109,6 +109,7 @@ void getMultiSummingSequence_pure_rec(int arr[], int size, int start = 0)
 // https://leetcode.com/problems/combination-sum-ii/
 // array may contain duplicates, 
 // but each reasulting combination in ans must be unique, arr = [1, 2, 1], sum = 3, ans = [1,2] ( only one unique combination )
+// candidates is sorted initially
 void combinationSum2(int target, vector<int> candidates, int starter = 0)
 {
     if (target == 0)

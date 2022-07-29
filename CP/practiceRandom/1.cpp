@@ -1,76 +1,88 @@
-#include<bits/stdc++.h>
+//{ Driver Code Starts
+// Initial template for C++
+
+#include <bits/stdc++.h>
 using namespace std;
 
+// } Driver Code Ends
+// User function template for C++
 
-    vector<int> leaders(int a[], int n){
-        // Code here
-        vector<int> ansv;
-        int ans = a[n-1];
-        for(int i = n-1; i>=0; i--){
-            cout<<a[i];
-            if(a[i]<ans) continue;
-            ans = a[i];
-            ansv.push_back(ans);
-        }
-        return ansv;
-    }
-
-    
-
-int equilibriumPoint(int a[], int n) {
-        int  bb = a[0], ee = a[n-1], b =0, e = n-1;
-        while(b+2<e){
-            if(bb<ee){
-                b++;
-                bb+=a[b];
-                cout<<bb<<"* ";
-            }else{
-                e--;
-                ee+=a[e];
-                cout<<ee<<"- ";
-            }
-        }// Your code here
-        if(bb==ee)
-        return b+1;
-        else return -1;
-    }
-
-int findPlatform(int arr[], int dep[], int n)
+class Solution
+{
+public:
+    int getPairsCount(int arr[], int n, int k)
     {
-    	// Your code here
-    	int arv = 0;
-    	int dpt = 0;
-    	int st = 0;
-    	int ans = 0;
-        cout<<n<<endl;
-    	while(arv<n ){
-            cout<<arv<<" "<<dpt<<" "<<ans<<"\n";
-    	    if(arr[arv]<dep[dpt]){
-    	        st++;
-    	        arv++;
-    	    }else{
-    	        st--;
-    	        dpt++;
-    	    }
-    	    if(ans<st) ans = st;
-    	    
-    	}
-    	return ans;
+        // code here
+        sort(arr, arr + n);
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+
+        unordered_map<int, int> s;
+        for (int i = 0; i < n; i++)
+            s[arr[i]]++;
+
+        int p1 = 0, p2 = n - 1, a = 0;
+
+        while (p1 <= p2)
+        {cout<<"==="<<a<<endl;
+            cout << arr[p1] << " - " << arr[p2] << endl;
+            if (k == arr[p1] + arr[p2])
+            {
+                cout << s[arr[p1]] <<" "<< s[arr[p2]]<< "e\n";
+                if (k == arr[p1] * 2)
+                {
+                    a += s[arr[p1]] * (s[arr[p2]] - 1);
+                    break;
+                }
+                else
+                    a += s[arr[p1]] * s[arr[p2]];
+                while (arr[p2] == arr[p2 - 1])
+                    p2--;
+                p2--;
+                while (arr[p1] == arr[p1 + 1])
+                    p1++;
+                p1++;
+            }
+            else if (k < arr[p1] + arr[p2])
+            {
+                while (arr[p2] == arr[p2 - 1])
+                    p2--;
+                p2--;
+            }
+            else if (k > arr[p1] + arr[p2])
+            {
+                while (arr[p1] == arr[p1 + 1])
+                    p1++;
+                p1++;
+            }
+        }
+        return a;
+    }
+};
+
+//{ Driver Code Starts.
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, k;
+        cin >> n >> k;
+        int arr[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+        Solution ob;
+        auto ans = ob.getPairsCount(arr, n, k);
+        cout << ans << "\n";
     }
 
-int main(){
-    int a[5] = {1,2,3,4,6};
-    // vector<int> s = leaders(a, 5);
-    // for(auto d:s) cout<<d<<" ";
-    int arr[3] = {900 ,1100, 1235};
-    int dpt[3] = {1000, 1200, 1240};
-
-    cout<<findPlatform(arr, dpt, 3);
+    return 0;
 }
-
-/**
- * 
- * 3
-0900 1100 1235
-1000 1200 1240
-*/
+// } Driver Code Ends

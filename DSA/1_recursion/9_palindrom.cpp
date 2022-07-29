@@ -37,6 +37,6 @@ vector<vector<string>> partition(string st)
     return ans;
 }
 int main(){
-    partition("aaaabbaabbbababaaba");
+    partition("aaba");
     cout<< ans;
 }
