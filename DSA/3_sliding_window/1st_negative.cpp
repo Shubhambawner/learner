@@ -1,4 +1,4 @@
-
+//* fix size sliding window
 
 // to find 1st -ve elem in each sub-array of size k
 // https://practice.geeksforgeeks.org/problems/first-negative-integer-in-every-window-of-size-k3345/1
