@@ -15,9 +15,9 @@ vector<vector<string>> ans;
 vector<string> temp(n, string(n,'_'));
 
 bool row[n] = {true} ; //! this is not sufficient to innitialise array with all true !! 
-    bool column[n] = {true} ; //? how should wwe do it then?
-    bool d1[2*n - 1] = {true} ;
-    bool d2[2*n - 1] = {true} ;
+bool column[n] = {true} ; //? how should wwe do it then?
+bool d1[2*n - 1] = {true} ;
+bool d2[2*n - 1] = {true} ;
 
 bool canPlace(int r, int c){
     if(r<0 || r>=n) cout<<"r out of bounds 1\n";
