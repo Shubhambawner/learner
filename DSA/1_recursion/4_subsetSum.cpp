@@ -5,10 +5,10 @@ template <class T>
 void print(T arr, int i = 1);
 
 // //! more efficient way: power set algorithm
-list<list<int>> List;
-list<int> temp;
+
+
 //* print all sub-sequences of arr
-void getSubsequences(int arr[], int size, int start = 0)
+void getSubsequences(int arr[], int size, int start = 0, list<int>& temp, list<list<int>>& List)
 {
     if (start >= size)
     {
@@ -16,11 +16,18 @@ void getSubsequences(int arr[], int size, int start = 0)
         return;
     }
     temp.push_back(arr[start]);
-    getSubsequences(arr, size, start + 1);
+    getSubsequences(arr, size, start + 1,temp,List);
     temp.pop_back();
-    getSubsequences(arr, size, start + 1);
+    getSubsequences(arr, size, start + 1,temp,List);
 }
 
+
+/*
+! We should always pass the referance to data-structure in the function instead of creating the global datastructure. this is because:
+    * if for multiple test cases are run in single program, same data structure will be used for all of them, which is not desired
+    * passing a referance dosnt cause any memory usage, because either a way referance to global variables is also stored in stack!
+! We should always 
+*/
 vector<vector<int>> ans;
 vector<int> t;
 int sum = 0, a = 0;
@@ -110,6 +117,7 @@ void getMultiSummingSequence_pure_rec(int arr[], int size, int start = 0)
 // array may contain duplicates, 
 // but each reasulting combination in ans must be unique, arr = [1, 2, 1], sum = 3, ans = [1,2] ( only one unique combination )
 // candidates is sorted initially
+list<int>& temp;
 void combinationSum2(int target, vector<int> candidates, int starter = 0)
 {
     if (target == 0)
