@@ -43,4 +43,5 @@ int main(){
     sort(v.begin(), v.end());
     if( binary_search(v.begin(), v.end(), 44) ) cout<<"44 is there in v\n";
     
+    cout<<max(1,2);
 }

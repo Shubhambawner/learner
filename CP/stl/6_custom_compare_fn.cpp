@@ -1,5 +1,12 @@
 //! usefull for sorting complex data structures, 
 //! maintaining sets/multisets/maps/multimaps of complex data structures
+// https://en.cppreference.com/w/cpp/named_req/Compare
+/*
+Establishes strict weak ordering relation with the following properties
+For all a, comp(a,a)==false
+If comp(a,b)==true then comp(b,a)==false
+if comp(a,b)==true and comp(b,c)==true then comp(a,c)==true
+*/
 
 #include "../../DSA/util/recursion_utilities.cpp"
 using namespace std;

@@ -4,11 +4,11 @@
         if datastructure changes while iteration, pointers in for loop will become useless, and it will give seg.err
         pointers/iterators cant be incremented freely, only ++ and -- are there
 
-    //* Use integer indice values instead, for arrays vectors , 
+    ! Use integer indice values  for arrays/vectors  instead
     
     //* for lists maps sets are used, dont change elements, just change values inside them
 
-    //* always pass the datastructure if we need recursive calls in looping, 
+    ! always pass the datastructure if we need recursive calls in looping, 
  *  @because: 
         as initial datastructure may need to be forwarded in loop, 
         instead of storing in temp and re asigning, pass it down ! 

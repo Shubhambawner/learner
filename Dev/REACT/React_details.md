@@ -86,7 +86,7 @@ to store data to functional element that is not affected by re-rendering, and do
 
 
 ## React.lazy() API
-0   lazy takes inn the promice, that returns React element, that renders after promice is fulfilled
+0.  lazy takes inn the promice, that returns React element, that renders after promice is fulfilled
 1.  const SomeComponent = React.lazy(() => import('./SomeComponent'));
 2.  return(
         <React.Suspense fallback={<h4>loading...</h4>}>

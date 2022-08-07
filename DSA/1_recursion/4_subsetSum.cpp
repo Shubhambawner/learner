@@ -8,17 +8,20 @@ void print(T arr, int i = 1);
 
 
 //* print all sub-sequences of arr
-void getSubsequences(int arr[], int size, int start = 0, list<int>& temp, list<list<int>>& List)
+//* modifies the List to contain all subsequences of arr having 0 to start-1 elements fixed
+list<list<int>> getSubsequences(int arr[], int size, int start, list<int>& temp, list<list<int>>& List)
 {
     if (start >= size)
     {
         List.push_back(temp);
-        return;
+        return List;
     }
     temp.push_back(arr[start]);
-    getSubsequences(arr, size, start + 1,temp,List);
+    List = getSubsequences(arr, size, start + 1,temp,List);
     temp.pop_back();
-    getSubsequences(arr, size, start + 1,temp,List);
+    List = getSubsequences(arr, size, start + 1,temp,List);
+
+    return List;
 }
 
 
