@@ -1,16 +1,26 @@
-#include "./ru.cpp"
+#include "./print_vardiac_function.cpp"
 
+string unitSeperator = "|\t";
+
+template <typename... Types>
+void recurse(Types... t)
+{
+    spacing += unitSeperator;
+    cout << spacing << "recurse enter";
+    w(t...);
+}
 void recurse()
 {
-    spacing += "|  ";
+    spacing += unitSeperator;
     cout << spacing << "recurse enter";
 }
 
-void returnRecurse(char a = ' ')
+template <class T>
+void returnRecurse(T a = ' ')
 {
 
     cout << spacing << "recurse end " << a;
-    spacing = spacing.erase(spacing.size() - 3);
+    spacing = spacing.erase(spacing.size() - unitSeperator.size());
 }
 
 // depricated: utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...

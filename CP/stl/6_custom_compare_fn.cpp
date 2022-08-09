@@ -20,8 +20,15 @@ bool customCompare1(const vector<int>&v1,const vector<int>&v2){
 bool customCompare2(const vector<int>&v1,const vector<int>&v2){
     return (v1[0]*v1[1])<(v2[0]*v2[1]);
 }
-
+bool sizeCompare(const string& a, const string& b){
+        return a.size()<b.size();
+    }
 int main(){
+    vector<string> s = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"};
+    sort(s.begin(),s.end(),sizeCompare);
+    cout<<s<<endl;
+
+
     vector<vector<int>> r = {{5,5},{6,4},{7,3},{8,2},{9,1}};
 
     //sort difference smallest to largest
@@ -66,3 +73,17 @@ int main(){
     }// o/p: [9, 1, 3]3  [9, 1, 7]3  [9, 1, 2]3  [8, 2]2  [6, 4]2  [5, 5]2  [5, 5, -1]3  
     
 }
+
+/*
+Description of sort:
+Parameters:
+__first – An iterator.
+__last – Another iterator.
+__comp – A comparison functor.
+
+Returns:
+Nothing. 
+Sorts the elements in the range [__first,__last) in ascending order, 
+such that __comp(*(i+1),*i) is false for every iterator i in the range [__first,__last-1). 
+The relative ordering of equivalent elements is not preserved, use stable_sort() if this is needed.
+*/

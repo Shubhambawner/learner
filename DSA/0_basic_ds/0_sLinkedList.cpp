@@ -29,12 +29,12 @@ public:
         int length = 0;
         if (countFrom == NULL)
             return length;
-        while (countFrom && countFrom->next)
+        while (countFrom)
         {
             countFrom = countFrom->next;
             length++;
         }
-        return length++; //as we did not increment pointer from last, it did not get counted
+        return length; //as we did not increment pointer from last, it did not get counted
     }
 
     
@@ -45,6 +45,7 @@ public:
         if(this->head==NULL) return NULL;
         node*temp = this->head;
         this->head = head->next;
+        temp->next = NULL;
         return temp;
     }
 

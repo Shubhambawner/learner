@@ -1,33 +1,42 @@
 #include "../../DSA/util/recursion_utilities.cpp"
+// #include <bits/stdc++.h>
 using namespace std;
 
-// calculate Minimum HP needed to go from index i,j to end, n-1,m-1
-    int calculateMinimumHPfrom(int i, int j, vector<vector<int>>& dungeon,vector<vector<int>>& dp, int n , int m){
-        int ans = dungeon[i][j], down = INT_MAX, right = INT_MAX;
-        if(i==n-1 && j==m-1){
-            if(ans>0)return 1;
-            else return 1 - ans;
-        }
-        if(i<n-1){
-            down = calculateMinimumHPfrom(i+1, j, dungeon, dp, n , m);
-            if(ans>=down)return 1;
-            else down = down - ans ;
-        }
-        if(j<m-1){    
-            right = calculateMinimumHPfrom(i, j+1, dungeon, dp, n , m);
-            if(ans>=right)return 1;
-            else right = right - ans ;
-        }
-            return min(down, right);
+// f(i,t) gives number of posible subsets of sum t from index i to n-1
+int findWaysFrom(int ind, int tar, vector<int> &num, vector<vector<int>> &dp)
+{
+    recurse(ind, tar);
+    int n = num.size();
+    if (tar == 0)
+    {
+        returnRecurse(1);
+        return 1;
     }
-    int calculateMinimumHP(vector<vector<int>>& dungeon) {
-        int n = dungeon.size(), m = dungeon[0].size();
-        vector<vector<int>> dp(n,vector<int>(m,-1));
-        return calculateMinimumHPfrom(0,0,dungeon,dp, n , m);
+    if (ind == n - 1)
+    {
+        returnRecurse(num[n - 1] == tar);
+        return (int)(num[n - 1] == tar);
     }
+    int ans = findWaysFrom(ind + 1, tar, num, dp);
+    if (tar >= num[ind])
+        ans += findWaysFrom(ind + 1, tar - num[ind], num, dp);
 
-int main() {
-    vector<vector<int>> dungeon = {{-2,-3,3},{-5,-10,1},{10,30,-5}};
+    returnRecurse(ans);
+    return ans;
+}
 
-  cout<<calculateMinimumHP(dungeon);
+int findWays(vector<int> &num, int tar)
+{
+    // Write your code here.
+    vector<vector<int>> dp;
+    return findWaysFrom(0, tar, num, dp);
+}
+
+int main()
+{
+    //     vector<string> dungeon = {"cat","cats","catsdogcats","dog","dogcatsdog","hippopotamuses","rat","ratcatdogcat"};
+    // Solution a;
+    vector<int> num = {0, 1, 0, 1, 0, 1};
+
+    cout << findWays(num, 2);
 }
