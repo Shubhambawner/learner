@@ -4,6 +4,7 @@
 using namespace std;
 
 string spacing = "\n";
+// increment/decrement in spacing for nested stl containers
 int far = 7;
 bool indexing = true;
 
@@ -52,7 +53,7 @@ bool isNested(T t)
 	const char *type_of_t = typeid(t).name();	 // returned raw type of t, https://en.cppreference.com/w/cpp/types/type_info/name
 	string r = boost::core::demangle(type_of_t); // converted type_of_t to human redable form
 	return Count(r, "std::allocator").size() - Count(r, "std::__cxx11::basic_string").size() > 1;
-	// finds no. of containers in type's description, but as string is also a container, we substract it
+	//* finds no. of containers in type's description, but as string is also a container, we substract it
 }
 
 

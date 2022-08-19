@@ -1,103 +1,45 @@
 #include "./print_vardiac_function.cpp"
+#include "./depricated.cpp"
 
-string unitSeperator = "|\t";
+string unitSeperator = "|     ";
+string enterArrow = "|-----";
 
-// recurse enter
-template <typename... Types>
-void e(Types... t)
+// recurse enter e()
+template <typename T, typename... Types>
+void e(T functionName, Types... t)
 {
+    string fnName = (string)functionName+"() ";
+    string enterSpace=spacing;
+
+    if(enterSpace.size()>=unitSeperator.size()){ enterSpace = enterSpace.erase(enterSpace.size() - unitSeperator.size());
+    enterSpace+=enterArrow;}
+
+    cout<<enterSpace<<fnName;
     spacing += unitSeperator;
-    cout << spacing << "recurse enter";
     w(t...);
 }
 void e()
 {
     spacing += unitSeperator;
-    cout << spacing << "recurse enter";
+    cout << spacing;
 }
 
 
-//recurse exit/base case
+//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
 template <typename... Types>
 void b(Types... t)
 {
-    w(t..., "recurse end ");
     spacing = spacing.erase(spacing.size() - unitSeperator.size());
+    w(dep("return "), t...);
 }
+//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
 void b()
 {
-    w("recurse end");
     spacing = spacing.erase(spacing.size() - unitSeperator.size());
+    w(dep("return"));
 }
 
-// depricated: utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
-// can print it all directly, << got overloaded!
-template <class T>
-void srint(T arr, int i = 0)
-{
-    cout << spacing << "[" << arr << "]   ";
-}
-
-// depricated: utility funnction to print a 2d iterative container vector<vector<int>> list<vector<int>> ...
-// can print it all directly, << got overloaded!
-template <class T>
-void print(T arr, string label = "collection", int i = 0)
-{
-    cout << spacing << label << ": " << arr.size();
-    if (isAdvanced(arr))
-    {
-        cout << "[";
-        spacing += "   ";
-        for (auto g = arr.begin(); g != arr.end(); ++g)
-        {
-            cout << spacing;
-            cout << i++ << ": " << g->size() << "[";
-            for (auto it = (*g).begin(); it != (*g).end(); ++it)
-
-            {
-                cout << ", " << print(*it);
-            }
-            cout << " ]";
-        }
-        spacing = spacing.erase(spacing.size() - 3);
-        cout << spacing << "]";
-    }
-    else
-    {
-        cout << arr;
-    }
-}
-
-// depricated: utility funnction to print a 3d iterative container vector<vector<int>> list<vector<int>> ...
-// can print it all directly, << got overloaded!
-template <class T>
-void print2(T arr, int i = 0)
-{
-
-    for (auto g = arr.begin(); g != arr.end(); ++g)
-    {
-        cout << spacing;
-        cout << i++ << ": [\n";
-        for (auto it = (*g).begin(); it != (*g).end(); ++it)
-        {
-            cout << *it << " \n";
-        }
-        cout << "]";
-    }
-}
-
-// depricated: utility funnction to print a 3d iterative container vector<vector<int>> list<vector<int>> ...
-// can print it all directly, << got overloaded!
-template <class T>
-void trint(T arr, string label = "collection", int i = 0)
-{
-    cout << spacing << label << ": " << arr.size() << "[";
-    spacing += "   ";
-    for (auto g = arr.begin(); g != arr.end(); ++g)
-    {
-        print(*g, to_string(i++));
-    }
-    spacing = spacing.erase(spacing.size() - 3);
-    cout << spacing << "]";
-}
-
+//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
+#define e(...) e( __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
+#define recurse e
+#define returnRecurse b

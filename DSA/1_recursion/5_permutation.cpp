@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "./recursion_utilities.cpp"
+#include "../util/recursion_utilities.cpp"
 using namespace std;
 
 //! recursion approach: for looping and set, n! time complexicity
@@ -8,7 +8,7 @@ vector<vector<int>> ans;
 vector<int>temp;
 void rc(unordered_set<int> permuter){
     recurse();
-     cout<<spacing<<(permuter);
+     cout<<(permuter);
     if(permuter.size()==0){
         ans.push_back(temp);
         cout<<spacing<<(temp);
