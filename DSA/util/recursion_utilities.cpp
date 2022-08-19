@@ -2,24 +2,31 @@
 
 string unitSeperator = "|\t";
 
+// recurse enter
 template <typename... Types>
-void recurse(Types... t)
+void e(Types... t)
 {
     spacing += unitSeperator;
     cout << spacing << "recurse enter";
     w(t...);
 }
-void recurse()
+void e()
 {
     spacing += unitSeperator;
     cout << spacing << "recurse enter";
 }
 
-template <class T>
-void returnRecurse(T a = ' ')
-{
 
-    cout << spacing << "recurse end " << a;
+//recurse exit/base case
+template <typename... Types>
+void b(Types... t)
+{
+    w(t..., "recurse end ");
+    spacing = spacing.erase(spacing.size() - unitSeperator.size());
+}
+void b()
+{
+    w("recurse end");
     spacing = spacing.erase(spacing.size() - unitSeperator.size());
 }
 
