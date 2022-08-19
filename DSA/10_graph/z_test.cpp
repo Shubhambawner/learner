@@ -1,8 +1,8 @@
 // { Driver Code Starts
+// #define _w 
+// #define _e 
+// #define _b 
 #include "../util/recursion_utilities.cpp"
-// #define w 
-// #define e 
-// #define b 
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,10 +17,10 @@ int main()
         long long int c;cin>>c;
         long long int d;cin>>d;
         long long int t = a*d, s = b*c;
-        w("debug: ",a,b,c,d,s,t, "|| ");
+        _w("debug: ",a,b,c,d,s,t, "|| ");
         if(s==t)cout<<"0\n";
         else{
-            w('a');
+            _w('a');
             if(t<s){
                 long long r = t;t=s;s=r;
             }

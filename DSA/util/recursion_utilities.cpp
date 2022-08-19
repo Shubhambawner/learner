@@ -4,9 +4,9 @@
 string unitSeperator = "|     ";
 string enterArrow = "|-----";
 
-// recurse enter e()
+// recurse enter _e()
 template <typename T, typename... Types>
-void e(T functionName, Types... t)
+void _e(T functionName, Types... t)
 {
     string fnName = (string)functionName+"() ";
     string enterSpace=spacing;
@@ -16,30 +16,30 @@ void e(T functionName, Types... t)
 
     cout<<enterSpace<<fnName;
     spacing += unitSeperator;
-    w(t...);
+    _w(t...);
 }
-void e()
+void _e()
 {
     spacing += unitSeperator;
     cout << spacing;
 }
 
 
-//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
 template <typename... Types>
-void b(Types... t)
+void _b(Types... t)
 {
     spacing = spacing.erase(spacing.size() - unitSeperator.size());
-    w(dep("return "), t...);
+    _w(dep("return "), t...);
 }
-//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
-void b()
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
+void _b()
 {
     spacing = spacing.erase(spacing.size() - unitSeperator.size());
-    w(dep("return"));
+    _w(dep("return"));
 }
 
-//b(): recurse exit/base case ; e(args): recurse enter; w(): print anything with current spacing
-#define e(...) e( __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
-#define recurse e
-#define returnRecurse b
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
+#define _e(...) _e( __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
+#define recurse _e
+#define returnRecurse _b
