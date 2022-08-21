@@ -36,6 +36,9 @@ int main()
     removing elements take O(1) time on average at both ends.
     */
 
+
+   //* Heap :
+
     priority_queue<int> pq;
     pq.push(3);
     pq.push(5);
@@ -43,15 +46,15 @@ int main()
     pq.push(2);
     //pq:  3 5 7 2
     cout << pq.top() << "\n"; //7
-    q.pop(); 
+    pq.pop(); 
     //pq:  3 5 7 
-    cout << pq.top() << "\n"; // 7
+    cout << pq.top() << "\n"; // 5
     pq.pop(); 
     //pq:  3 5 
-    cout << pq.top() << "\n"; // 5
-    q.pop(); 
+    cout << pq.top() << "\n"; // 3
+    pq.pop(); 
     //pq:  3 
-    cout << pq.top() << "\n"; // 5 ??
+    cout << pq.top() << "\n"; // 2
     
     /*
     Insertion and removal take O(logn) time,
