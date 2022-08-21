@@ -22,7 +22,13 @@ string Map[3] = {"[", ", ", "]"};
 string Vector[3] = {"[", ", ", "]"};
 string Pair[3] = {"", " : ", ""};
 
-// occurances of pattern ptr(*) in string txt
+// TODO
+string Queue[3] = {"", " : ", ""};
+string PQueue[3] = {"", " : ", ""};
+string DQueue[3] = {"", " : ", ""};
+string Stack[3] = {"", " : ", ""};
+
+// occurances of pattern ptr(*) in string txt, with ptr having unique characters
 // *: for which all of lps array is 0
 // https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
 vector<int> Count(string txt, string ptr)
@@ -48,21 +54,33 @@ vector<int> Count(string txt, string ptr)
 
 // finds wether type of stl container being passed(i.e. T) is nested(contains any other container inside)
 template <class T>
-bool isNested(T t)
-{
+string getType(T t){
 	const char *type_of_t = typeid(t).name();	 // returned raw type of t, https://en.cppreference.com/w/cpp/types/type_info/name
 	string r = boost::core::demangle(type_of_t); // converted type_of_t to human redable form
+	// cout<<dep(r)<<endl;
+	return r;
+}
+
+bool isNested(string r)
+{
 	return Count(r, "std::allocator").size() - Count(r, "std::__cxx11::basic_string").size() > 1;
 	//* finds no. of containers in type's description, but as string is also a container, we substract it
 }
 
+bool isQueueStack(string r){
+	return Count(r, "stack").size() || Count(r, "queue").size() || Count(r, "deque").size(); 
+}
 
-// generates output stream for given container T, using start mid and end strings
+
+// generates output stream for given iterable container T, using start mid and end strings
 // if it is nested container, it will be printed automatically in separate lines using spacing recursively
 template <class T>
 ostream &handle(ostream &out, T v, string start = "[", string mid = ", ", string end = "]", bool indexing = true)
 {
-	bool isAdv = isNested(v);
+
+	string dataType = getType(v);
+	bool isAdv = isNested(dataType);
+	
 	// if(isAdv)out <<spacing ;
 	out << start;
 	if (isAdv)
@@ -73,6 +91,7 @@ ostream &handle(ostream &out, T v, string start = "[", string mid = ", ", string
 		}
 	}
 	int j = 0;
+
 	for (auto i = v.begin(); i != v.end() && j < 50; i++, j++)
 	{
 		if (isAdv)
@@ -110,7 +129,8 @@ ostream &handle(ostream &out, T v, string start = "[", string mid = ", ", string
 template <class T, class R>
 ostream &operator<<(ostream &out, const pair<T, R> &v)
 {
-	bool a = isNested(v.second);
+	string dataType = getType(v.second);
+	bool a = isNested(dataType);
 	out << " " << Pair[0];
 	out << v.first << Pair[1] << v.second;
 	out << Pair[2];
@@ -193,3 +213,35 @@ ostream &operator<<(ostream &out, const unordered_multiset<T> v)
 {
 	return handle(out, v, Set[0], Set[1], Set[2], indexing);
 }
+
+// overloaded ostream operator<<
+template <class T>
+ostream &operator<<(ostream &out, const stack<T> v)
+{
+	out<<"no support for stack/que for printing";
+		return out;
+}
+
+// overloaded ostream operator<<
+template <class T>
+ostream &operator<<(ostream &out, const priority_queue<T> v)
+{
+	out<<"no support for stack/que for printing";
+		return out;
+}
+
+// overloaded ostream operator<<
+template <class T>
+ostream &operator<<(ostream &out, const queue<T> v)
+{
+	out<<"no support for stack/que for printing";
+		return out;
+}
+
+// overloaded ostream operator<<
+template <class T>
+ostream &operator<<(ostream &out, const deque<T> v)
+{out<<"no support for stack/que for printing";
+		return out;
+}
+

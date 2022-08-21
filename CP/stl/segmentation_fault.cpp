@@ -67,7 +67,7 @@ void setErase(){
     _e();
     set<int> t;
     t.insert(4);
-    t.erase(t.end());
+    t.erase(t.find(55));
     _w("executed successfully! \n");
 }
 
@@ -103,5 +103,14 @@ int main(){
     // uninitializedAccess();
     // picks garbage values: executes successfully but reasults are un-desired !
 
-    setErase();
+    // setErase();
+
+    list<int> l;
+    l.pop_back();
+    // _w(l);
+
+    queue<int>s;
+    // s.pop();
+    _w(isQueueStack(getType(s)));
+    cout<<s;
 }

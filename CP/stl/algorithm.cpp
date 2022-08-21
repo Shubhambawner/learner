@@ -28,6 +28,7 @@ int main(){
     print<int>(arr, arr+11);
     //boolean returner binary_search
     if( binary_search(arr, arr+11, 44) ) cout<<"44 is there in arr\n";
+    cout<<"44 is there at "<<find(arr, arr+11, 44) - arr<<"th of arr\n";
 
 
     vector<int> v = {1,2,3,4,5,6,7,44,8,9,0};
@@ -44,4 +45,7 @@ int main(){
     if( binary_search(v.begin(), v.end(), 44) ) cout<<"44 is there in v\n";
     
     cout<<max(1,2);
+
+    // gcd of 2 numbers
+    cout<<__gcd(55,100);
 }
