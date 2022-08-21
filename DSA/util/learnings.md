@@ -36,4 +36,7 @@ void w_recursive()
 w(__func__, __PRETTY_FUNCTION__, __FUNCTION__);
 
 // vardiac macros: https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html
-#define e(...) e(__PRETTY_FUNCTION__, __VA_ARGS__)
+#define e(args...) e(__PRETTY_FUNCTION__, args)
+
+// c++ 20 vardiac macro with possibly no arguments , using __VA_OPT__(,) that expands to ',' if there are args
+#define e(args...) e(__PRETTY_FUNCTION__ __VA_OPT__(,) args)
