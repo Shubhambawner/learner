@@ -7,25 +7,24 @@ using namespace std;
 vector<vector<int>> ans;
 vector<int>temp;
 void rc(unordered_set<int> permuter){
-    recurse();
-     cout<<(permuter);
+    _e(permuter);
     if(permuter.size()==0){
         ans.push_back(temp);
-        cout<<spacing<<(temp);
+        _w(temp);
     }
     
     for(auto i:permuter){
         temp.push_back(i);
-        cout<<spacing<<"pushing "<<i<<", now temp: "<<temp;
+        _w("pushing ",i,", now temp: ",temp);
         //! unordered_set permuter cant be edited while iterating, so we have to create new one and pass inn.
         unordered_set<int> tpermuter = permuter;
         tpermuter.erase(i);;
         rc(tpermuter);
         temp.pop_back();;
-        cout<<spacing<<"popping back "<<i<<", now temp: "<<temp;
+        _w("popping back ",i,", now temp: ",temp);
         
     }
-       returnRecurse();
+    _b();
 }
 //permute only array of unique elements, no duplicates 😢
 vector<vector<int>> permute(vector<int>nums){

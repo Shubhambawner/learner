@@ -15,9 +15,7 @@ class node0{
     node0(){}
 };
 void uninitializedAccess(string str = __builtin_FUNCTION()){
-    w(str);
-
-    w(__PRETTY_FUNCTION__,"\n");
+    _e();
         node0*h = new node0();
     node0 *n = h->next;
     cout<<n<<"\n";
@@ -27,7 +25,7 @@ void uninitializedAccess(string str = __builtin_FUNCTION()){
 
 //! 2 accessing top() of empty stack in stl
 void emptyStackTop(){
-    w(__PRETTY_FUNCTION__,"\n");
+    _e();
         stack<int> s;
     s.push(3);
     s.push(4);
@@ -43,7 +41,7 @@ class node{
     node(int a){this->data=a;}
 };
 void nullPointerAccess(){
-    w(__PRETTY_FUNCTION__,"\n");
+    _e();
         node*head=new node(5);
     int n = head->next->data;
     cout<<n<<"\nexecuted successfully! \n";
@@ -51,7 +49,7 @@ void nullPointerAccess(){
 
 //! 4 Division by int/long variable that is zero
 void divisionByZero(){
-    w(__PRETTY_FUNCTION__,"\n");
+    _e();
         int a=0;
     int b = 6/a;
     cout<<"\nexecuted successfully! \n"<<a;
@@ -59,12 +57,20 @@ void divisionByZero(){
 
 //! 5 Mod operation(%) by int/long variable that is zero
 void modByZero(){
-    w(__PRETTY_FUNCTION__,"\n");
+    _e();
         int a=0;
     int b = 6%a;
     cout<<"\nexecuted successfully! \n"<<a;
 }
-//! 
+//! 6 removing element from set that is not inserted into it, i.e. set.erase(set.end())
+void setErase(){
+    _e();
+    set<int> t;
+    t.insert(4);
+    t.erase(t.end());
+    _w("executed successfully! \n");
+}
+
 //! 
 //! 
 //! 
@@ -97,13 +103,5 @@ int main(){
     // uninitializedAccess();
     // picks garbage values: executes successfully but reasults are un-desired !
 
-    e(1,'w',"ere");
-    e(1,'w',"ere");
-    b(324);
-    e();
-    // e(1,'w',"ere");
-    b(324);
-    b(324);
-
-    // w(__func__, __PRETTY_FUNCTION__, __FUNCTION__);
+    setErase();
 }

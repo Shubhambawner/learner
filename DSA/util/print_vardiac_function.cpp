@@ -5,6 +5,7 @@
 void _w_recursive()
 {
 }
+
  
 // Variadic function Template that takes
 // variable number of arguments and prints
@@ -26,6 +27,19 @@ void _w(Types... var2)
     cout << spacing  ;
  
     _w_recursive(var2...);
+}
+
+// base case
+void _w_()
+{
+}
+
+template <typename... Types>
+void _w_(Types... var2)
+{
+    cout << spacing  ;
+ 
+    _w_(var2...);
 }
 
 // int main(){
