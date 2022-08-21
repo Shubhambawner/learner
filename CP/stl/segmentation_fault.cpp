@@ -71,6 +71,28 @@ void setErase(){
     _w("executed successfully! \n");
 }
 
+//! 7 accessing top of empty stack, note that popping from empty stack wont be any problem!
+void stackTop(){
+    _e();
+    stack<int>ss;
+    ss.pop();
+    ss.pop();
+    _e();
+    _w(ss.top());
+    _w("executed successfully! \n");
+}
+
+//! 8 accessing back of the empty ueue, note that popping from empty quwue wont be any problem!
+void queueBack(){
+    _e();
+    queue<int>s;
+    s.pop();
+    s.pop();
+    _e();
+    _w(s.back());
+    _w("executed successfully! \n");
+}
+
 //! 
 //! 
 //! 
@@ -85,32 +107,26 @@ void setErase(){
 
 int main(){
 
-
-
-    //! Division by int/long variable that is zero
     // divisionByZero();
     
-    //! Mod operation(%) by int/long variable that is zero
     // modByZero();
 
-    //! De-referencing a NULL pointer
     // nullPointerAccess();
 
-    //! 2 accessing top() of empty stack in stl
     // emptyStackTop();
 
-    // //! 1 Dereferencing uninitialized pointer/ accessing uninitialised variable
     // uninitializedAccess();
     // picks garbage values: executes successfully but reasults are un-desired !
 
     // setErase();
 
-    list<int> l;
-    l.pop_back();
-    // _w(l);
+    // stackTop();
 
-    queue<int>s;
-    // s.pop();
-    _w(isQueueStack(getType(s)));
-    cout<<s;
+    // queueBack();
+
+    
+
+    
+
+    
 }
