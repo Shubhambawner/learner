@@ -34,7 +34,7 @@ list<list<int>> getSubsequences(int arr[], int size, int start, list<int>& temp,
 vector<vector<int>> ans;
 vector<int> t;
 int sum = 0, a = 0;
-// subsequence with sum = a, given array of distinct elements.
+// get all subsequence with sum = a, given array of distinct elements.
 void getSummingSequence(int arr[], int size, int start = 0)
 {
     if (sum == a)

@@ -4,6 +4,9 @@ using namespace std;
 
 string s = "";
 
+// palindrome partitioning, partition given string into pallindromes, aaba: a,aba or a,a,b,a...
+// find no. of partitions possible
+
 vector<string> temp;
 bool isPal(int start, int end, string s)
 {

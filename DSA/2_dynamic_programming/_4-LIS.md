@@ -24,3 +24,5 @@ aproach:
     i,j can reach -1 in top down, LIS(i,j) means LIS in index [0..i] of s1, [0..j] of s2, OR LIS for substr of size i+1 from start, so, if i=-1, for substr of size 0, that is 0
 
 ## longest common sub String
+
+intution: lcsg(i1,i2) = 1+ lcsg(i1-1,i2-1) 
