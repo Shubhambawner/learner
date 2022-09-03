@@ -43,6 +43,7 @@ int main()
     pq.push(3);
     pq.push(5);
     pq.push(7);
+    pq.push(5);
     pq.push(2);
     //pq:  3 5 7 2
     cout << pq.top() << "\n"; //7
@@ -51,10 +52,10 @@ int main()
     cout << pq.top() << "\n"; // 5
     pq.pop(); 
     //pq:  3 5 
-    cout << pq.top() << "\n"; // 3
+    cout << pq.top() << "\n"; // 5
     pq.pop(); 
     //pq:  3 
-    cout << pq.top() << "\n"; // 2
+    cout << pq.top() << "\n"; // 3
     
     /*
     Insertion and removal take O(logn) time,

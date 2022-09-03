@@ -9,7 +9,7 @@ subset of array summing to k, pick and not pick,
 ## recursive function: 
 
     f(index,target) gives:
-    number of subsets with sum as target, int the array starting from index ind to 0
+    number of subsets with sum as target, in the array starting from index ind to 0
     so, dp[ind][target] stores number of subsets with sum as target, in the array starting from index ind to 0
 
     approach: pick and not pick style: ( recurance relation )

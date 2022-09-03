@@ -84,7 +84,7 @@ Size: 7
 
 
     //***********************************************************************
-    //multiset (?) 
+    //multiset (?) similer to priority queue
     //use when SORTED order needed, & also get number of times element has been inserted
 
     //initialise

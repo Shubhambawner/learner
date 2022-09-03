@@ -38,10 +38,10 @@ int main()
   m2[100] = 47;
   print<int,int>(m2);
 
-  m3[23]; //actually it searches in map, iff not found, inserts the key 23
-  m3[33];
-  m3[25];
-  m3[46];
+  m3[23]; //actually it searches in map, iff not found, inserts the key 23, with value 0
+  m3[33]; //* inserts the key 33, with value 0
+  m3[25]; //* inserts the key 25, with value 0
+  m3[46]; //* inserts the key 46, with value 0
   print<int,int>(m3);
 
   //3. deletion
