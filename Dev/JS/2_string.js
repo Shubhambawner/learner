@@ -1,3 +1,5 @@
+'use strict'
+
 // strings::
 //1. decleration
 s1 = "Hello World!";
