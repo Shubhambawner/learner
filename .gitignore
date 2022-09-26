@@ -3,5 +3,6 @@ node_modules
 *.exe
 *.in
 *.out
+*.class
 solution.cpp
 tempCodeRunnerFile.cpp
