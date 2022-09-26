@@ -10,19 +10,19 @@ public class MaxSum {
 
     sum = 0;
     int right_sum = Integer.MIN_VALUE;
-    for (int i = m; i <= h; i++) {
+    for (int i = m+1; i <= h; i++) {
       sum = sum + arr[i];
       if (sum > right_sum) right_sum = sum;
     }
 
     return Math.max(
-      left_sum + right_sum - arr[m],
+      left_sum + right_sum,
       Math.max(left_sum, right_sum)
     );
   }
 
   static int maxSubArraySum(int arr[], int l, int h) {
-    if (l > h) return Integer.MIN_VALUE;
+    if (l > h) return 0;
     if (l == h) return arr[l];
 
     int m = (l + h) / 2;
