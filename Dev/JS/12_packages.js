@@ -7,7 +7,7 @@
  *      export default App;
  * 1.2 default import
  *      syntax:
- *      import App from "./App" 
+ * s     import App from "./App" 
  * 2.1 general export:
  *      to export multiple objects from one file, 
  *      syntax:
@@ -17,6 +17,6 @@
  * 
  * export: //* module.exports syntax
  * 
- * export: //* require() syntax
+ * import: //* require() syntax
  * 
  */

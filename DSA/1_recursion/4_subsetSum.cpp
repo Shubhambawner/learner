@@ -182,7 +182,7 @@ void print(T arr, int i)
 sub-set: [3,1] is sub set of [1,2,3,4,5], NO duplicates
 sub-sequence: in same order as array. [1,2,2,5] is sub-sequence of [1,2,2,3,4,5]
 contigeous: in same order and continuous, i.e. [1,2,3] is contigeous sub-sequence of [1,2,3,4,5,6], but not [1,2,4]
-sub-array:
-permutation:
+sub-array: contiguous subset
+permutation: 
 combination:
 */
