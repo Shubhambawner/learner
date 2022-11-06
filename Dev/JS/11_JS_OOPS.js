@@ -14,6 +14,8 @@ class animal{
         //public field:
         this.name = name //here, we see, public fields need not be decleared first
         //much like function based class!
+
+        this.speak.bind(this) //!
     }
 
     //static field
@@ -52,6 +54,8 @@ class man extends animal{
     constructor(name, IQ){
         super('god',name)
         this.IQ = IQ
+
+        
     }
     //if child dosent decleare constructor, the child objects will be created using 
     //parent constructor, just the fields will be over-rided

@@ -1,0 +1,44 @@
+{
+    "Round 1":[
+     {
+      "Branch": "CSD",
+      "OBC": 94,
+      "GEN": 75,
+      "SC\/ST": 69
+     },
+     {
+      "Branch": "ECD",
+      "OBC": 88,
+      "GEN": 93,
+      "SC\/ST": 67
+     }
+    ],
+    "Round 2":[
+     {
+      "Branch": "CSD",
+      "OBC": 62,
+      "GEN": 74,
+      "SC\/ST": 67
+     },
+     {
+      "Branch": "ECD",
+      "OBC": 69,
+      "GEN": 66,
+      "SC\/ST": 92
+     }
+    ],
+    "Round 3":[
+     {
+      "Branch": "CSD",
+      "OBC": 60,
+      "GEN": 86,
+      "SC\/ST": 60
+     },
+     {
+      "Branch": "ECD",
+      "OBC": 98,
+      "GEN": 85,
+      "SC\/ST": 88
+     }
+    ]
+    }

@@ -14,7 +14,7 @@ fetch("https://reqres.in/api/users?page=2")
 /**
  * POST request:
  */
-function postData(url, body, headers) {
+ async function postData(url, body, headers) {
     let param =
     {
         method: "post",
@@ -22,14 +22,13 @@ function postData(url, body, headers) {
         body: JSON.stringify(body)
     }
 
-    return fetch(url, param)
+    return await fetch(url, param)
         .then(responce =>{ responce = responce.json();console.log(responce); return responce})
     //.then(r => console.log(r))
 }/**/
 
-function getData(url){
-    let Res = null;
-    fetch(url)
+async function getData(url){
+    let Res = await fetch(url)
     .then(Response => Response.json())
     .then(r => {
         console.log(r); 
@@ -43,7 +42,7 @@ function getData(url){
 let apiKey = "AIzaSyBPtVgftiyxrfVsi3JxTZqCaXip8YnsTnk"
 let sheetID = "1U24tfu-q7KqrRzqPEjh3vHHSY7G8FOwJbCfeYazEHTA"
 
-console.log("the data returned is: ",getData("https://sheets.googleapis.com/v4/spreadsheets/"+sheetID+"/values/Sheet1?key="+apiKey))
+console.log("the data returned is: ",await getData("https://sheets.googleapis.com/v4/spreadsheets/"+sheetID+"/values/Sheet1?key="+apiKey))
 
 
 
@@ -58,7 +57,7 @@ let d = postData(
 
 )*/
 
-function putData(url, body, headers) {
+async function putData(url, body, headers) {
     let param =
     {
         method: "PUT",
@@ -66,7 +65,7 @@ function putData(url, body, headers) {
         body: JSON.stringify(body)
     }
 
-    return fetch(url, param)
+    return await fetch(url, param)
         .then(responce =>{ responce = responce.json();console.log(responce); return responce})
     //.then(r => console.log(r))
 }

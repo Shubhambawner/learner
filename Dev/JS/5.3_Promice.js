@@ -2,8 +2,8 @@
 
 let done = true;
 
-let areUfree = new Promise((resolve, reject)=>{
-    if(done) resolve("Yes, I am free")
+let areUfree = new Promise((resolve, reject) => {
+    if (done) resolve("Yes, I am free")
     else reject("No, I am busy")
 })
 
@@ -13,10 +13,10 @@ let areUfree = new Promise((resolve, reject)=>{
 //     console.log(err)
 // });
 
- let fs = require('fs')
-let getFile = new Promise((resolve,reject)=>{
-    fs.readFile('d:\\lerner\\Dev\\JS\\5.3_Promice.js',(err,data)=>{
-        if(data){console.log(data); resolve(data)}
+import { readFile } from 'fs';
+let getFile = new Promise((resolve, reject) => {
+    readFile('d:\\lerner\\Dev\\JS\\5.3_Promice.js', (err, data) => {
+        if (data) { console.log(data); resolve(data) }
         else reject(err)
     })
 })
@@ -32,7 +32,7 @@ getFile
 // let file = fs.readFile('d:\\lerner\\Dev\\JS\\5.3_Promice.js',(err,data)=>{
 //         if(data) return (data)
 //         else return (err)
-//     }) 
+//     })
 // console.log(file) //undefined
 
 /** //* error message for no file found: 

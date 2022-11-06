@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <center>
+        <div id="display"
+            style="border:1px solid white; border-radius:20px 20px 20px 20px; box-shadow:10px 10px 10px rgba(0, 0, 0, 0.5);">
+            <h2 style="color:white;font-size:30px; margin-top:20px"><label>Enter Mobile No. to Get Password via
+                    SMS</label></h2>
+            <input type="number" id="awbInput" name="awb" value="" placeholder="Enter AWB Number"
+                style="width:70%; border-radius:10px 10px 10px 10px">
+            <br><br>
+            <button style="background-color:green; margin-bottom:10px;color: white" onclick="handleClick()">Track
+                Now</button>
+        </div>
+    </center>
+
+    <!-- SCRIPT -->
+    <script>
+        async function handleClick(e) {
+
+            let url = 'https:\/\/\shiprocket.co/tracking/';
+            let awb = document.querySelector('#awbInput').value;
+
+
+            fetch(url + awb).then(function (response) {
+                console.log(response); // returns 200
+                if (response.ok) {
+                    document.querySelector('#trakerFrame').src = url + awb;
+                    document.querySelector('#display').style.display = 'none';
+                }else{
+                    console.log(error); // returns 200
+                    window.alert('incorrect awb number entered!');
+                }
+            }).catch(function (error) {
+                window.alert('unexpected error!');
+            });
+
+
+        }
+
+
+        // document.querySelector('iframe').onerror = () => {
+        //     window.alert('eeeee')
+        // } 81006884825
+    </script>
+</body>
+
+</html>
+<iframe id="trakerFrame" style="width: 100vw; height: 100vh; " src="https://shiprocket.co/tracking/" frameborder="0">
+</iframe>
