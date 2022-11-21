@@ -17,7 +17,7 @@ public class kMinMax {
   public static void main(String[] args) {
     int arr[] = { 5, 4, 3, -3, 45, 344, 0 };
     int n = arr.length;
-    int k = 15;
+    int k = 3;
 
     MaxHeap pq = new MaxHeap(n);
     System.out.print(
