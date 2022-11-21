@@ -8,14 +8,19 @@ public class CountingSort {
     
 
     int[] count = new int[max + 1]; //create count array with size [max+1]
+    int[] b = new int[n]; //create clone of a
 
     for (int i = 0; i <= max; ++i) count[i] = 0; // Initialize count array with all zeros
 
     for (int i = 0; i < n; i++) count[a[i]]++; // Store the count of each element
+    
+    for (int i = 1; i <= max; i++) count[i]+=count[i-1]; // count[j] gives no. of elements <= j in the array a[]
+    
+    for (int i = n-1; i>=0; i--) 
+      b[--count[a[i]]]=a[i];
 
-    int j = 0;
-    for (int i = 0; i <= max; i++) 
-      while (count[i]-- > 0) a[j++] = i;
+    for (int i = 0; i < b.length; i++) 
+      a[i]=b[i];
 
   }
 
