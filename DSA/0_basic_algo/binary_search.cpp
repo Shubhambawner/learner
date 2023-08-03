@@ -21,11 +21,11 @@ int Binary_Search(int *arr, int start, int end, int target)
     return 0;
 }
 int main(){
-    int arr = {10,20,30,40};
+    int arr[] = {10,20,30,40};
     while (true)
     {
         int j;cin>>j;
-        cout<<Binary_Search(arr, 0,3,j);
+        cout<<Binary_Search(arr, 0,3,j)<<'\n';
     }
     
     

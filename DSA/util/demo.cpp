@@ -1,4 +1,20 @@
-#include "./recursion_utilities.cpp"
+#include "./util/recursion_utilities.h"
+#include <bits/stdc++.h>
+
+
+int fibonachi(int a)
+{
+      recurse(a);
+      if (a == 0 || a == 1)
+      {
+            returnRecurse();
+            return a;
+      }
+      int g = fibonachi(a - 1) + fibonachi(a - 2);
+      returnRecurse();
+      return g;
+}
+
 using namespace std;
 int main()
 {
@@ -10,8 +26,10 @@ int main()
       stack<int>stk;
       // cout<<stk;
 
-    _w(v,vv,l,s,m);
-    _w("string",'g',44,2342345,vv);
+//     _w(v,vv,l,s,m);
+//     _w("string",'g',44,2342345,vv);
+fibonachi(6);
+
 }
 
 /*

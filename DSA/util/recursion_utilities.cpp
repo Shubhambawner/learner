@@ -1,5 +1,4 @@
 #include "./print_vardiac_function.cpp"
-#include "./depricated.cpp"
 
 string unitSeperator = "|     ";
 string enterArrow = "|-----";
@@ -11,8 +10,10 @@ void _e(T functionName, Types... t)
     string fnName = (string)functionName+"() ";
     string enterSpace=spacing;
 
-    if(enterSpace.size()>=unitSeperator.size()){ enterSpace = enterSpace.erase(enterSpace.size() - unitSeperator.size());
-    enterSpace+=enterArrow;}
+    if(enterSpace.size()>=unitSeperator.size()){ 
+        enterSpace = enterSpace.erase(enterSpace.size() - unitSeperator.size());
+        enterSpace+=enterArrow;
+    }
 
     cout<<enterSpace<<fnName;
     spacing += unitSeperator;

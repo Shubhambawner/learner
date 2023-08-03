@@ -87,7 +87,7 @@ let connection = mysql.createConnection({
 });
 
 if (connection)
-    console.log(`connection established at ${Date()}\n\n`);
+    console.log(`connection established at ${Date()}\n\n`+Object.keys(connection));
 
 let args = process.argv.slice(2)
 

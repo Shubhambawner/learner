@@ -1,11 +1,10 @@
 #include<iostream>
 #include<bits/stdc++.h>
+// #include<ext/opt_random.h>
+#include <boost/core/demangle.h>
+
 using namespace std;
 
-class sieve{
-    public:
-    vector<int> s;
-    sieve(int i){
-        this-> = i+1 ;
-    } 
-};
+int main(){
+    cout<<123;
+}

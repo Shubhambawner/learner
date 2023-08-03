@@ -1,6 +1,19 @@
-#include "./print_stl_operator_overloaded.cpp"
+#include "print_stl_operator_overloaded.cpp"
 
+/* //? why needed? cout can do all the printing the _w or _w_ are doing: for recurse and return recurse functions:
+we can do _w(t...);
+but not cout<<t...;
+so this file
 
+recursion_utilities.cpp:21:12: error: expected ';' before '...' token
+   21 |     cout<<t...;
+      |            ^~~
+      |            ;
+recursion_utilities.cpp:21:9: error: parameter packs not expanded with '...':
+   21 |     cout<<t...;
+      |     ~~~~^~~
+    
+*/
 // base case
 void _w_recursive()
 {

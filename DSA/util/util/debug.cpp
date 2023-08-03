@@ -3,6 +3,7 @@
 #include <cxxabi.h>
 #include <cstdlib>
 #include <memory>
+
 using namespace std;
 
 string spacing = "\n";
@@ -266,3 +267,128 @@ ostream &operator<<(ostream &out, const deque<T> v)
 		return out;
 }
 
+
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+//////////////////
+
+
+/* //? why needed? cout can do all the printing the _w or _w_ are doing: for recurse and return recurse functions:
+we can do _w(t...);
+but not cout<<t...;
+so this file
+
+recursion_utilities.cpp:21:12: error: expected ';' before '...' token
+   21 |     cout<<t...;
+      |            ^~~
+      |            ;
+recursion_utilities.cpp:21:9: error: parameter packs not expanded with '...':
+   21 |     cout<<t...;
+      |     ~~~~^~~
+    
+*/
+// base case
+void _w_recursive()
+{
+}
+
+ 
+// Variadic function Template that takes
+// variable number of arguments and prints
+// all of them space separated recursively.
+template <typename T, typename... Types>
+void _w_recursive(T var1, Types... var2)
+{
+    cout  << var1 << " ";
+ 
+    _w_recursive(var2...);
+}
+
+// Variadic function Template that takes
+// variable number of arguments and prints
+// all of them space separated recursively _with spacing maintained.
+template <typename... Types>
+void _w(Types... var2)
+{
+    cout << spacing  ;
+ 
+    _w_recursive(var2...);
+}
+
+// base case
+void _w_()
+{
+}
+
+template <typename... Types>
+void _w_(Types... var2)
+{
+    cout << spacing  ;
+ 
+    _w_(var2...);
+}
+
+
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+
+string unitSeperator = "|     ";
+string enterArrow = "|-----";
+
+// recurse enter _e()
+template <typename T, typename... Types>
+void _e(T functionName, Types... t)
+{
+    string fnName = (string)functionName+"() ";
+    string enterSpace=spacing;
+
+    if(enterSpace.size()>=unitSeperator.size()){ 
+        enterSpace = enterSpace.erase(enterSpace.size() - unitSeperator.size());
+        enterSpace+=enterArrow;
+    }
+
+    cout<<enterSpace<<fnName;
+    spacing += unitSeperator;
+    _w(t...);
+}
+void _e()
+{
+    spacing += unitSeperator;
+    cout << spacing;
+}
+
+
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
+template <typename... Types>
+void _b(Types... t)
+{
+    spacing = spacing.erase(spacing.size() - unitSeperator.size());
+    _w(dep("return "), t...);
+}
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
+void _b()
+{
+    spacing = spacing.erase(spacing.size() - unitSeperator.size());
+    _w(dep("return"));
+}
+
+//b(): recurse exit/base case ; _e(args): recurse enter; _w(): print anything with current spacing
+#define _e(...) _e( __FUNCTION__ __VA_OPT__(,) __VA_ARGS__)
+#define recurse _e
+#define returnRecurse _b

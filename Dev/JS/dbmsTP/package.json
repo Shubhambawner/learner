@@ -4,7 +4,8 @@
   "description": "",
   "main": "dataFetcher.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node dataFetcher.js"
   },
   "dependencies": {
     "axios": "^0.27.2",

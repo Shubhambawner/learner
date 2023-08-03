@@ -1,54 +1,369 @@
-connection established at Tue May 24 2022 01:15:59 GMT+0530 (India Standard Time)
+{
+  ALLUSERSPROFILE: [32m'C:\\ProgramData'[39m,
+  APPDATA: [32m'C:\\Users\\bawne\\AppData\\Roaming'[39m,
+  CHROME_CRASHPAD_PIPE_NAME: [32m'\\\\.\\pipe\\LOCAL\\crashpad_13308_TWUMQCIZLJGBXKOE'[39m,
+  COLORTERM: [32m'truecolor'[39m,
+  CommonProgramFiles: [32m'C:\\Program Files\\Common Files'[39m,
+  [32m'CommonProgramFiles(x86)'[39m: [32m'C:\\Program Files (x86)\\Common Files'[39m,
+  CommonProgramW6432: [32m'C:\\Program Files\\Common Files'[39m,
+  COMPUTERNAME: [32m'DESKTOP-3CQESJG'[39m,
+  ComSpec: [32m'C:\\Windows\\system32\\cmd.exe'[39m,
+  DriverData: [32m'C:\\Windows\\System32\\Drivers\\DriverData'[39m,
+  GIT_ASKPASS: [32m'd:\\program_files\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh'[39m,
+  HOME: [32m'C:\\Users\\bawne'[39m,
+  HOMEDRIVE: [32m'C:'[39m,
+  HOMEPATH: [32m'\\Users\\bawne'[39m,
+  INIT_CWD: [32m'D:\\lerner\\Dev\\JS\\dbmsTP'[39m,
+  JAVA_HOME: [32m'D:\\program_files\\Java'[39m,
+  LANG: [32m'en_US.UTF-8'[39m,
+  LOCALAPPDATA: [32m'C:\\Users\\bawne\\AppData\\Local'[39m,
+  LOGONSERVER: [32m'\\\\DESKTOP-3CQESJG'[39m,
+  NODE: [32m'D:\\program_files\\nodeJs\\node.exe'[39m,
+  NODE_EXE: [32m'D:\\program_files\\nodeJs\\\\node.exe'[39m,
+  NPM_CLI_JS: [32m'D:\\program_files\\nodeJs\\node_modules\\npm\\bin\\npm-cli.js'[39m,
+  npm_config_access: [32m''[39m,
+  npm_config_allow_same_version: [32m''[39m,
+  npm_config_also: [32m''[39m,
+  npm_config_always_auth: [32m''[39m,
+  npm_config_argv: [32m'{"remain":[],"cooked":["start"],"original":["start"]}'[39m,
+  npm_config_audit: [32m'true'[39m,
+  npm_config_audit_level: [32m'low'[39m,
+  npm_config_auth_type: [32m'legacy'[39m,
+  npm_config_before: [32m''[39m,
+  npm_config_bin_links: [32m'true'[39m,
+  npm_config_browser: [32m''[39m,
+  npm_config_ca: [32m''[39m,
+  npm_config_cache: [32m'C:\\Users\\bawne\\AppData\\Roaming\\npm-cache'[39m,
+  npm_config_cache_lock_retries: [32m'10'[39m,
+  npm_config_cache_lock_stale: [32m'60000'[39m,
+  npm_config_cache_lock_wait: [32m'10000'[39m,
+  npm_config_cache_max: [32m'Infinity'[39m,
+  npm_config_cache_min: [32m'10'[39m,
+  npm_config_cafile: [32m''[39m,
+  npm_config_cert: [32m''[39m,
+  npm_config_cidr: [32m''[39m,
+  npm_config_color: [32m'true'[39m,
+  npm_config_commit_hooks: [32m'true'[39m,
+  npm_config_depth: [32m'Infinity'[39m,
+  npm_config_description: [32m'true'[39m,
+  npm_config_dev: [32m''[39m,
+  npm_config_dry_run: [32m''[39m,
+  npm_config_editor: [32m'notepad.exe'[39m,
+  npm_config_engine_strict: [32m''[39m,
+  npm_config_fetch_retries: [32m'2'[39m,
+  npm_config_fetch_retry_factor: [32m'10'[39m,
+  npm_config_fetch_retry_maxtimeout: [32m'60000'[39m,
+  npm_config_fetch_retry_mintimeout: [32m'10000'[39m,
+  npm_config_force: [32m''[39m,
+  npm_config_format_package_lock: [32m'true'[39m,
+  npm_config_fund: [32m'true'[39m,
+  npm_config_git: [32m'git'[39m,
+  npm_config_git_tag_version: [32m'true'[39m,
+  npm_config_global: [32m''[39m,
+  npm_config_globalconfig: [32m'D:\\program_files\\nodeJs\\etc\\npmrc'[39m,
+  npm_config_globalignorefile: [32m'D:\\program_files\\nodeJs\\etc\\npmignore'[39m,
+  npm_config_global_style: [32m''[39m,
+  npm_config_group: [32m''[39m,
+  npm_config_ham_it_up: [32m''[39m,
+  npm_config_heading: [32m'npm'[39m,
+  npm_config_https_proxy: [32m''[39m,
+  npm_config_if_present: [32m''[39m,
+  npm_config_ignore_prepublish: [32m''[39m,
+  npm_config_ignore_scripts: [32m''[39m,
+  npm_config_init_author_email: [32m''[39m,
+  npm_config_init_author_name: [32m''[39m,
+  npm_config_init_author_url: [32m''[39m,
+  npm_config_init_license: [32m'ISC'[39m,
+  npm_config_init_module: [32m'C:\\Users\\bawne\\.npm-init.js'[39m,
+  npm_config_init_version: [32m'1.0.0'[39m,
+  npm_config_json: [32m''[39m,
+  npm_config_key: [32m''[39m,
+  npm_config_legacy_bundling: [32m''[39m,
+  npm_config_link: [32m''[39m,
+  npm_config_local_address: [32m''[39m,
+  npm_config_loglevel: [32m'notice'[39m,
+  npm_config_logs_max: [32m'10'[39m,
+  npm_config_long: [32m''[39m,
+  npm_config_maxsockets: [32m'50'[39m,
+  npm_config_message: [32m'%s'[39m,
+  npm_config_metrics_registry: [32m'https://registry.npmjs.org/'[39m,
+  npm_config_node_gyp: [32m'D:\\program_files\\nvm\\nvm\\v14.20.0\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js'[39m,
+  npm_config_node_options: [32m''[39m,
+  npm_config_node_version: [32m'14.20.0'[39m,
+  npm_config_noproxy: [32m''[39m,
+  npm_config_offline: [32m''[39m,
+  npm_config_onload_script: [32m''[39m,
+  npm_config_only: [32m''[39m,
+  npm_config_optional: [32m'true'[39m,
+  npm_config_otp: [32m''[39m,
+  npm_config_package_lock: [32m'true'[39m,
+  npm_config_package_lock_only: [32m''[39m,
+  npm_config_parseable: [32m''[39m,
+  npm_config_prefer_offline: [32m''[39m,
+  npm_config_prefer_online: [32m''[39m,
+  npm_config_prefix: [32m'D:\\program_files\\nodeJs'[39m,
+  npm_config_preid: [32m''[39m,
+  npm_config_production: [32m''[39m,
+  npm_config_progress: [32m'true'[39m,
+  npm_config_proxy: [32m''[39m,
+  npm_config_read_only: [32m''[39m,
+  npm_config_rebuild_bundle: [32m'true'[39m,
+  npm_config_registry: [32m'https://registry.npmjs.org/'[39m,
+  npm_config_rollback: [32m'true'[39m,
+  npm_config_save: [32m'true'[39m,
+  npm_config_save_bundle: [32m''[39m,
+  npm_config_save_dev: [32m''[39m,
+  npm_config_save_exact: [32m''[39m,
+  npm_config_save_optional: [32m''[39m,
+  npm_config_save_prefix: [32m'^'[39m,
+  npm_config_save_prod: [32m''[39m,
+  npm_config_scope: [32m''[39m,
+  npm_config_scripts_prepend_node_path: [32m'warn-only'[39m,
+  npm_config_script_shell: [32m''[39m,
+  npm_config_searchexclude: [32m''[39m,
+  npm_config_searchlimit: [32m'20'[39m,
+  npm_config_searchopts: [32m''[39m,
+  npm_config_searchstaleness: [32m'900'[39m,
+  npm_config_send_metrics: [32m''[39m,
+  npm_config_shell: [32m'C:\\Windows\\system32\\cmd.exe'[39m,
+  npm_config_shrinkwrap: [32m'true'[39m,
+  npm_config_sign_git_commit: [32m''[39m,
+  npm_config_sign_git_tag: [32m''[39m,
+  npm_config_sso_poll_frequency: [32m'500'[39m,
+  npm_config_sso_type: [32m'oauth'[39m,
+  npm_config_strict_ssl: [32m'true'[39m,
+  npm_config_tag: [32m'latest'[39m,
+  npm_config_tag_version_prefix: [32m'v'[39m,
+  npm_config_timing: [32m''[39m,
+  npm_config_tmp: [32m'C:\\Users\\bawne\\AppData\\Local\\Temp'[39m,
+  npm_config_umask: [32m'0000'[39m,
+  npm_config_unicode: [32m''[39m,
+  npm_config_unsafe_perm: [32m'true'[39m,
+  npm_config_update_notifier: [32m'true'[39m,
+  npm_config_usage: [32m''[39m,
+  npm_config_user: [32m''[39m,
+  npm_config_userconfig: [32m'C:\\Users\\bawne\\.npmrc'[39m,
+  npm_config_user_agent: [32m'npm/6.14.17 node/v14.20.0 win32 x64'[39m,
+  npm_config_version: [32m''[39m,
+  npm_config_versions: [32m''[39m,
+  npm_config_viewer: [32m'browser'[39m,
+  npm_execpath: [32m'D:\\program_files\\nvm\\nvm\\v14.20.0\\node_modules\\npm\\bin\\npm-cli.js'[39m,
+  npm_lifecycle_event: [32m'start'[39m,
+  npm_lifecycle_script: [32m'node dataFetcher.js'[39m,
+  npm_node_execpath: [32m'D:\\program_files\\nodeJs\\node.exe'[39m,
+  npm_package_author_name: [32m'Shubham Bawner'[39m,
+  npm_package_dependencies_axios: [32m'^0.27.2'[39m,
+  npm_package_dependencies_mysql: [32m'^2.18.1'[39m,
+  npm_package_dependencies_node_fetch: [32m'^3.2.4'[39m,
+  npm_package_description: [32m''[39m,
+  npm_package_keywords_0: [32m'sql'[39m,
+  npm_package_keywords_1: [32m'node'[39m,
+  npm_package_keywords_2: [32m'js'[39m,
+  npm_package_license: [32m'ISC'[39m,
+  npm_package_main: [32m'dataFetcher.js'[39m,
+  npm_package_name: [32m'stock_analyser'[39m,
+  npm_package_scripts_start: [32m'node dataFetcher.js'[39m,
+  npm_package_scripts_test: [32m'echo "Error: no test specified" && exit 1'[39m,
+  npm_package_version: [32m'1.0.0'[39m,
+  NPM_PREFIX_NPM_CLI_JS: [32m'D:\\program_files\\nodeJs\\node_modules\\npm\\bin\\npm-cli.js'[39m,
+  NUMBER_OF_PROCESSORS: [32m'4'[39m,
+  NVM_HOME: [32m'D:\\program_files\\nvm\\nvm'[39m,
+  NVM_SYMLINK: [32m'D:\\program_files\\nodeJs'[39m,
+  OneDrive: [32m'C:\\Users\\bawne\\OneDrive'[39m,
+  OneDriveConsumer: [32m'C:\\Users\\bawne\\OneDrive'[39m,
+  ORIGINAL_XDG_CURRENT_DESKTOP: [32m'undefined'[39m,
+  OS: [32m'Windows_NT'[39m,
+  Path: [32m'D:\\program_files\\nvm\\nvm\\v14.20.0\\node_modules\\npm\\node_modules\\npm-lifecycle\\node-gyp-bin;D:\\lerner\\Dev\\JS\\dbmsTP\\node_modules\\.bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;D:\\program_files\\Git\\cmd;D:\\program_files\\python;C:\\Program Files (x86)\\dotnet\\;%NVM_HOME%;%NVM_SYMLINK%;D:\\xamp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\MySQL\\MySQL Shell 8.0\\bin\\;C:\\Users\\bawne\\AppData\\Local\\Microsoft\\WindowsApps;D:\\program_files\\Microsoft VS Code\\bin;D:\\program_files\\Git\\cmd;D:\\program_files\\C++\\MinGW\\bin;D:\\program_files\\python;D:\\program_files\\heroku\\bin;D:\\program_files\\MongoDB\\Server\\5.0\\bin;D:\\program_files\\python\\Scripts;D:\\program_files\\Git;D:\\program_files\\nvm\\nvm;D:\\program_files\\nodeJs;D:\\program_files\\Java\\bin;C:\\Users\\bawne\\AppData\\Roaming\\Composer\\vendor\\bin'[39m,
+  PATHEXT: [32m'.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'[39m,
+  PROCESSOR_ARCHITECTURE: [32m'AMD64'[39m,
+  PROCESSOR_IDENTIFIER: [32m'Intel64 Family 6 Model 142 Stepping 12, GenuineIntel'[39m,
+  PROCESSOR_LEVEL: [32m'6'[39m,
+  PROCESSOR_REVISION: [32m'8e0c'[39m,
+  ProgramData: [32m'C:\\ProgramData'[39m,
+  ProgramFiles: [32m'C:\\Program Files'[39m,
+  [32m'ProgramFiles(x86)'[39m: [32m'C:\\Program Files (x86)'[39m,
+  ProgramW6432: [32m'C:\\Program Files'[39m,
+  PROMPT: [32m'$P$G'[39m,
+  PSModulePath: [32m'C:\\Users\\bawne\\OneDrive\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'[39m,
+  PUBLIC: [32m'C:\\Users\\Public'[39m,
+  SESSIONNAME: [32m'Console'[39m,
+  SystemDrive: [32m'C:'[39m,
+  SystemRoot: [32m'C:\\Windows'[39m,
+  TEMP: [32m'C:\\Users\\bawne\\AppData\\Local\\Temp'[39m,
+  TERM_PROGRAM: [32m'vscode'[39m,
+  TERM_PROGRAM_VERSION: [32m'1.74.0'[39m,
+  TMP: [32m'C:\\Users\\bawne\\AppData\\Local\\Temp'[39m,
+  USERDOMAIN: [32m'DESKTOP-3CQESJG'[39m,
+  USERDOMAIN_ROAMINGPROFILE: [32m'DESKTOP-3CQESJG'[39m,
+  USERNAME: [32m'bawne'[39m,
+  USERPROFILE: [32m'C:\\Users\\bawne'[39m,
+  VBOX_MSI_INSTALL_PATH: [32m'D:\\VirtualBox\\'[39m,
+  VSCODE_GIT_ASKPASS_EXTRA_ARGS: [32m'--ms-enable-electron-run-as-node'[39m,
+  VSCODE_GIT_ASKPASS_MAIN: [32m'd:\\program_files\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js'[39m,
+  VSCODE_GIT_ASKPASS_NODE: [32m'D:\\program_files\\Microsoft VS Code\\Code.exe'[39m,
+  VSCODE_GIT_IPC_HANDLE: [32m'\\\\.\\pipe\\vscode-git-a73855b46a-sock'[39m,
+  VSCODE_INJECTION: [32m'1'[39m,
+  windir: [32m'C:\\Windows'[39m,
+  ZES_ENABLE_SYSMAN: [32m'1'[39m
+}
+connection established at Sat Dec 10 2022 23:00:33 GMT+0530 (India Standard Time)
 
-
-searching for :find all the highly priced stocks (price > 1000) :
-select * from `nse_stocks_nitrr_tp` where lastPrice  > 1000;
-{"id":6,"symbol":"VMART","open":3080,"dayHigh":3350,"dayLow":3055,"lastPrice":3299,"previousClose":3065,"yearHigh":4849,"yearLow":2653,"totalTradedVolume":70389}
-{"id":8,"symbol":"NILKAMAL","open":2100,"dayHigh":2300,"dayLow":2001,"lastPrice":2058,"previousClose":1928,"yearHigh":3180,"yearLow":1851,"totalTradedVolume":127741}
-{"id":15,"symbol":"MTARTECH","open":1400,"dayHigh":1518,"dayLow":1384,"lastPrice":1462,"previousClose":1383,"yearHigh":2563,"yearLow":918,"totalTradedVolume":304339}
-{"id":18,"symbol":"SOTL","open":1046,"dayHigh":1098,"dayLow":1036,"lastPrice":1094,"previousClose":1038,"yearHigh":1830,"yearLow":932,"totalTradedVolume":6272}
-{"id":27,"symbol":"ESABINDIA","open":3860,"dayHigh":4250,"dayLow":3774,"lastPrice":3955,"previousClose":3792,"yearHigh":4250,"yearLow":1774,"totalTradedVolume":67182}
- and 202 more
-
-
-searching for :find most profitable  highly priced stock of the day :
-select symbol, max(lastPrice - open) as dayProfit from `nse_stocks_nitrr_tp` where lastPrice  > 1000;
-{"symbol":"VMART","dayProfit":219}
-
-
-searching for :find volume wise distribution of the highly priced stock :
-select symbol, totalTradedVolume from `nse_stocks_nitrr_tp` where lastPrice > 1000;
-{"symbol":"VMART","totalTradedVolume":70389}
-{"symbol":"NILKAMAL","totalTradedVolume":127741}
-{"symbol":"MTARTECH","totalTradedVolume":304339}
-{"symbol":"SOTL","totalTradedVolume":6272}
-{"symbol":"ESABINDIA","totalTradedVolume":67182}
- and 202 more
-
-
-searching for :find the  highly priced stock  with highest volume :
-select symbol, max(totalTradedVolume) as volume from `nse_stocks_nitrr_tp` where lastPrice > 1000;
-{"symbol":"VMART","volume":27388346}
-
-
-searching for :find all of profit making highly priced stocks of the day :
-select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open > 0 and lastPrice > 1000;
-{"symbol":"VMART","lastPrice":3299,"open":3080}
-{"symbol":"MTARTECH","lastPrice":1462,"open":1400}
-{"symbol":"SOTL","lastPrice":1094,"open":1046}
-{"symbol":"ESABINDIA","lastPrice":3955,"open":3860}
-{"symbol":"MARUTI","lastPrice":7891,"open":7800}
- and 73 more
-
-
-searching for :find all  loss making highly priced stocks of the day :
-select symbol,lastPrice,open  from `nse_stocks_nitrr_tp` where lastPrice - open < 0 and lastPrice > 1000;
-{"symbol":"NILKAMAL","lastPrice":2058,"open":2100}
-{"symbol":"METROPOLIS","lastPrice":1770,"open":1799}
-{"symbol":"NEULANDLAB","lastPrice":1037,"open":1038}
-{"symbol":"NESTLEIND","lastPrice":17050,"open":17060}
-{"symbol":"TCIEXP","lastPrice":1606,"open":1620}
- and 122 more
-
-
-connection terminated at Tue May 24 2022 01:16:03 GMT+0530 (India Standard Time)
+_events,_eventsCount,_maxListeners,config,_socket,_protocol,_connectCalled,state,threadId
+err AxiosError: getaddrinfo ENOTFOUND api.jsonbin.io
+[90m    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26)[39m {
+  hostname: [32m'api.jsonbin.io'[39m,
+  syscall: [32m'getaddrinfo'[39m,
+  code: [32m'ENOTFOUND'[39m,
+  errno: [33m-3008[39m,
+  config: {
+    transitional: {
+      silentJSONParsing: [33mtrue[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      clarifyTimeoutError: [33mfalse[39m
+    },
+    adapter: [36m[Function: httpAdapter][39m,
+    transformRequest: [ [36m[Function: transformRequest][39m ],
+    transformResponse: [ [36m[Function: transformResponse][39m ],
+    timeout: [33m0[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m,
+    maxContentLength: [33m-1[39m,
+    maxBodyLength: [33m-1[39m,
+    env: { FormData: [36m[Function][39m },
+    validateStatus: [36m[Function: validateStatus][39m,
+    headers: {
+      Accept: [32m'application/json, text/plain, */*'[39m,
+      [32m'X-Master-Key'[39m: [32m'$2b$10$T0WrN9kitv2YU1CKvdkizuE5O/jw5oZT5zfsWLR2XSp9qfqqEE3HK'[39m,
+      [32m'X-Access-Key'[39m: [32m'$2b$10$9wBzKHmW1qNjvX8BFPVsW.TEzRjuWDpNpm0Ya.F3e.avzslHe9Qzy'[39m,
+      [32m'User-Agent'[39m: [32m'axios/0.27.2'[39m
+    },
+    method: [32m'get'[39m,
+    url: [32m'https://api.jsonbin.io/b/628b7256402a5b3802099c19'[39m,
+    data: [90mundefined[39m
+  },
+  request: [36m<ref *1>[39m Writable {
+    _writableState: WritableState {
+      objectMode: [33mfalse[39m,
+      highWaterMark: [33m16384[39m,
+      finalCalled: [33mfalse[39m,
+      needDrain: [33mfalse[39m,
+      ending: [33mfalse[39m,
+      ended: [33mfalse[39m,
+      finished: [33mfalse[39m,
+      destroyed: [33mfalse[39m,
+      decodeStrings: [33mtrue[39m,
+      defaultEncoding: [32m'utf8'[39m,
+      length: [33m0[39m,
+      writing: [33mfalse[39m,
+      corked: [33m0[39m,
+      sync: [33mtrue[39m,
+      bufferProcessing: [33mfalse[39m,
+      onwrite: [36m[Function: bound onwrite][39m,
+      writecb: [1mnull[22m,
+      writelen: [33m0[39m,
+      afterWriteTickInfo: [1mnull[22m,
+      buffered: [],
+      bufferedIndex: [33m0[39m,
+      allBuffers: [33mtrue[39m,
+      allNoop: [33mtrue[39m,
+      pendingcb: [33m0[39m,
+      prefinished: [33mfalse[39m,
+      errorEmitted: [33mfalse[39m,
+      emitClose: [33mtrue[39m,
+      autoDestroy: [33mtrue[39m,
+      errored: [1mnull[22m,
+      closed: [33mfalse[39m
+    },
+    _events: [Object: null prototype] {
+      response: [36m[Function: handleResponse][39m,
+      error: [36m[Function: handleRequestError][39m,
+      socket: [36m[Function: handleRequestSocket][39m
+    },
+    _eventsCount: [33m3[39m,
+    _maxListeners: [90mundefined[39m,
+    _options: {
+      maxRedirects: [33m21[39m,
+      maxBodyLength: [33m10485760[39m,
+      protocol: [32m'https:'[39m,
+      path: [32m'/b/628b7256402a5b3802099c19'[39m,
+      method: [32m'GET'[39m,
+      headers: [36m[Object][39m,
+      agent: [90mundefined[39m,
+      agents: [36m[Object][39m,
+      auth: [90mundefined[39m,
+      hostname: [32m'api.jsonbin.io'[39m,
+      port: [1mnull[22m,
+      nativeProtocols: [36m[Object][39m,
+      pathname: [32m'/b/628b7256402a5b3802099c19'[39m
+    },
+    _ended: [33mtrue[39m,
+    _ending: [33mtrue[39m,
+    _redirectCount: [33m0[39m,
+    _redirects: [],
+    _requestBodyLength: [33m0[39m,
+    _requestBodyBuffers: [],
+    _onNativeResponse: [36m[Function (anonymous)][39m,
+    _currentRequest: ClientRequest {
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m7[39m,
+      _maxListeners: [90mundefined[39m,
+      outputData: [],
+      outputSize: [33m0[39m,
+      writable: [33mtrue[39m,
+      destroyed: [33mfalse[39m,
+      _last: [33mtrue[39m,
+      chunkedEncoding: [33mfalse[39m,
+      shouldKeepAlive: [33mfalse[39m,
+      _defaultKeepAlive: [33mtrue[39m,
+      useChunkedEncodingByDefault: [33mfalse[39m,
+      sendDate: [33mfalse[39m,
+      _removedConnection: [33mfalse[39m,
+      _removedContLen: [33mfalse[39m,
+      _removedTE: [33mfalse[39m,
+      _contentLength: [33m0[39m,
+      _hasBody: [33mtrue[39m,
+      _trailer: [32m''[39m,
+      finished: [33mtrue[39m,
+      _headerSent: [33mtrue[39m,
+      socket: [36m[TLSSocket][39m,
+      _header: [32m'GET /b/628b7256402a5b3802099c19 HTTP/1.1\r\n'[39m +
+        [32m'Accept: application/json, text/plain, */*\r\n'[39m +
+        [32m'X-Master-Key: $2b$10$T0WrN9kitv2YU1CKvdkizuE5O/jw5oZT5zfsWLR2XSp9qfqqEE3HK\r\n'[39m +
+        [32m'X-Access-Key: $2b$10$9wBzKHmW1qNjvX8BFPVsW.TEzRjuWDpNpm0Ya.F3e.avzslHe9Qzy\r\n'[39m +
+        [32m'User-Agent: axios/0.27.2\r\n'[39m +
+        [32m'Host: api.jsonbin.io\r\n'[39m +
+        [32m'Connection: close\r\n'[39m +
+        [32m'\r\n'[39m,
+      _keepAliveTimeout: [33m0[39m,
+      _onPendingData: [36m[Function: noopPendingOutput][39m,
+      agent: [36m[Agent][39m,
+      socketPath: [90mundefined[39m,
+      method: [32m'GET'[39m,
+      maxHeaderSize: [90mundefined[39m,
+      insecureHTTPParser: [90mundefined[39m,
+      path: [32m'/b/628b7256402a5b3802099c19'[39m,
+      _ended: [33mfalse[39m,
+      res: [1mnull[22m,
+      aborted: [33mfalse[39m,
+      timeoutCb: [1mnull[22m,
+      upgradeOrConnect: [33mfalse[39m,
+      parser: [1mnull[22m,
+      maxHeadersCount: [1mnull[22m,
+      reusedSocket: [33mfalse[39m,
+      host: [32m'api.jsonbin.io'[39m,
+      protocol: [32m'https:'[39m,
+      _redirectable: [36m[Circular *1][39m,
+      [[32mSymbol(kCapture)[39m]: [33mfalse[39m,
+      [[32mSymbol(kNeedDrain)[39m]: [33mfalse[39m,
+      [[32mSymbol(corked)[39m]: [33m0[39m,
+      [[32mSymbol(kOutHeaders)[39m]: [36m[Object: null prototype][39m
+    },
+    _currentUrl: [32m'https://api.jsonbin.io/b/628b7256402a5b3802099c19'[39m,
+    [[32mSymbol(kCapture)[39m]: [33mfalse[39m
+  }
+}
+(node:15332) UnhandledPromiseRejectionWarning: Error: getaddrinfo ENOTFOUND api.jsonbin.io
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26)
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15332) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+(node:15332) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
