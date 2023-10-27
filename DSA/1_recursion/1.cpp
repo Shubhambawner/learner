@@ -1,22 +1,23 @@
-#include<iostream>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-
- // * infinitely recursive function 
- // * this will give segmentation fault instead of time limit getting exceeded,  
- // ! this is because recursion uses stack, and memory gets exceeded
-int rcFunction(){
-    return rcFunction();
+bool f(const string& binaryStr) {
+    bool foundOne = false;
+    for (char bit : binaryStr) {
+        if (bit == '1') {
+            foundOne = true;
+        } else if (bit != '0') {
+            return false;
+        }
+    }
+    return foundOne;
 }
 
-// print from n to 1
-int rcFunction1(int i){
-    if(i==0) return ;
-    cout<< i<<"\n";
-    return rcFunction1(--i);
-}
-
-int main(){
-    //cout<<rcFunction();
-    rcFunction1(5);
+int main() {
+    cout<<"333333";
+    string b;
+    cin >> b;
+    cout << (f(b) ? "True" : "False") << endl;
 }
